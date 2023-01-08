@@ -1,0 +1,77 @@
+/* Pozadina za forme */
+#pozadina {
+    width: 100%;
+    background: url('../../public/pozadina.webp');
+    height: 89.2vh;
+}
+
+/* Naslovi dizajn */
+
+.text-lg{
+    font-weight: bold;
+}
+
+/* Animacija za bus 1 */
+@keyframes vozi {
+    0% {
+        transform: translateY(-40px) translateX(-500px) scaleX(1);
+    }
+
+    49% {
+        transform: translateY(-40px) translateX(100vw) scaleX(1);
+    }
+
+    50% {
+        transform: translateY(-40px) translateX(100vw) scaleX(-1);
+    }
+
+    99% {
+        transform: translateY(-40px) translateX(-500px) scaleX(-1);
+    }
+
+    100% {
+        transform: translateY(-40px) translateX(-500px) scaleX(1);
+    }
+}
+/* Animacija za bus 2 */
+@keyframes vozi2 {
+    0% {
+        transform: translateY(10px) translateX(-1000px) scaleX(1);
+    }
+
+    49% {
+        transform: translateY(10px) translateX(100vw) scaleX(1);
+    }
+
+    50% {
+        transform: translateY(10px) translateX(100vw) scaleX(-1);
+    }
+
+    99% {
+        transform: translateY(10px) translateX(-1000px) scaleX(-1);
+    }
+
+    100% {
+        transform: translateY(10px) translateX(-1000px) scaleX(1);
+    }
+}
+/* Staza na pocetnoj stranici */
+#staza {
+    width: 100%;
+    height: 100px;
+    margin: 0px;
+    padding: 0px;
+    background: url('../../public/put.png');
+    background-repeat: repeat-x;
+    background-size: contain;
+}
+/* Autobusi na pocetnoj stranici login i register forma */
+#bus {
+    width: 230px;
+    animation: vozi 25s linear infinite;
+}
+#bus1 {
+    width: 230px;
+    z-index: 99999;
+    animation: vozi2 35s linear infinite;
+}

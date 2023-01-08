@@ -1,0 +1,26 @@
+{
+  "name": "webus",
+  "version": "1.0.0",
+  "description": "Projektna aplikacija iz predmeta Softversko inzinjerstvo 1",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon ./server.js --ignore './clinet/'",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Lakota Aladin",
+  "license": "ISC",
+  "dependencies": {
+    "@stripe/stripe-js": "^1.44.1",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.6.7",
+    "nodemailer": "^6.8.0",
+    "nodemon": "^2.0.20",
+    "path-browserify": "^1.0.1",
+    "stripe": "^11.1.0",
+    "uuid": "^9.0.0"
+  }
+}

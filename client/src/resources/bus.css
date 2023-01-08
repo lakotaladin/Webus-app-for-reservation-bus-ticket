@@ -1,0 +1,45 @@
+/* Kntenjer sa sedistima */
+
+.bus-container{
+    width: 400px !important;
+    /* border: 2px solid gray; */
+    padding: 10px;
+    position: relative;
+    transform: scale(0.8) translateY(-60px);
+}
+
+.bus-container img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+}
+
+#seats-container {
+    padding: 62% 19% 15% 19%;
+}
+
+/* Sedista */
+
+.seat{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 2px;
+}
+/* Selektovana sedista */
+.selected-seat{
+    background-color: green;
+    color: white;
+}
+
+/* Dostupna sedista */
+.booked-seat{
+    background-color: grey;
+    color: white;
+    /* Ne može ponovo da selektuje već odabrano mesto */
+    pointer-events: none !important;
+    cursor: disabled !important;
+}

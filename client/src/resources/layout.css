@@ -1,0 +1,90 @@
+/* Glavni div */
+
+.layout-parent {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    padding: 15px;
+    gap: 20px;
+}
+
+/* Body */
+.body {
+    width: 100%;
+    position: relative; 
+}
+
+/* Heder */
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.479);
+    width: 100%;
+    padding: 20px;
+}
+
+/* Sidebar - levi div */
+.sidebar {
+    padding: 0 20px;
+    background-color: #1c273c;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Role */
+.role {
+    color: white;
+    font-size: 16px;
+}
+
+/* LOGO */
+.logo {
+    max-width: 150px;
+}
+
+/* DefaultLayer.js div za iteme */
+.menu {
+    margin-top: 150px;
+}
+
+/* Menu-item - glavni div */
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 15px;
+    justify-content: flex-start;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    transition: 0.2s;
+    gap: 15px;
+}
+
+.active-menu-item {
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+/* Dizajn ikonica */
+.menu-item i {
+    font-size: 20px;
+    margin-right: 10px;
+    color: white;
+}
+
+/* dizajn slova kod ikonica */
+.menu-item span {
+    color: white;
+    font-size: 20px;
+}
+
+/* Sekcija sa artiklima */
+.content {
+    padding: 10px 0px;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    height: 85vh;
+}

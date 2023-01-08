@@ -1,0 +1,29 @@
+html {
+  scroll-behavior: smooth !important;
+}
+
+:root {
+  --primary: #008CBA;
+  --secondary: #4CAF50;
+}
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@300&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Korisnik ne moze da selektuje tekst sa veb stranice */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10+ */
+  user-select: none;
+}
+
+* {
+  font-family: 'Montserrat', sans-serif !important;
+  font-size: 16px;
+}

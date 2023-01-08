@@ -1,0 +1,246 @@
+html{
+    width: 100%;
+}
+/* Podesavanja stranice */
+body {
+    -ms-overflow-style: none; /* for Internet Explorer, Edge */
+    scrollbar-width: none; /* for Firefox */
+    overflow-y: scroll; 
+    overflow-x: hidden;
+    text-align: center;
+}
+/* Da se ne vidi skrol sa desne strane */
+body::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+/* Glavni div celog kontenta */
+
+.global {
+    width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    overflow-x: visible;
+    position: relative;
+    scroll-behavior: smooth !important;
+}
+
+/* Dugme za skrolanje na vrh stranice */
+.scroll-up{
+    position: fixed;
+    text-align: center;
+    width: 50px;
+    height: auto;
+    padding: 0.1%;
+    z-index: 100;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: #1c273c;
+    bottom: 40px;
+    right: 50px;
+    text-decoration: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transform: scale(0);
+
+}
+/* Skrol */
+.scrolled {
+    transform: scale(1);
+}
+
+/* Dizajn strelice za scroll to top */
+.ri-arrow-up-line{
+    color: white;
+    font-weight: bolder;
+}
+
+.all-components{
+    width: 100%;
+    padding: 0%;
+    margin: 0%;
+}
+
+/* Cela navigacija */
+.navigation{
+    width: 100% !important;
+    justify-content: center;
+    padding: 0.5%;
+    position: sticky !important;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    top: 0;
+    left: 0;
+    z-index: 999999;
+    color: white;
+    background-color: #1c273c;
+    height: auto;
+    overflow: hidden;
+    
+}
+/* Linkovi dizajn */
+.links{
+    width: auto;
+    margin: 0;
+    padding: 2px;
+    cursor: pointer;
+}
+
+/* Div od banera */
+.div-banner {
+    width: 100%;
+    align-items: center;
+    height: auto;
+    position: relative;
+    overflow-x: hidden;
+}
+/* Slika velika - banner */
+.banner{
+    width: 100%;
+    height: auto;
+}
+
+/* Glavni div od celog sadrzaja u sekciji */
+.global-section {
+    width: 100%;
+    text-align: center;
+    height: auto;
+    padding: 5px;
+    margin: 0px;
+}
+
+/* Kontakt admin naslov */
+.contact-admin-h1 {
+    font-weight: bold;
+    margin: 3%;
+}
+
+/* Hr linija */
+
+.hr-line {
+    width: 70%;
+  margin: auto;
+  margin-top: 2%;
+}
+
+/* Sekcija za kontakt - cela */
+.section {
+    width: 100%;
+    border-radius: 50px;
+    margin: 3% 0%;
+}
+
+/* Kartice u sekciji */
+.section-card {
+    text-align: left;
+    margin: 0% 2%;
+    color: black;
+}
+
+/* Kontakt admina */
+.contact-admin {
+    width: 250px;
+    height: auto;
+    margin: auto;
+}
+.forEmail, .textArea , .forName {
+    width: 100%;
+    border: 1.5px solid #1c273c;
+}
+.send-message {
+    width: 100%;
+    color: white;
+    font-weight: bold;
+    margin: 2px;
+    padding: 4px;
+    background-color: #1c273c;
+} 
+
+.send-message:hover {
+ background-color: #1c273c;
+ color: white;
+ font-weight: bold;
+} 
+
+
+/* Sponzori */
+
+.sponsor-card {
+    margin: 4%;
+    padding: 2%;
+    overflow: hidden;
+    text-align: center;
+}
+
+/* Prvi logo */
+.sponsor1 {
+    width: 340px;
+    height: auto;
+}
+/* Drugi logo */
+.sponsor2 {
+    width: 200px;
+    height: auto;
+}
+/* Treci logo */
+.sponsor3 {
+    width: 400px;
+    height: auto;
+}
+
+
+/* Futer */
+.footer{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1%;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    color: white;
+    background-color: #1c273c;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+}
+/* Artikli u futer */
+.articles{
+    text-align: center;
+}
+
+/* Nasolov unutar futera */
+.title{
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+/* Naslov */
+h6 {
+    color: white;
+    font-weight: bold;
+}
+
+/* Kartice za kontaktiranje */
+.contact-card {
+    background-color: #1c273c;
+    color: white;
+    text-decoration: none;
+}
+
+
+/* WEBUS FUTER LOGO */
+.logo-footer {
+    width: 200px;
+    margin: auto;
+    padding: 0px;
+}
+
+
+.reg {
+    width: 100%;
+    color: white;
+    height: auto;
+    margin: 0%;
+    padding: 1%;
+    text-align: center;
+    background-color: #1c273c;
+}

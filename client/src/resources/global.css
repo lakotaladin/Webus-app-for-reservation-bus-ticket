@@ -1,0 +1,170 @@
+/* Visina i sirina u formi register.js */
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Ceo body forme */
+.forma {
+    height: 100vh;
+}
+
+/* div od forme */
+.od-forme {
+    width: 450px;
+}
+
+/* Dizajn dugmeta kod forme za logovanje i registraciju */
+.dugme{
+    background-color: #1c273c;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+/* Dugme kod korisnika */
+.user-premission-button{
+    background-color: #1c273c;
+    color: white;
+}
+
+/* Dizajn inputa */
+
+input, select {
+    height: 40px;
+    border: 1px solid gray;
+    width: 100%;
+    padding-left: 20px;
+}
+/* Inputi u formi */
+.inputizabusformu{
+    height: auto;
+    width: 100%;
+}
+
+/* Dugme za pretrazivanje Home.js */
+.buttonsearch{
+    background: none;
+    border: none;
+    color: white;
+}
+
+/* Kartica forme */
+
+.card {
+    background-color: #1c273c;
+    /* border: 2px solid #1c273c; */
+    /* box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.479); */
+}
+
+/* h1 responsive */
+
+.text-2xl {
+    font-size: 30px !important;
+}
+
+.text-xl {
+    font-size: 25px !important;
+}
+
+.text-lg {
+    font-size: 20px !important;
+}
+
+.text-md {
+    font-size: 18px !important;
+}
+
+/* Za kartice boja naslova na pocetnoj stranici */
+
+.secoundary-text {
+    color: #1c273c !important;
+}
+
+/* Dugme za rezervaciju na pocetnoj stranici */
+
+.underline {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* LINK */
+
+.prijavi-se {
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+
+
+
+/* DUGME */
+
+.primary-btn {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.secondary-btn {
+    background-color: var(--secondary);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+/* Dugme kod odabira sedišta */
+.disabled-btn {
+    background-color: gray !important;
+    color: white;
+    border: none !important;
+    border-radius: 0px !important;
+    padding: 10px 20px;
+    cursor: not-allowed;
+}
+
+/* Linkovi */
+
+a {
+    text-decoration: none !important;
+    color: var(--primary) !important;
+}
+
+/* Za i - items */
+
+i {
+    cursor: pointer;
+    font-size: 26px;
+}
+
+/* h1 */
+h1 {
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+/* Spinner/Loader dizajn */
+
+.spinner-parent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.507);
+}
+
+/* Loader */
+.spinner-border {
+    color: white !important;
+    height: 80px !important;
+    width: 80px !important;
+}
+
