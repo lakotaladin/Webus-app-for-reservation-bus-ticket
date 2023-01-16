@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import '../resources/layout.css';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../resources/webuslogo.png'
 
@@ -65,7 +65,8 @@ function DefaultLayout({ children }) {
   
   const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
   let activeRoute = window.location.pathname;
-  if(window.location.pathname.includes('book-now')){
+  if(window.location.pathname.includes('book-now'))
+  {
     activeRoute = "/";
   }
   else{} 
@@ -80,7 +81,7 @@ function DefaultLayout({ children }) {
 
         <div className='sidebar-header'>
           {/* Koji je korisnik i njegov status - moderator ili obican korisnik */}
-            <h1 className='role'>{user?.user} <br /> Status: {user?.isAdmin ? 'Admin' : 'Korisnik'}</h1>
+            <p className='role'>{user?.user} <br /> <i className="ri-user-settings-line"></i> <br/>{user?.isAdmin ? 'Admin' : 'Korisnik'}</p>
         </div>
 
         {/* div za iteme */}
@@ -111,18 +112,8 @@ function DefaultLayout({ children }) {
       <div className='body'>
 
         {/* HEADER */}
-        <div className='header rounded-left'>
-          {/* Kada je collapse false prikazi x, u suprotnom prikazi hamburgerw */}
-          {collapsed ? (
-            <i className="ri-menu-line" onClick={ () => setCollapsed(!collapsed) }>
-
-            </i>
-          ) : (
-            <i className="ri-close-line" onClick={ () => setCollapsed(!collapsed) }>
-
-            </i>
-          )}
-          <img className='logo m-1 p-0' src={logo} alt='webus-logo' />
+        <div className='header d-flex justify-content-end'>         
+          <Link to='/'><img className='logo m-1 p-0' src={logo} alt='Webus logo' /></Link>
         </div>
 
         {/* Kartice */}

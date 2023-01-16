@@ -3,6 +3,8 @@ import "antd/dist/antd.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import AdminBuses from './pages/Admin/AdminBuses';
+import PasswordReset from './components/PasswordReset';
+import ForgotPassword from './components/ForgotPassword';
 import AdminUsers from './pages/Admin/AdminUsers';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -74,6 +76,19 @@ function App() {
           <Route path="/login" element={
             <PublicRoute>
               <Login />
+            </PublicRoute>
+          } />
+           {/* Resetovana lozinka */}
+           <Route path="/password-reset" element={
+            <PublicRoute>
+              <PasswordReset />
+            </PublicRoute>
+          } />
+
+          {/* Zaboravljena lozinka */}
+          <Route path="/forgotpassword/:id/:token" element={
+            <PublicRoute>
+              <ForgotPassword />
             </PublicRoute>
           } />
 

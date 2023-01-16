@@ -1,17 +1,22 @@
-html{
+html {
     width: 100%;
 }
+
 /* Podesavanja stranice */
 body {
-    -ms-overflow-style: none; /* for Internet Explorer, Edge */
-    scrollbar-width: none; /* for Firefox */
-    overflow-y: scroll; 
+    -ms-overflow-style: none;
+    /* for Internet Explorer, Edge */
+    scrollbar-width: none;
+    /* for Firefox */
+    overflow-y: scroll;
     overflow-x: hidden;
     text-align: center;
 }
+
 /* Da se ne vidi skrol sa desne strane */
 body::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+    display: none;
+    /* for Chrome, Safari, and Opera */
 }
 
 /* Glavni div celog kontenta */
@@ -26,14 +31,14 @@ body::-webkit-scrollbar {
 }
 
 /* Dugme za skrolanje na vrh stranice */
-.scroll-up{
+.scrollup {
     position: fixed;
     text-align: center;
     width: 50px;
     height: auto;
     padding: 0.1%;
     z-index: 100;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     background-color: #1c273c;
     bottom: 40px;
     right: 50px;
@@ -43,30 +48,31 @@ body::-webkit-scrollbar {
     transform: scale(0);
 
 }
+
 /* Skrol */
 .scrolled {
     transform: scale(1);
 }
 
 /* Dizajn strelice za scroll to top */
-.ri-arrow-up-line{
+.ri-arrow-up-line {
     color: white;
     font-weight: bolder;
 }
 
-.all-components{
+.all-components {
     width: 100%;
     padding: 0%;
     margin: 0%;
 }
 
 /* Cela navigacija */
-.navigation{
+.navigation {
     width: 100% !important;
     justify-content: center;
     padding: 0.5%;
     position: sticky !important;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     top: 0;
     left: 0;
     z-index: 999999;
@@ -74,13 +80,13 @@ body::-webkit-scrollbar {
     background-color: #1c273c;
     height: auto;
     overflow: hidden;
-    
+
 }
-/* Linkovi dizajn */
-.links{
+
+/* Linkovi u kontakt stranici */
+div .links {
     width: auto;
-    margin: 0;
-    padding: 2px;
+    margin: auto;
     cursor: pointer;
 }
 
@@ -92,8 +98,9 @@ body::-webkit-scrollbar {
     position: relative;
     overflow-x: hidden;
 }
+
 /* Slika velika - banner */
-.banner{
+.banner {
     width: 100%;
     height: auto;
 }
@@ -117,8 +124,8 @@ body::-webkit-scrollbar {
 
 .hr-line {
     width: 70%;
-  margin: auto;
-  margin-top: 2%;
+    margin: auto;
+    margin-top: 2%;
 }
 
 /* Sekcija za kontakt - cela */
@@ -141,10 +148,14 @@ body::-webkit-scrollbar {
     height: auto;
     margin: auto;
 }
-.forEmail, .textArea , .forName {
+
+.forEmail,
+.textArea,
+.forName {
     width: 100%;
     border: 1.5px solid #1c273c;
 }
+
 .send-message {
     width: 100%;
     color: white;
@@ -152,13 +163,13 @@ body::-webkit-scrollbar {
     margin: 2px;
     padding: 4px;
     background-color: #1c273c;
-} 
+}
 
 .send-message:hover {
- background-color: #1c273c;
- color: white;
- font-weight: bold;
-} 
+    background-color: #1c273c;
+    color: white;
+    font-weight: bold;
+}
 
 
 /* Sponzori */
@@ -175,11 +186,13 @@ body::-webkit-scrollbar {
     width: 340px;
     height: auto;
 }
+
 /* Drugi logo */
 .sponsor2 {
     width: 200px;
     height: auto;
 }
+
 /* Treci logo */
 .sponsor3 {
     width: 400px;
@@ -188,7 +201,7 @@ body::-webkit-scrollbar {
 
 
 /* Futer */
-.footer{
+.footer {
     width: 100%;
     height: auto;
     display: flex;
@@ -202,13 +215,14 @@ body::-webkit-scrollbar {
     border-top-left-radius: 50px;
     border-top-right-radius: 50px;
 }
+
 /* Artikli u futer */
-.articles{
+.articles {
     text-align: center;
 }
 
 /* Nasolov unutar futera */
-.title{
+.title {
     font-size: 18px;
     font-weight: bolder;
 }

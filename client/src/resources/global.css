@@ -1,34 +1,16 @@
 /* Visina i sirina u formi register.js */
 body {
     width: 100%;
-    overflow-x: hidden;
+    /* overflow-x: hidden; */
 }
 
-/* Ceo body forme */
-.forma {
-    height: 100vh;
-}
-
-/* div od forme */
-.od-forme {
-    width: 450px;
-}
-
-/* Dizajn dugmeta kod forme za logovanje i registraciju */
-.dugme{
-    background-color: #1c273c;
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 5px;
-}
 /* Dugme kod korisnika */
 .user-premission-button{
     background-color: #1c273c;
     color: white;
 }
 
-/* Dizajn inputa */
+/* Dizajn inputa globalni */
 
 input, select {
     height: 40px;
@@ -36,25 +18,17 @@ input, select {
     width: 100%;
     padding-left: 20px;
 }
-/* Inputi u formi */
-.inputizabusformu{
-    height: auto;
-    width: 100%;
-}
 
 /* Dugme za pretrazivanje Home.js */
 .buttonsearch{
     background: none;
     border: none;
-    color: white;
 }
 
-/* Kartica forme */
-
-.card {
-    background-color: #1c273c;
-    /* border: 2px solid #1c273c; */
-    /* box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.479); */
+.buttonsearch :hover {
+    background: none;
+    border: none;
+    font-weight: bolder;
 }
 
 /* h1 responsive */
@@ -88,16 +62,17 @@ input, select {
     cursor: pointer;
 }
 
-/* LINK */
+/* Dugme za rezervaciju sedista */
 
-.prijavi-se {
-    font-size: 13px;
+.dugmerezervisi {
+    background-color: #1c273c;
+    color: white;
     font-weight: bold;
-    text-decoration: none !important;
 }
 
-
-
+.biranjesedista  h1 {
+    text-align: start;
+}
 
 /* DUGME */
 
@@ -126,12 +101,33 @@ input, select {
     cursor: not-allowed;
 }
 
-/* Linkovi */
-
-a {
-    text-decoration: none !important;
-    color: var(--primary) !important;
+/* Izgled kartice za rezervaciju autobuske karte */
+.karticabus {
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    font-weight: bold;
 }
+
+.karticabus:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+  }
+
+.rezervacija {
+    width: 200px;
+    color: white;
+    height: 35px;
+    border: none;
+}
+
+#kodbar {
+    width: 100px;
+    height: 60px;
+}
+
+.rezervisi{
+    color: #1c273c;
+    font-weight: bold;
+}
+
 
 /* Za i - items */
 
@@ -148,7 +144,7 @@ h1 {
 
 /* Spinner/Loader dizajn */
 
-.spinner-parent {
+.spinnerglavni {
     position: absolute;
     top: 0;
     left: 0;
@@ -158,7 +154,7 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0, 0, 0, 0.507);
+    background-color: #1c273c;
 }
 
 /* Loader */

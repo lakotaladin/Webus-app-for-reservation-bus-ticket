@@ -1,7 +1,6 @@
 import React from "react";
 import { Row, Col } from "antd";
 import "../resources/bus.css";
-import bustop from "../../src/resources/bustop.jpg"
 
 function SeatSelection({ selectedSeats, setSelectedSeats, bus }) {
   const capacity = bus.capacity;
@@ -15,9 +14,10 @@ function SeatSelection({ selectedSeats, setSelectedSeats, bus }) {
   };
 
   return (
+    <>
     <div className="mx-5">
-      <div className="bus-container item-center">
-        <img src={bustop} alt="" />
+      <div className="bus-container">
+      <b><p>Rezervišite sedište/a ovde:</p></b>
         <Row id="seats-container" gutter={[10, 10]}>
           {Array.from(Array(capacity).keys()).map((seat) => {
             let seatClass = ''
@@ -42,6 +42,8 @@ function SeatSelection({ selectedSeats, setSelectedSeats, bus }) {
         </Row>
       </div>
     </div>
+   
+    </>
   );
 }
 

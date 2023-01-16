@@ -54,7 +54,7 @@ function Booknow() {
         }
     }
 
-
+   // Plaćanje 
     const onToken = async (token) => {
         try {
             dispatch(ShowLoading());
@@ -79,29 +79,30 @@ function Booknow() {
 
     useEffect(() => {
         getBus();
-    }, []);
+    }, [dispatch]);
     return (
-        <div>
+        <div className='d-flex flex-column'>
+            
             {bus && (<Row className='mt-3' gutter={[30,30]}>
                 {/* Informacije o autobusu pri rezervaciji karte */}
-                <Col lg={12} xs={24} sm={24}>
+                <Col className='biranjesedista' lg={12} xs={24} sm={24}>
                     <h1 className='text-2xl text-secondary'>{bus.name}</h1>
                     <h1 className='text-md'>{bus.from} - {bus.to}</h1>
                     <hr />
 
                     <div className='flex flex-col gap-1'>
-                        <h1 className='text-lg'><b>Datum polaska:</b>{bus.journeyDate}</h1>
-                        <h1 className='text-lg'><b>Cena:</b>{bus.price} &euro;</h1>
-                        <h1 className='text-lg'><b>Vreme polaska:</b> {bus.departure}</h1>
-                        <h1 className='text-lg'><b>Vreme dolaska:</b> {bus.arrivalTime}</h1>
-                        <h1 className='text-lg'><b>Mesta preostalo:</b> {bus.capacity - bus.seatsBooked.length}</h1>
+                        <h1 className='text-lg'><b>Datum polaska: </b>{bus.journeyDate}</h1>
+                        <h1 className='text-lg'><b>Cena: </b>{bus.price} &euro;</h1>
+                        <h1 className='text-lg'><b>Vreme polaska: </b> {bus.departure}</h1>
+                        <h1 className='text-lg'><b>Vreme dolaska: </b> {bus.arrival}</h1>
+                        <h1 className='text-lg'><b>Mesta preostalo: </b> {bus.capacity - bus.seatsBooked.length}</h1>
                     </div>
                     <hr />
 
                     {/* Prikaz selektovanih sedišta */}
                     <div className='flex flex-col gap-2'>
                         <h1 className='text-2xl'>
-                            Odabrana sedišta: {selectedSeats.join(" | ")}
+                            Odabrano sedište: <br/>{selectedSeats.join(" | ")}
                         </h1>
                         {/* Izlistana sedista */}
                         <h1 className='text-2xl mt-2'>Cena: {bus.price * selectedSeats.length} &euro;</h1>
@@ -117,10 +118,10 @@ function Booknow() {
                     >
                         {/* Dugme za rezervisanje karte */}
 
-                        <button className={`btn btn-primary ${selectedSeats.length === 0 && "disabled-btn"}`} disabled={selectedSeats.length === 0} >Rezerviši sada</button>
+                        <button className={`dugmerezervisi btn ${selectedSeats.length === 0 && "disabled-btn"}`} disabled={selectedSeats.length === 0}>Rezerviši sada</button>
                     </StripeCheckout>
-
                 </Col>
+               <div className='d-flex' > 
                 {/* Selektovanje sedista */}
                 <Col lg={12} sx={24} sm={24} >
                     <SeatSelection
@@ -129,9 +130,20 @@ function Booknow() {
                         bus={bus}
                     />
                 </Col>
+                </div><div className="uputstvo d-flex flex-row">
+                <div className="uputstvo d-flex flex-row justify-content-center">    
+                <div className="sivakocka"></div>
+                <p>Rezervisano sedište</p>
+                </div>
+                <div className="uputstvo d-flex flex-row justify-content-center">
+                <div className="zelenakoca"></div>
+                <p>Sedište koje Vi birate</p>
+                </div>
+      </div>
             </Row>
             )}
         </div>
+        
     )
 }
 

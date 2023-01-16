@@ -5,6 +5,88 @@
     height: 89.2vh;
 }
 
+/* Ceo body forme */
+.forma {
+    height: 100vh;
+    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+}
+
+/* div od forme */
+.odforme {
+    width: 450px;
+}
+
+/* LINK */
+
+.prijavi-se {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none !important;
+}
+
+.mailporuka {
+    text-decoration: none !important;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.mailporuka:hover {
+    text-decoration: none !important;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Inputi u formi */
+.inputizabusformu{
+    height: auto;
+    width: 100%;
+}
+
+/* Dizajn dugmeta kod forme za logovanje i registraciju */
+.dugme{
+    background-color: #1c273c;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.linkboja{
+    color: red;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration:none;
+}
+/* Strelica za vracanje */
+.linkstrelica i{
+    color: #1c273c;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration:none;
+}
+
+.sendmail {
+    height: 40px;
+    background-color: #1c273c;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.sendmail:hover {
+    background-color: #1c273c;
+    color: white;
+    border: none;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
 /* Naslovi dizajn */
 
 .text-lg{
@@ -14,7 +96,7 @@
 /* Animacija za bus 1 */
 @keyframes vozi {
     0% {
-        transform: translateY(-40px) translateX(-500px) scaleX(1);
+        transform: translateY(-40px) translateX(-1200px) scaleX(1);
     }
 
     49% {
@@ -26,17 +108,17 @@
     }
 
     99% {
-        transform: translateY(-40px) translateX(-500px) scaleX(-1);
+        transform: translateY(-40px) translateX(-1200px) scaleX(-1);
     }
 
     100% {
-        transform: translateY(-40px) translateX(-500px) scaleX(1);
+        transform: translateY(-40px) translateX(-1200px) scaleX(1);
     }
 }
 /* Animacija za bus 2 */
 @keyframes vozi2 {
     0% {
-        transform: translateY(10px) translateX(-1000px) scaleX(1);
+        transform: translateY(10px) translateX(-1200px) scaleX(1);
     }
 
     49% {
@@ -48,13 +130,42 @@
     }
 
     99% {
-        transform: translateY(10px) translateX(-1000px) scaleX(-1);
+        transform: translateY(10px) translateX(-1200px) scaleX(-1);
     }
 
     100% {
-        transform: translateY(10px) translateX(-1000px) scaleX(1);
+        transform: translateY(10px) translateX(-1200px) scaleX(1);
     }
 }
+
+/* Dugme sa login stranice za informacije */
+
+#infodugme {
+    position: fixed;
+    color: white;
+    text-align: center;
+    width: 50px;
+    height: 45px;
+    z-index: 9999;
+    background-color: #1c273c;
+    bottom: 70px;
+    right: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    animation: jump 0.5s ease-in infinite;
+}
+
+@keyframes jump {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
 /* Staza na pocetnoj stranici */
 #staza {
     width: 100%;

@@ -156,7 +156,7 @@ function AdminUsers() {
 
   useEffect(() => {
     getUsers();
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <div className='d-flex justify-content-between'>

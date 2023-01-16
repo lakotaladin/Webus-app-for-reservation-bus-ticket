@@ -49,7 +49,7 @@ const busSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        default: "Tek treba da krene",
+        default: "Treba da krene",
     }
 
 

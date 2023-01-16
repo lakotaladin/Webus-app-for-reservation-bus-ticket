@@ -38,7 +38,7 @@ function Register() {
         <div id="pozadina" className='forma d-flex  justify-content-center align-items-center auth'>
 
             {/* Div u kome je smestena forma */}
-            <div className='od-forme card p-3 bg-light'>
+            <div className='odforme card p-3 bg-light'>
                 <h1 className='naslovi-forme text-lg'> WEBUS - Registracija</h1>
                 <hr />
                 <Form layout='vertical' onFinish={onFinish}>

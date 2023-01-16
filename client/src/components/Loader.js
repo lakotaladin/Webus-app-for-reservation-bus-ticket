@@ -1,13 +1,17 @@
 import React from 'react'
-import { Spin } from 'antd';
+import ClockLoader from "react-spinners/ClockLoader";
 
 function Loader() {
-    return (
- <div className='spinner-parent'>
-    <Spin size="large" style={{transform: 'scale(2)'}} />
- </div>
-        
-    )
+   return (
+      <div className='spinnerglavni'>
+         {/* <Spin size="large" style={{transform: 'scale(2)'}} /> */}
+         <ClockLoader
+            color="#ffffff"
+            size={100}
+         />
+      </div>
+
+   )
 }
 
 export default Loader

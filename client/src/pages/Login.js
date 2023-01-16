@@ -1,7 +1,8 @@
 import React from 'react';
 import { Form, message, Input } from 'antd';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { MailOutlined } from '@ant-design/icons';
+import Message from '../components/Message';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
@@ -45,8 +46,9 @@ function Login() {
             <div id="pozadina" className='d-flex  justify-content-center align-items-center auth'>
 
                 {/* Div u kome je smestena forma */}
-                <div className='od-forme card bg-light p-3'>
+                <div className='odforme card bg-light p-3'>
                     <h1 className='text-lg'> WEBUS - Logovanje</h1>
+
                     <hr />
 
                     <Form layout='vertical' onFinish={onFinish}>
@@ -54,7 +56,7 @@ function Login() {
 
                         {/* Email */}
                         <Form.Item label='Email:' name='email' rules={[{ required: true, message: 'Molimo Vas, upišite email!' }]}>
-                            <Input prefix={<MailOutlined className="site-form-item-icon" />} type="text" placeholder="webus2022@example.com" />
+                            <Input prefix={<MailOutlined className="site-form-item-icon" />} type="text" placeholder="webus2022@primer.com" />
                         </Form.Item>
 
                         {/* Lozinka */}
@@ -65,7 +67,10 @@ function Login() {
                         >
                             <Input.Password type="text" />
                         </Form.Item>
-
+                        {/* Zaboravljena lozinka */}
+                        <div className='d-flex justify-content-between align-items-center'>
+                           <NavLink className='linkboja' to="/password-reset"><p className='linkboja'>Zaboravili ste lozinku?</p></NavLink>
+                        </div>
                         {/* Link i dugme */}
                         <div className='d-flex justify-content-between align-items-center'>
                             <Link className="prijavi-se text-black" to="/register">Kliknite ovde da se registrujete!</Link>
@@ -79,6 +84,8 @@ function Login() {
                 <img id="bus" src="bus.png" alt="Autobus" />
                 <img id="bus1" src="bus.png" alt="Autobus" />
             </div>
+            {/* Dugme za info */}
+            <Message />
         </>
     );
 }

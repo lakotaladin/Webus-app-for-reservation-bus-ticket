@@ -2,6 +2,7 @@ import Link from 'antd/lib/typography/Link';
 import React, { useEffect, useState } from 'react';
 import { ContactUs } from './Contactus';
 import '../resources/contact.css';
+import ClockLoader from "react-spinners/ClockLoader";
 import { useNavigate } from 'react-router-dom';
 import logo from '../resources/webuslogo.png';
 import banner from '../resources/banner.jpg';
@@ -9,7 +10,7 @@ import kontakt from '../resources/kontaktadmin.png';
 import sponsor1 from '../resources/drzavni.png';
 import sponsor2 from '../resources/novipazar.png';
 import sponsor3 from '../resources/sharpbus.png';
-import { Card, Spin } from 'antd';
+import { Card } from 'antd';
 
 
 function Contact() {
@@ -39,7 +40,7 @@ function Contact() {
         setLoading(true)
         setTimeout(() => {
             setLoading(false)
-        }, 300)
+        }, 450)
     }, []);
 
     // Rutovanje za korisnika 
@@ -71,8 +72,11 @@ function Contact() {
 
 
     if (loading) {
-        return <div className='spinner-parent'>
-            <Spin size="large" style={{ transform: 'scale(2)' }} />
+        return <div className='spinnerglavni'>
+            <ClockLoader
+            color="#ffffff"
+            size={100}
+         />
         </div>
     }
 
@@ -85,7 +89,7 @@ function Contact() {
                 <div className='links d-flex flex-row justify-content-center gap-2 menu'>
                     {menuToBeRendered.map((item, index) => {
                         return (
-                            <div key={item.path} className="menu m-0 p-0 d-flex align-items-center gap-2">
+                            <div key={item.path} className="menu m-0 p-0 d-flex align-items-center">
                                 <i className={item.icon}></i>
                                 <span
                                     onClick={() => {
@@ -164,7 +168,7 @@ function Contact() {
                             width: 400,
                         }}
                     >
-                        <img className='sponsor2' src={sponsor2} alt='gradnovipazar' />
+                        <a href='https://www.novipazar.rs/' target="_blank"><img className='sponsor2' src={sponsor2} alt='gradnovipazar' /></a>
 
                     </Card>
 
@@ -175,7 +179,7 @@ function Contact() {
                             width: 400,
                         }}
                     >
-                        <img className='sponsor1' src={sponsor1} alt='drzavniuniverzitet' />
+                        <a href='http://www.dunp.np.ac.rs/' target="_blank"><img className='sponsor1' src={sponsor1} alt='drzavniuniverzitet' /></a>
 
                     </Card>
 
@@ -186,14 +190,14 @@ function Contact() {
                             width: 400,
                         }}
                     >
-                        <img className='sponsor3' src={sponsor3} alt='sharpbus' />
+                        <a href='https://www.sharpbus.com/' target="_blank"><img className='sponsor3' src={sponsor3} alt='sharpbus' /></a>
 
                     </Card>
                 </div>
 
                 {/* Vrati na vrh strelica */}
 
-                <Link className={'scroll-up' + (scrolled ? ' scrolled' : '')} style={{ transition: 'transform 200ms ease-in-out' }} href='#'><i className="ri-arrow-up-line"></i></Link>
+                <Link className={'scrollup' + (scrolled ? ' scrolled' : '')} style={{ transition: 'transform 200ms ease-in-out' }} href='#'><i className="ri-arrow-up-line"></i></Link>
                 {/* Futer */}
 
                 <footer className='footer'>

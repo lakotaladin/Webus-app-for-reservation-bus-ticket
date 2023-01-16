@@ -3,7 +3,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Bus from "../components/Bus";
-// import { axiosInstance } from "../helpers/axiosInstance";
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 
 function Home() {
@@ -44,44 +43,49 @@ function Home() {
 
   useEffect(() => {
     getBuses();
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <div className="my-3 py-1">
         <Row gutter={10} align="center">
           <Col lg={6} sm={24}>
             <input
+              className="m-1"
               type="text"
-              placeholder="From"
+              placeholder="Od"
               value={filters.from}
               onChange={(e) => setFilters({ ...filters, from: e.target.value })}
+              required
             />
           </Col>
           <Col lg={6} sm={24}>
             <input
+            className="m-1"
               type="text"
-              placeholder="To"
+              placeholder="Do"
               value={filters.to}
               onChange={(e) => setFilters({ ...filters, to: e.target.value })}
+              required
             />
           </Col>
           <Col lg={6} sm={24}>
             <input
+            className="m-1"
               type="date"
-              placeholder="Date"
+              placeholder="Datum"
               value={filters.journeyDate}
               onChange={(e) =>
                 setFilters({ ...filters, journeyDate: e.target.value })
               }
             />
           </Col>
-          <Col lg={6} sm={24}>
-            <div className="d-flex gap-2">
-              <button className="primary-btn" onClick={() => getBuses()}>
-                Filter
+          <Col lg={6} sm={24} >
+            <div className="d-flex gap-3 p-0 ml-10">
+              <button className="buttonsearch p-1" onClick={() => getBuses()}>
+              <i className="ri-search-eye-line"></i>
               </button>
               <button
-                className="outlined px-3"
+                className="buttonsearch p-1"
                 onClick={() =>
                   setFilters({
                     from: "",
@@ -90,7 +94,7 @@ function Home() {
                   })
                 }
               >
-                Clear
+                <i className="ri-close-line"></i>
               </button>
             </div>
           </Col>
@@ -101,6 +105,7 @@ function Home() {
           {buses
             .filter((bus) => bus.status === "Treba da krene")
             .map((bus) => (
+              // Raspored kartica
               <Col key={bus._id} lg={12} xs={24} sm={24}>
                 <Bus bus={bus} />
               </Col>

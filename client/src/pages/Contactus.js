@@ -32,14 +32,14 @@ export const ContactUs = () => {
             setUsername('')
             setEmail('')
             setMsg('')
-         }, 900);   
+         }, 800);   
     };
 
     return (
 
         <form ref={form} onSubmit={sendEmail} layout="vertical">
             <label>Vaše ime i prezime:</label><br />
-            <Input value={username} onChange={e => setUsername(e.target.value)} className='forName' type="text" name="user_name" placeholder='Korisnik...' required /><br />
+            <Input value={username} onChange={e => setUsername(e.target.value)} className='forName' type="text" name="user_name" placeholder='Upišite Vaše ime i prezime' required /><br />
             <label>Email:</label><br />
             <Input value={email} onChange={e => setEmail(e.target.value)} className='forEmail' placeholder='primer@gmail.com' prefix={<MailOutlined className="site-form-item-icon" />} type="email" name="user_email"  required/><br />
             <label>Pišite nam:</label><br/>

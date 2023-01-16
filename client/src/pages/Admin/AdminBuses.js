@@ -52,7 +52,7 @@ function AdminBuses() {
   // Tabela sa autobuskim kartama
   const columns = [
     {
-      title: "Ime autobusa",
+      title: "Ime agencije",
       dataIndex: "name",
     },
     {
@@ -77,7 +77,7 @@ function AdminBuses() {
     },
     {
       title: "Akcija",
-      dataIndex: "actions",
+      dataIndex: "action",
       render: (action, record) => (
         <div className='d-flex gap-3'>
           <i className="ri-edit-line" onClick={() => {
@@ -94,12 +94,12 @@ function AdminBuses() {
 
   useEffect(() => {
     getBuses();
-  }, []);
+  }, [dispatch]);
   return (
     <div>
       <div className='d-flex justify-content-between'>
-        <PageTitle title='Autobusi' />
-        <button className='dugme m-2' onClick={() => setShowBusForm(true)}> Dodaj autobus </button>
+        <PageTitle title='Autobuske rute' />
+        <button className='dugme m-2' onClick={() => setShowBusForm(true)}> Dodaj autobusku rutu </button>
       </div>
 
       {/* Tabela sa autobusima */}

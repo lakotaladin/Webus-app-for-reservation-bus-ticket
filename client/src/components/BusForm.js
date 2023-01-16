@@ -8,7 +8,7 @@ import { HideLoading, ShowLoading } from '../redux/alertsSlice'
 // Default vrednosti forme
 const defaultForma = {
     type: 'Ima klimu',
-    status: 'Tek treba da krene',
+    status: 'Treba da krene',
 }
 
 
@@ -68,7 +68,7 @@ function BusForm({
             <Form layout="vertical" onFinish={onFinish} initialvalues={selectedBus}>
                 <Row gutter={[10, 10]}>
                     <Col lg={24} xs={24}>
-                        <Form.Item label="Ime autobusa" name="name">
+                        <Form.Item label="Ime agencije" name="name">
                             <Input type="text"  required/>
                         </Form.Item>
                     </Col>
@@ -138,12 +138,12 @@ function BusForm({
                     <Col lg={12} xs={24}>
                         <Form.Item label="Status" name="status">
                             <Select
-                                initialvalues="Tek treba da krene"
+                                initialvalues="Treba da krene"
                                 className='inputizabusformu'
                                 options={[
                                     {
-                                        value: 'Tek treba da krene',
-                                        label: 'Tek treba da krene',
+                                        value: 'Treba da krene',
+                                        label: 'Treba da krene',
                                     },
                                     {
                                         value: 'U pokretu',
