@@ -33,9 +33,10 @@ const userSchema = new mongoose.Schema({
         type: Boolean,
         default: false,
     },
-    verifytoken: {
-        type: String,
-    },
+    isVerifyed: {
+        type: Boolean,
+        default: false,
+      },
 },
     {
         // MongoDB format za datum i vreme

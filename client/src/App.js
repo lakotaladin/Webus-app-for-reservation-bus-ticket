@@ -15,6 +15,7 @@ import { useSelector } from 'react-redux';
 import Booknow from './pages/Booknow';
 import Bookings from './pages/Bookings';
 import Contact from './pages/Contact';
+import VerifyEmail from './pages/VerifyEmail';
 // preuzeto sa sajta antd design 
 // import { Button } from 'antd';
 // Preuzeto sa sajta antd design i dodato .min. da bi radilo 
@@ -70,6 +71,12 @@ function App() {
           <Route path="/register" element={
             <PublicRoute>
               <Register />
+            </PublicRoute>
+          } />
+          {/* Verifikovanje mejla */}
+          <Route path="/verifyemail/:token" element={
+            <PublicRoute>
+              <VerifyEmail />
             </PublicRoute>
           } />
           {/* Logovanje */}

@@ -3,6 +3,8 @@ const korisnik = require('../models/korisniciModel');
 const bcrypt = require('bcryptjs'); // hesiranje lozinke
 const jwt = require("jsonwebtoken"); // za logovanje token
 const authMiddleware = require('../middlewares/authMiddleware');
+const sendEmail = require("../utils/sendEmail");
+const Token = require("../models/tokenModel");
 // const nodemailer = require("nodemailer");
 
 
@@ -40,9 +42,11 @@ router.post('/register', async (req, res) => {
         // Kreiranje korisnika
 
         const noviKorisnik = new korisnik(req.body);
-        await noviKorisnik.save();
+        const rezultat = await noviKorisnik.save();
+        // Za email verifikaciju 
+        await sendEmail(rezultat, "verifyemail");
         res.json({
-            message: 'Korisnik je uspešno kreiran',
+            message: 'Registracija je uspela, molimo Vas verifikujte e-mail',
             success: true,
             data: null,
         });
@@ -68,7 +72,14 @@ router.post("/login", async (req, res) => {
                 data: null,
             });
         }
-
+        // Proverava je li korisnik verifikovan
+        if(korisnikPostoji.isVerifyed){
+            return res.json({
+                message: "Vaš email nije verifikovan",
+                success: false,
+                data: null,
+            });
+        }
 
         // Provera da li je korisnik blokiran
         if (korisnikPostoji.isBlocked) {
@@ -83,7 +94,7 @@ router.post("/login", async (req, res) => {
         // Uporedjuje da li se lozinka podudara sa kreiranom
         const lozinkaSePodudara = await bcrypt.compare(
             req.body.lozinka,
-            korisnikPostoji.lozinka
+            korisnikPostoji.lozinka,
         );
         if (!lozinkaSePodudara) {
             return res.json({
@@ -97,7 +108,7 @@ router.post("/login", async (req, res) => {
             { userId: korisnikPostoji._id },
             // tajni kljuc snesten u .env
             process.env.jwt_skriven,
-            { expiresIn: "3h", }
+            { expiresIn: 60 * 60, }
         );
 
         res.send({
@@ -170,6 +181,26 @@ router.post("/update-user-permissions", authMiddleware, async (req, res) => {
             data: null,
         });
     }
+});
+
+// Email verifikacija 
+
+router.post("verifyemail", async(req, res) => {
+
+   try {
+    
+    const tokenData = await Token.findOne({token : req.body.token});
+   if(tokenData){
+    await korisnik.findByIdAndUpdate({ id : tokenData.userid, isVerifyed: true });
+    await Token.findOneAndDelete({token : req.body.token});
+    res.send({success: true, message: "Email je uspešno verifikovan!"})
+   }else{
+    res.send({success: false, message: "Neispravan token"})
+   }
+   } catch (error) {
+    res.status(500).send(error);
+   }
+
 });
 
 // Slanje email linka za restartovanje lozinke
