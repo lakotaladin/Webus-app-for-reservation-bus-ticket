@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom'
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
+import '../resources/verify.css';
+import Message from '../components/Message';
 
 function VerifyEmail() {
     const dispatch = useDispatch();
@@ -13,7 +15,7 @@ function VerifyEmail() {
     const verifyToken = async () => {
         try {
             dispatch(ShowLoading());
-            const response = await axios.post('/api/users/verifyemail', { token: params.token })
+            const response = await axios.post('/api/users/verify-email', { token: params.token })
             if (response.data.success) {
                 setEmailVerified('true')
             } else {
@@ -29,11 +31,11 @@ function VerifyEmail() {
 
     useEffect(() => {
         verifyToken();
-    }, [dispatch]);
+    }, []);
     return (
-        <div className='d-flex justify-content-center items-center w-100 h-100 m-0 p-0'>
-            {emailVerified === 'true' && <h1>Molimo Vas sačelajte, verifikujemo e-mail</h1>}
-            {emailVerified === 'false' && <h1>Vaš token je neispravan ili je istekao</h1>}
+        <div className='stranicabody d-flex justify-content-center items-center w-100 m-0 p-0'>
+            {emailVerified === 'true' && <><div className='glavni d-flex wh-100  bg-success'><h1 id='naslovverify'>Vaša e-pošta je uspešno verifikovana!</h1></div><Message /></>}
+            {emailVerified === 'false' && <><div className='glavni d-flex wh-100  bg-danger'><h1 id='naslovverify'>Vaš token je neispravan ili je istekao.</h1></div><Message /></>}
         </div>
     )
 }

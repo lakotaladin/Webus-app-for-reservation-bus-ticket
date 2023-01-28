@@ -1,7 +1,8 @@
-import { message, Modal, Table } from "antd";
+import { Button, Input, message, Modal, Table } from "antd";
 import moment from "moment";
 import React, { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import JsBarcode from 'jsbarcode'
 import PageTitle from "../components/PageTitle";
 import logo from "../resources/webuslogo.png";
 import { axiosInstance } from "../helpers/axiosInstance";
@@ -46,15 +47,113 @@ function Bookings() {
       title: "Ime agencije",
       dataIndex: "name",
       key: "bus",
+      // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
+      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+        return (
+        <>
+        <div className='d-flex flex-column'>
+        <Input autoFocus placeholder="Pretražite po imenu"
+        value={selectedKeys[0]}
+        onChange={(e) =>{
+          setSelectedKeys(e.target.value ? [e.target.value] : []);
+          confirm({ closeDropdown: false });
+        }} 
+
+        onPressEnter={() => {
+            confirm();
+        }}
+
+        onBlur={() => { 
+            confirm();
+           }}
+        ></Input>
+        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
+        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
+        </div>
+        </>
+        );
+      },
+      filterIcon: () => {
+        return <i className="ri-search-eye-line"></i>
+      },
+      onFilter: (value, record) => {
+        return record.name.toLowerCase().includes(value.toLowerCase())
+      }
     },
     {
       title: "Broj autobusa",
       dataIndex: "number",
       key: "bus",
+      // Logika iz ant design-a za pretrazivanje itema po tabeli po broju busa
+      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+        return (
+        <>
+        <div className='d-flex flex-column'>
+        <Input autoFocus placeholder="Pretražite po broju autobusa"
+        type="number"
+        value={selectedKeys[0]}
+        onChange={(e) =>{
+          setSelectedKeys(e.target.value ? [e.target.value] : []);
+          confirm({ closeDropdown: false });
+        }} 
+
+        onPressEnter={() => {
+            confirm();
+        }}
+
+        onBlur={() => { 
+            confirm();
+           }}
+        ></Input>
+        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
+        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
+        </div>
+        </>
+        );
+      },
+      filterIcon: () => {
+        return <i className="ri-search-eye-line"></i>
+      },
+      onFilter: (value, record) => {
+        return record.number === value;
+      }
     },
     {
       title: "Datum polaska",
       dataIndex: "journeyDate",
+      // Logika iz ant design-a za pretrazivanje itema po tabeli po broju busa
+      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+        return (
+        <>
+        <div className='d-flex flex-column'>
+        <Input autoFocus placeholder="Pretražite po datumu"
+        type="date"
+        value={selectedKeys[0]}
+        onChange={(e) =>{
+          setSelectedKeys(e.target.value ? [e.target.value] : []);
+          confirm({ closeDropdown: false });
+        }} 
+
+        onPressEnter={() => {
+            confirm();
+        }}
+
+        onBlur={() => { 
+            confirm();
+           }}
+        ></Input>
+        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
+        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
+        </div>
+        </>
+        );
+      },
+      filterIcon: () => {
+        return <i className="ri-search-eye-line"></i>
+      },
+      onFilter: (value, record) => {
+        return record.journeyDate === value;
+      }
     },
     {
       title: "Vreme dolaska",
@@ -90,12 +189,18 @@ function Bookings() {
     getBookings();
   }, [dispatch]);
 
+  useEffect(() => {
+    if (!selectedBooking?._id) return
+    JsBarcode('#bus-' + selectedBooking._id, selectedBooking._id)
+  }, [selectedBooking])
+
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
   });
   return (
     <div>
+      {/* Tabela sa rezervisanim kartama */}
       <PageTitle title="Rezervisane karte" />
       <div className="mt-2">
         <Table dataSource={bookings} columns={columns} />
@@ -111,6 +216,14 @@ function Bookings() {
           open={showPrintModal}
           okText="Odštampaj"
           onOk={handlePrint}
+          footer={[
+            <Button key="back" id="stampajzatvori">
+              Zatvori
+            </Button>,
+            <Button key="submit" id="stampajdugme">
+              Štampaj
+            </Button>
+          ]}
         >
           <div key={getBookings} className="d-flex flex-column p-1" ref={componentRef}>
           <div>
@@ -134,7 +247,7 @@ function Bookings() {
               {selectedBooking.seats}
             </p>
             
-            <p>Šifra rezervacije: <br/>{selectedBooking._id}</p>
+            <p>Šifra rezervacije: <br/><img style={{width: "60%"}} id={'bus-' + selectedBooking._id} alt="Bar kod karte"></img></p>
           
             <p style={{border: "1px dotted black", width: "280px", margin: "auto", padding: "5px", marginBottom:"4%"}} >
               <span><b>Iznos uplate:</b></span>{" "}

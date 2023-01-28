@@ -6,6 +6,9 @@ import axios from 'axios';
 // redux implementacija
 import store from './redux/store';
 import { Provider } from 'react-redux';
+// Mapa
+import "leaflet/dist/leaflet.css";
+
 
 axios.defaults.baseURL = "http://localhost:5000"
 const root = ReactDOM.createRoot(document.getElementById('root'));

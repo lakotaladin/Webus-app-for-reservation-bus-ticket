@@ -23,7 +23,7 @@ body::-webkit-scrollbar {
 
 .global {
     width: 100%;
-    height: auto;
+    height: 100%;
     box-sizing: border-box;
     overflow-x: visible;
     position: relative;
@@ -57,7 +57,7 @@ body::-webkit-scrollbar {
 /* Dizajn strelice za scroll to top */
 .ri-arrow-up-line {
     color: white;
-    font-weight: bolder;
+    font-weight: bold;
 }
 
 .all-components {
@@ -151,7 +151,11 @@ div .links {
 
 .forEmail,
 .textArea,
-.forName {
+.forName,
+.forJob,
+.forPib,
+.forAdress,
+.forKont {
     width: 100%;
     border: 1.5px solid #1c273c;
 }
@@ -159,6 +163,7 @@ div .links {
 .send-message {
     width: 100%;
     color: white;
+    border-radius: 5px;
     font-weight: bold;
     margin: 2px;
     padding: 4px;
@@ -230,7 +235,6 @@ div .links {
 /* Naslov */
 h6 {
     color: white;
-    font-weight: bold;
 }
 
 /* Kartice za kontaktiranje */
@@ -253,8 +257,7 @@ h6 {
     width: 100%;
     color: white;
     height: auto;
-    margin: 0%;
-    padding: 1%;
+    padding-bottom: 3%;
     text-align: center;
     background-color: #1c273c;
 }

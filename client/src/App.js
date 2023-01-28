@@ -3,8 +3,6 @@ import "antd/dist/antd.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './pages/Home';
 import AdminBuses from './pages/Admin/AdminBuses';
-import PasswordReset from './components/PasswordReset';
-import ForgotPassword from './components/ForgotPassword';
 import AdminUsers from './pages/Admin/AdminUsers';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -16,8 +14,10 @@ import Booknow from './pages/Booknow';
 import Bookings from './pages/Bookings';
 import Contact from './pages/Contact';
 import VerifyEmail from './pages/VerifyEmail';
+import ResetPassword from './pages/ResetPassword';
+import Profile from './pages/Profile';
+import Applaying from './pages/Applaying';
 // preuzeto sa sajta antd design 
-// import { Button } from 'antd';
 // Preuzeto sa sajta antd design i dodato .min. da bi radilo 
 // Rute
 
@@ -51,9 +51,21 @@ function App() {
               <Bookings />
             </ProtectedRoute>
           } />
+          {/* Profil korisnika */}
+          <Route path="/profile/:userId" element={
+            <ProtectedRoute>
+              <Profile />
+            </ProtectedRoute>
+          } />
           {/* Kontakt stranica */}
           <Route path="/contact" element={
-              <Contact />
+            <ProtectedRoute>
+            <Contact />
+            </ProtectedRoute>
+          } />
+          {/* Apliciranje */}
+          <Route path="/applaying" element={
+            <Applaying />  
           } />
           {/* Admin autobusi */}
           <Route path="/admin/buses" element={
@@ -79,23 +91,16 @@ function App() {
               <VerifyEmail />
             </PublicRoute>
           } />
+          {/* Restarovanje lozinke */}
+          <Route path="/resetpassword/:token" element={
+            <PublicRoute>
+              <ResetPassword />
+            </PublicRoute>
+          } />
           {/* Logovanje */}
           <Route path="/login" element={
             <PublicRoute>
               <Login />
-            </PublicRoute>
-          } />
-           {/* Resetovana lozinka */}
-           <Route path="/password-reset" element={
-            <PublicRoute>
-              <PasswordReset />
-            </PublicRoute>
-          } />
-
-          {/* Zaboravljena lozinka */}
-          <Route path="/forgotpassword/:id/:token" element={
-            <PublicRoute>
-              <ForgotPassword />
             </PublicRoute>
           } />
 

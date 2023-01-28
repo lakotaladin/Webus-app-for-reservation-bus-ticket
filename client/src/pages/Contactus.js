@@ -28,7 +28,6 @@ export const ContactUs = () => {
             });
 
          setTimeout(() => {
-            message.success('Poruka je uspešno poslata');
             setUsername('')
             setEmail('')
             setMsg('')
@@ -44,7 +43,7 @@ export const ContactUs = () => {
             <Input value={email} onChange={e => setEmail(e.target.value)} className='forEmail' placeholder='primer@gmail.com' prefix={<MailOutlined className="site-form-item-icon" />} type="email" name="user_email"  required/><br />
             <label>Pišite nam:</label><br/>
             <TextArea value={msg} onChange={e => setMsg(e.target.value)} className='textArea' placeholder='Pitanja, primedbe...' name='message' rows={4} required/><br /><br />
-            <Input  className='send-message' type="submit" value="Send" disabled={!username || !email || !msg} />
+            <Input  className='send-message' type="submit" value="Pošalji" disabled={!username || !email || !msg} />
         </form>
     );
 };

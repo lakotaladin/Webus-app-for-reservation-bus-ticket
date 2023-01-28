@@ -4,7 +4,6 @@ const express = require('express');
 const app = express();
 
 app.use(cors());
-// kada se javi problem res.send not a function pisem ovo app.use ispod i svugde upisujemo json umesto send!
 app.use(express.json());
 
 // sa .env sajta iskopirano
@@ -23,7 +22,7 @@ app.use('/api/users', korisniciRute);
 app.use('/api/buses', busesRoute);
 app.use('/api/bookings', bookingsRoute);
 
-// Ako dodje do problema sa node-om
+// Config for Heroku only
 const path = require("path");
 if(process.env.NODE_ENV === "production")
 {

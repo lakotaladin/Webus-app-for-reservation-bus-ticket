@@ -4,23 +4,64 @@ body {
     /* overflow-x: hidden; */
 }
 
+#pagetitle {
+    text-align: start;
+    font-weight: bold;
+    color: #1c273c;
+}
+
 /* Dugme kod korisnika */
 .user-premission-button{
     background-color: #1c273c;
     color: white;
 }
 
+/* Izgled hedera za pretrazivanje na stranici Home.js */
+.searchheader {
+    border-radius: 6px;
+    background-color: #1c273c;
+}
+
+.searchheader input {
+    height: 32px;
+}
+
 /* Dizajn inputa globalni */
 
-input, select {
-    height: 40px;
-    border: 1px solid gray;
-    width: 100%;
-    padding-left: 20px;
+input,
+select {
+  height: 40px;
+  border: 1px solid gray;
+  width: 100%;
+  padding-left: 20px;
 }
+.ant-form-item {
+  margin: 0 !important;
+}
+
+/* Input za predlog gradova na stranici home */
+.searchheader .autocomplete {
+    width: 100%;
+    height: 33px;
+    color: black;
+}
+
+
+/* Strelice za menjanje vrednosti u inputima za gradove  */
+.switcher {
+    color: white;
+    border: none;
+    background-color: transparent;
+    width: 40px;
+    height: 40px;
+}
+
+
 
 /* Dugme za pretrazivanje Home.js */
 .buttonsearch{
+    color: white;
+    font-weight: bolder;
     background: none;
     border: none;
 }
@@ -103,6 +144,8 @@ input, select {
 
 /* Izgled kartice za rezervaciju autobuske karte */
 .karticabus {
+    position: relative;
+    overflow: hidden;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
     font-weight: bold;
 }
@@ -111,16 +154,21 @@ input, select {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
   }
 
+.divodrezervisi {
+    flex-wrap: wrap;
+}  
+
 .rezervacija {
     width: 200px;
     color: white;
     height: 35px;
+    margin: 1px;
     border: none;
 }
 
-#kodbar {
-    width: 100px;
-    height: 60px;
+.barkod {
+    width: auto;
+    height: 70px;
 }
 
 .rezervisi{
@@ -128,6 +176,17 @@ input, select {
     font-weight: bold;
 }
 
+.verifikacija {
+    padding: 0%;
+    margin: 0%;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+    height: 100%;
+    color: white;
+    font-weight: bold;
+}
 
 /* Za i - items */
 
@@ -140,6 +199,12 @@ i {
 h1 {
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
+}
+
+/* Naslov od rezervacije sedišta */
+.naslovporudzbina {
+    color: #1c273c;
+    font-weight: bold;
 }
 
 /* Spinner/Loader dizajn */
@@ -164,3 +229,27 @@ h1 {
     width: 80px !important;
 }
 
+/* Rezervacije tabela */
+table {
+    border: 1px solid lightgrey;
+}
+
+table, tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: black;
+}
+
+table, th {
+  background-color: rgb(255, 255, 255);
+}
+
+#stampajdugme {
+    background-color: #1c273c;
+    color: white;
+    border-radius: 5px;
+}
+
+#stampajzatvori {
+    color: #1c273c;
+    border-radius: 5px;
+}

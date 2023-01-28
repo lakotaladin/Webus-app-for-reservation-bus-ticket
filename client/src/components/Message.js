@@ -19,7 +19,7 @@ const Message = () => {
   return (
     <>
       {contextHolder}
-      <button id='infodugme' onClick={openNotification}>
+      <button title="Informacije" id='infodugme' onClick={openNotification}>
       <i className="ri-information-line"></i>
       </button>
     </>

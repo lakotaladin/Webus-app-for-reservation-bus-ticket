@@ -5,6 +5,7 @@ import axios from 'axios';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { HideLoading, ShowLoading } from '../redux/alertsSlice';
+import Message from '../components/Message';
 
 function Register() {
     const navigate = useNavigate();
@@ -26,62 +27,64 @@ function Register() {
             dispatch(HideLoading());
             message.error(error.message);
         }
-
-        // test   console.log(values);
     };
 
 
     return (
         <>
-         {/* css je u global.css */}
-         {/* ovo je glavni div od cele stranice */}
-        <div id="pozadina" className='forma d-flex  justify-content-center align-items-center auth'>
+            {/* ovo je glavni div od cele stranice */}
+            <div id="pozadina" className='forma d-flex  justify-content-center align-items-center auth'>
 
-            {/* Div u kome je smestena forma */}
-            <div className='odforme card p-3 bg-light'>
-                <h1 className='naslovi-forme text-lg'> WEBUS - Registracija</h1>
-                <hr />
-                <Form layout='vertical' onFinish={onFinish}>
+                {/* Div u kome je smestena forma */}
+                <div className='odforme card p-3 bg-light'>
+                    <h1 className='naslovi-forme text-lg'> WEBUS - Registracija</h1>
+                    <hr />
+                    <Form layout='vertical' onFinish={onFinish}>
 
-                    {/* Ime */}
-                    <Form.Item label='Ime:' name='ime' rules={[{ required: true, message: 'Molimo Vas, upišite ime!' }]}>
-                        <Input  prefix={<UserOutlined className="site-form-item-icon" />} type="text" placeholder="Vaše ime..." />
-                    </Form.Item>
+                        {/* Ime */}
+                        <Form.Item label='Ime:' name='ime' rules={[{ required: true, message: 'Molimo Vas, upišite ime!' }, { min: 3, message: "Ime mora sadržati 3 ili više karaktera" },
+                        { max: 64, message: "Ime mora sadržati najvise 64 slova" },]}>
+                            <Input prefix={<UserOutlined className="site-form-item-icon" />} type="text" placeholder="Vaše ime..." />
+                        </Form.Item>
 
-                    {/* Email */}
-                    <Form.Item label='Email:' name='email' rules={[{ required: true, message: 'Molimo Vas, upišite email!' }]}>
-                        <Input prefix={<MailOutlined />} type="text" placeholder="webus2022@example.com" />
-                    </Form.Item>
+                        {/* Email */}
+                        <Form.Item label='Email:' name='email' rules={[{ required: true, message: 'Molimo Vas, upišite email!' }]}>
+                            <Input prefix={<MailOutlined />} type="text" placeholder="webus2022@example.com" />
+                        </Form.Item>
 
-                    {/* Lozinka */}
-                    <Form.Item
-                        label="Lozinka:"
-                        name="lozinka"
-                        rules={[
-                            { required: true, message: 'Molimo Vas, upišite lozinku!' },
-                            { min: 8, message: "Lozinka mora sadrzati 8 ili vise karaktera"},
-                            { max: 64, message: "Lozinka mora sadrzati najvise 64 karaktera"},
-                        ]}
-                    >
-                        <Input.Password type="text" placeholder="minimalno 8 karaktera" />
-                    </Form.Item>
+                        {/* Lozinka */}
+                        <Form.Item
+                            label="Lozinka:"
+                            name="lozinka"
+                            rules={[
+                                { required: true, message: 'Molimo Vas, upišite lozinku!' },
+                                { min: 8, message: "Lozinka mora sadržati 8 ili više karaktera" },
+                                { max: 64, message: "Lozinka mora sadržati najvise 64 karaktera" },
+                            ]}
+                        >
+                            <Input.Password type="text" placeholder="minimalno 8 karaktera" />
+                        </Form.Item>
+                        <hr />
+                        {/* Link i dugme */}
+                        <div className='d-flex flex-column'>
+                            <button className='dugme mt-2 mb-2' title="Registracija" type='submit'>Registruj se</button>
+                            <hr/>
+                            <Link className="prijavi-se mb-2 text-black" to="/applaying"><button title="Apliciranje korisnika kao agencija" className='registracijadugme w-100'>Apliciraj kao agencija</button></Link>
+                            <Link className="prijavi-se text-black" to="/login"><button title="Logovanje" className='registracijadugme w-100'>Kliknite ovde da se ulogujete</button></Link>
+                        </div>
 
-                    {/* Link i dugme */}
-                    <div className='d-flex justify-content-between align-items-center'>
-                        <Link className="prijavi-se text-black" to="/login">Kliknite ovde da se ulogujete!</Link>
-                        <button className='dugme mt-2' type='submit'>Registruj se</button>
-                    </div>
+                    </Form>
+                </div>
 
-                </Form>
+
+
             </div>
-
-
-
-        </div>
-        <div id="staza">
-        <img id="bus" src="bus.png" alt="Autobus" />
-        <img id="bus1" src="bus.png" alt="Autobus" />
-        </div>
+            <div id="staza">
+                <img id="bus" src="bus.png" alt="Autobus" />
+                <img id="bus1" src="bus.png" alt="Autobus" />
+            </div>
+            {/* Dugme za info */}
+            <Message />
         </>
     );
 }

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PageTitle from '../../components/PageTitle'
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from '../../redux/alertsSlice';
-import { message, Table } from 'antd';
+import { Button, Input, message, Table } from 'antd';
 import { axiosInstance } from '../../components/helpers/axiosInstance';
 
 
@@ -78,28 +78,94 @@ function AdminUsers() {
   // Tabela sa registrovanim korisnicima
   const columns = [
     {
-      title: "Name",
+      title: "Ime",
       dataIndex: "ime",
+      // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
+      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+        return (
+        <>
+        <div className='d-flex flex-column'>
+        <Input autoFocus placeholder="Pretražite po imenu"
+        value={selectedKeys[0]}
+        onChange={(e) =>{
+          setSelectedKeys(e.target.value ? [e.target.value] : []);
+          confirm({ closeDropdown: false });
+        }} 
+
+        onPressEnter={() => {
+            confirm();
+        }}
+
+        onBlur={() => { 
+            confirm();
+           }}
+        ></Input>
+        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
+        <Button onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
+        </div>
+        </>
+        );
+      },
+      filterIcon: () => {
+        return <i className="ri-search-eye-line"></i>
+      },
+      onFilter: (value, record) => {
+        return record.ime.toLowerCase().includes(value.toLowerCase())
+      }
     },
     {
       title: "Email",
       dataIndex: "email",
+      // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
+      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+        return (
+        <>
+        <div className='d-flex flex-column'>
+        <Input autoFocus placeholder="Pretražite po imenu"
+        value={selectedKeys[0]}
+        onChange={(e) =>{
+          setSelectedKeys(e.target.value ? [e.target.value] : []);
+          confirm({ closeDropdown: false });
+        }} 
+
+        onPressEnter={() => {
+            confirm();
+        }}
+
+        onBlur={() => { 
+            confirm();
+           }}
+        ></Input>
+        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
+        <Button onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
+        </div>
+        </>
+        );
+      },
+      filterIcon: () => {
+        return <i className="ri-search-eye-line"></i>
+      },
+      onFilter: (value, record) => {
+        return record.email.toLowerCase().includes(value.toLowerCase())
+      }
     },
     {
       title: "Stanje",
       dataIndex: "",
       render: (data) => {
-        return data.isBlocked ? "Blokiran" : "Aktivan";
+        // user?.isAdministrator ? 'Administrator' : user?.isAdmin ? 'Admin' : 'Korisnik'
+        return data.isVerifyed === false ? 'Mail nije verifikovan' : data.isBlocked ? "Blokiran" : "Aktivan";
       },
     },
     {
       title: "Uloga",
       dataIndex: "",
       render: (data) => {
-        console.log(data);
-        if (data?.isAdmin) {
+        if (data?.isAdministrator) {
+          return "Administrator";
+        } else if (data?.isAdmin) {
           return "Admin";
-        } else {
+        }else{
           return "Korisnik";
         }
       },
@@ -125,7 +191,7 @@ function AdminUsers() {
               Blokiraj
             </p>
           )}
-          {record?.isAdmin && record?.email !== 'aladin.dunp@gmail.com' && (
+          {record?.isAdministrator && record?.email !== 'aladin.dunp@gmail.com' && (
             <p
               className="user-premission-button btn"
               onClick={() => updateUserPermissions(record, "remove-admin")}
@@ -133,7 +199,7 @@ function AdminUsers() {
               Ukloni admina
             </p>
           )}
-          {!record?.isAdmin && (
+          {!record?.isAdministrator && (
             <p
               className="user-premission-button btn"
               onClick={() => updateUserPermissions(record, "make-admin")}
@@ -141,7 +207,7 @@ function AdminUsers() {
               Dodeli admina
             </p>
           )}
-          {!record?.isAdmin && (
+          {!record?.isAdministrator && (
             <p
               className="btn btn-danger"
               onClick={() => updateUserPermissions(record, "delete")}
@@ -159,13 +225,13 @@ function AdminUsers() {
   }, [dispatch]);
   return (
     <div>
-      <div className='d-flex justify-content-between'>
-        <PageTitle title='Korisnici' />
+      <div className='d-flex justify-content-between my-1'>
+        <PageTitle title='Admin panel' />
 
       </div>
 
       {/* Tabela sa korisnicima */}
-      <Table columns={columns} dataSource={users} />
+      <Table rowKey={"_id"} columns={columns} dataSource={users} />
 
 
     </div>

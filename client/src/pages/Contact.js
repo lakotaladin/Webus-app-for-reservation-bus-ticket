@@ -1,40 +1,33 @@
 import Link from 'antd/lib/typography/Link';
 import React, { useEffect, useState } from 'react';
+import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
+import "leaflet/dist/leaflet.css";
 import { ContactUs } from './Contactus';
 import '../resources/contact.css';
 import ClockLoader from "react-spinners/ClockLoader";
-import { useNavigate } from 'react-router-dom';
 import logo from '../resources/webuslogo.png';
 import banner from '../resources/banner.jpg';
 import kontakt from '../resources/kontaktadmin.png';
 import sponsor1 from '../resources/drzavni.png';
 import sponsor2 from '../resources/novipazar.png';
-import sponsor3 from '../resources/sharpbus.png';
 import { Card } from 'antd';
 
 
 function Contact() {
-    const navigate = useNavigate();
-    const [scrolled, setScrolled] = useState(false);
-
+    const [latitude] = useState(43.1382)
+    const [longitude] = useState(20.5211)
     const [loading, setLoading] = useState(false);
 
-    // Za skrol da se pojavi kada krene da se skrola na dnu stranice
-    function onScroll() {
-        // console.log(window.scrollY)
-        if (window.scrollY > 300 && !scrolled) {
-            setScrolled(true)
-        } else if (window.scrollY < 300) {
-            setScrolled(false)
-        }
-    }
+    const L = require("leaflet");
 
-    useEffect(() => {
-        document.addEventListener('scroll', onScroll)
-        return () => {
-            document.removeEventListener('scroll', onScroll)
-        }
-    }, []);
+    delete L.Icon.Default.prototype._getIconUrl;
+
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+      iconUrl: require("leaflet/dist/images/marker-icon.png"),
+      shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+    });
+
 
     useEffect(() => {
         setLoading(true)
@@ -43,71 +36,18 @@ function Contact() {
         }, 450)
     }, []);
 
-    // Rutovanje za korisnika 
-
-    const userMenu = [
-        {
-            name: 'Početna',
-            path: '/',
-            icon: 'ri-home-2-line',
-        },
-        {
-            name: 'Rezervacije',
-            icon: 'ri-file-list-line',
-            path: '/bookings',
-        },
-        {
-            name: 'Kontakt',
-            icon: 'ri-information-line',
-            path: '/contact',
-        },
-        {
-            name: 'Odjava',
-            icon: 'ri-logout-box-line',
-            path: '/logout',
-        }
-    ];
-
-    const menuToBeRendered = userMenu;
-
-
     if (loading) {
         return <div className='spinnerglavni'>
             <ClockLoader
-            color="#ffffff"
-            size={100}
-         />
+                color="#ffffff"
+                size={100}
+            />
         </div>
     }
 
     return (
         // Glavni div
         <div className='all-components' >
-            {/* Navigacija */}
-            <nav className='navigation'>
-
-                <div className='links d-flex flex-row justify-content-center gap-2 menu'>
-                    {menuToBeRendered.map((item, index) => {
-                        return (
-                            <div key={item.path} className="menu m-0 p-0 d-flex align-items-center">
-                                <i className={item.icon}></i>
-                                <span
-                                    onClick={() => {
-                                        if (item.path === "/logout") {
-                                            localStorage.removeItem("token");
-                                            navigate("/login");
-                                        } else {
-                                            navigate(item.path);
-                                        }
-                                    }}
-                                >{item.name}</span>
-                            </div>
-                        );
-                    })}
-                </div>
-
-            </nav>
-
             {/* Glavni div */}
             <div className='global'>
 
@@ -145,7 +85,7 @@ function Contact() {
                                 width: 300,
                             }}
                         >
-                            <img className='contact-admin' src={kontakt} alt='kontakt' />
+                            <img title='QR kod - broj telefona' className='contact-admin' src={kontakt} alt='kontakt' />
 
                         </Card>
 
@@ -183,21 +123,30 @@ function Contact() {
 
                     </Card>
 
-                    <Card
-                        className='sponsor-card justify-content-center'
-                        bordered={false}
-                        style={{
-                            width: 400,
-                        }}
-                    >
-                        <a href='https://www.sharpbus.com/' target="_blank"><img className='sponsor3' src={sponsor3} alt='sharpbus' /></a>
-
-                    </Card>
+                </div>
+                <div className='d-flex justify-content-center' style={{ width: '100%', height: "600px" }}>
+                    <LeafletMap center={[latitude, longitude]} zoom={23} style={{ width: '100%', height: 'auto', margin: "3%" }}>
+                        <TileLayer
+                            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                        />
+                        <Marker 
+                            draggable={false} 
+                            position={[latitude, longitude]}>
+                            <Popup>
+                                Državni univerzitet u Novom Pazaru
+                                <br />
+                                Latitude: {latitude}
+                                <br />
+                                Longitude: {longitude}
+                            </Popup>
+                        </Marker>
+                    </LeafletMap>
                 </div>
 
-                {/* Vrati na vrh strelica */}
 
-                <Link className={'scrollup' + (scrolled ? ' scrolled' : '')} style={{ transition: 'transform 200ms ease-in-out' }} href='#'><i className="ri-arrow-up-line"></i></Link>
+
+               
                 {/* Futer */}
 
                 <footer className='footer'>
@@ -211,8 +160,8 @@ function Contact() {
                                 width: 400,
                             }}
                         >
-                            <h6 id='title-card'>WEBUS</h6>
-                            <hr />
+                            <h6 id='title-card'><i className="ri-bus-line"></i><br />WEBUS</h6>
+                            <br />
                             <p className='p-2'>
                                 Webus predstavlja veb aplikaciju za
                                 rezervaciju autobuskih karti. <br />
@@ -230,13 +179,13 @@ function Contact() {
                                 width: 400,
                             }}
                         >
-                            <h6 id='title-card'>Kontakt:</h6>
-                            <hr />
+                            <h6 id='title-card'><i className="ri-phone-line"></i><br />Kontakt</h6>
                             <p>
-                                <b>Broj telefona</b><br />
+                                <br />
+                                <b>Broj telefona:</b><br />
                                 +381 64 406-26-70<br />
                                 <b>Email:</b><br />
-                                <Link className='contact-link-card' href='mailto:webus.official2022@gmail.com'>webus.official2022@gmail.com</Link><br />
+                                <Link title="webus.official@gmail.com" className='contact-link-card text-white' href='mailto:webus.official2022@gmail.com'>webus.official2022@gmail.com</Link><br />
                             </p>
 
                         </Card>
@@ -248,11 +197,11 @@ function Contact() {
                                 width: 400,
                             }}
                         >
-                            <h6 id='title-card'>Gde se nalazimo   <i className="ri-map-pin-line"></i></h6>
-                            <hr />
+                            <h6 id='title-card'><i className="ri-map-pin-line"></i><br />Gde se nalazimo?</h6>
+                            <br />
                             <p>
                                 <b>Adresa:</b><br />
-                                Šumadijska 23<br />
+                                Vuka Karadžića bb<br />
                                 Novi Pazar, Srbija
                             </p>
 
@@ -260,12 +209,16 @@ function Contact() {
                     </div>
 
                     {/* Logo stranice */}
-                    <img className='logo-footer' src={logo} alt='webus-logo' />
+                    <img title='WEBUS LOGO' className='logo-footer' src={logo} alt='Webus logo' />
                 </footer>
 
                 {/* WEBUS 2022 */}
                 <div className='reg' >
-                    <p>WEBUS &copy; 2022</p>
+                    <p>Copyright &copy; 2023 WEBUS. All Rights Reserved.</p><br />
+                    <a title="Instagram" className='contact-link-card text-white m-2' href='https://www.instagram.com/lakota_aladin_/' target='_blank' ><i className="ri-instagram-line"></i></a>
+                    <a title="Linkedin" className='contact-link-card text-white m-2' href='https://www.linkedin.com/in/aladin-lakota-450584203/' target='_blank' ><i className="ri-linkedin-box-fill"></i></a>
+                    <a title="Facebook" className='contact-link-card text-white m-2' href='https://www.facebook.com/lakiilakota' target='_blank' ><i className="ri-facebook-circle-line"></i></a>
+                    <a title="Github" className='contact-link-card text-white m-2' href='https://github.com/aladin99' target='_blank' ><i className="ri-github-line"></i></a>
                 </div>
             </div>
         </div>

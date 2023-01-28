@@ -3,7 +3,7 @@ import React from 'react'
 function PageTitle({title}) {
   return (
     <div>
-        <h1 className='text-xl'>{title}</h1>
+        <h1 id="pagetitle" className='text-xl'>{title}</h1>
     </div>
   )
 }

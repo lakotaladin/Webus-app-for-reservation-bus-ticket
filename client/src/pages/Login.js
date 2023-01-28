@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, message, Input } from 'antd';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { MailOutlined } from '@ant-design/icons';
 import Message from '../components/Message';
 import axios from 'axios';
@@ -12,12 +12,22 @@ function Login() {
 
     // odnosi se na formu povezano sa serverom i obradjuje podatke korisnika
     // const navigacija = useNavigate();
+    const [showForgotPassword, setShowForgotPassword] = useState(false);
+    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState("");
     const dispatch = useDispatch();
+
+
+
     const onFinish = async (values) => {
+        const userObj = {
+            password,
+            email,
+        };
         try {
             // Prikazi Loading
             dispatch(ShowLoading());
-            const response = await axios.post("/api/users/login", values);
+            const response = await axios.post("/api/users/login", values, userObj);
             // Skarij Loading
             dispatch(HideLoading());
             if (response.data.success) {
@@ -35,50 +45,109 @@ function Login() {
             message.error(error.message);
         }
 
-        // test   console.log(values);
     };
 
+    const sendResetPasswordLink = async () => {
+        try {
+            dispatch(ShowLoading());
+            const response = await axios.post("/api/users/send-password-reset-link", {
+                email,
+            });
+            dispatch(HideLoading());
+            if (response.data.success) {
+                message.success("Mejl za resetovanje lozinke je poslat", response.data.message);
+                setShowForgotPassword(false);
+            } else {
+                message.error(response.data.message);
+            }
+        } catch (error) {
+            dispatch(HideLoading());
+            message.error("Nešto nije u redu");
+        }
+    };
 
     return (
         <>
-            {/* // css je u global.css */}
-            {/* //  ovo je glavni div od cele stranice */}
             <div id="pozadina" className='d-flex  justify-content-center align-items-center auth'>
+                {!showForgotPassword && (
+                    <div className='odforme card bg-light p-3'>
+                        <h1 className='text-lg'> WEBUS - Logovanje</h1>
 
-                {/* Div u kome je smestena forma */}
-                <div className='odforme card bg-light p-3'>
-                    <h1 className='text-lg'> WEBUS - Logovanje</h1>
+                        <hr />
 
-                    <hr />
-
-                    <Form layout='vertical' onFinish={onFinish}>
+                        <Form layout='vertical' onFinish={onFinish}>
 
 
-                        {/* Email */}
-                        <Form.Item label='Email:' name='email' rules={[{ required: true, message: 'Molimo Vas, upišite email!' }]}>
-                            <Input prefix={<MailOutlined className="site-form-item-icon" />} type="text" placeholder="webus2022@primer.com" />
-                        </Form.Item>
+                            {/* Email */}
+                            <Form.Item label='Email:' name='email' rules={[{ required: true, message: 'Molimo Vas, upišite email!' }]}>
+                                <Input prefix={<MailOutlined className="site-form-item-icon" />} type="text" onChange={(e) => setEmail(e.target.value)} placeholder="webus2022@primer.com" />
+                            </Form.Item>
 
-                        {/* Lozinka */}
-                        <Form.Item
-                            label="Lozinka:"
-                            name="lozinka"
-                            rules={[{ required: true, message: 'Molimo Vas, upišite lozinku!' }]}
-                        >
-                            <Input.Password type="text" />
-                        </Form.Item>
-                        {/* Zaboravljena lozinka */}
-                        <div className='d-flex justify-content-between align-items-center'>
-                           <NavLink className='linkboja' to="/password-reset"><p className='linkboja'>Zaboravili ste lozinku?</p></NavLink>
-                        </div>
-                        {/* Link i dugme */}
-                        <div className='d-flex justify-content-between align-items-center'>
-                            <Link className="prijavi-se text-black" to="/register">Kliknite ovde da se registrujete!</Link>
-                            <button className='dugme mt-2' type='submit'>Uloguj se</button>
-                        </div>
+                            {/* Lozinka */}
+                            <Form.Item
+                                label="Lozinka:"
+                                name="lozinka"
+                                rules={[{ required: true, message: 'Molimo Vas, upišite lozinku!' }]}
+                            >
+                                <Input.Password type="password" onChange={(e) => setPassword(e.target.value)} />
+                            </Form.Item>
+                            {/* Zaboravljena lozinka */}
+                            <div className='d-flex justify-content-between align-items-center'>
+                                <p style={{ color: "red", fontWeight: "bold", cursor: "pointer", marginTop: "4px" }}
+                                    title="Zaboravili ste lozinku?"
+                                    className="text-black"
+                                    onClick={() => setShowForgotPassword(true)}
+                                >
+                                    Zaboravili ste lozinku?
+                                </p>
+                            
+                            </div>
+                            <hr/>
+                            {/* Link i dugme */}
+                            <div className='d-flex flex-column'>
+                                <button title="Uloguj se" className='dugme mt-2 mb-2' type='submit'>Uloguj se</button>
+                                <Link title="Registracija" className="prijavi-se text-black" to="/register"><button className='registracijadugme' >Registracija</button></Link>
+                            </div>
 
-                    </Form>
-                </div>
+                        </Form>
+                    </div>)}
+                {/* Forma za slanje reset lozinke na mejl */}
+                {showForgotPassword && (
+                    <div className="odforme card bg-light p-3">
+
+                        <h1 className="text-lg">
+                            WEBUS - SLANJE MEJLA
+                        </h1>
+
+                        <hr />
+                        <Form layout='vertical'>
+                            <Form.Item
+                                label="Vaš email:"
+                                name="email"
+                                rules={[{ required: true, message: 'Molimo Vas, upišite ispravan mail!' }]}
+                            >
+                                <Input prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="webus2022@primer.com" />
+                            </Form.Item>
+                            <div className="flex flex-col justify-between items-end">
+                                <button
+                                    title="Slanje tokena na mejl"
+                                    className="dugme mt-3 w-100"
+                                    onClick={sendResetPasswordLink}
+                                >
+                                    POŠALJI
+                                </button>
+                                <h1
+                                    title="Froma za logovanje"
+                                    onClick={() => setShowForgotPassword(false)}
+                                    className="cursor-pointer mt-3 mb-2 text-md text-lg text-left"
+                                >
+                                    <i className="ri-arrow-left-circle-line"></i>
+                                </h1>
+                            </div>
+                        </Form>
+                    </div>
+                )}
+
             </div>
             <div id="staza">
                 <img id="bus" src="bus.png" alt="Autobus" />

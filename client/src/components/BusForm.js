@@ -1,17 +1,13 @@
-import React from 'react'
-import { Form, Row, Col, message, Modal, Select, Input } from 'antd'
-import { axiosInstance } from "./helpers/axiosInstance"
-import { useDispatch } from 'react-redux'
-import { HideLoading, ShowLoading } from '../redux/alertsSlice'
+import React from "react";
+import { Col, Form, message, Modal, Row } from "antd";
+import { axiosInstance } from "../helpers/axiosInstance";
+import { useDispatch } from "react-redux";
+import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 
-
-// Default vrednosti forme
 const defaultForma = {
     type: 'Ima klimu',
     status: 'Treba da krene',
 }
-
-
 
 function BusForm({
     showBusForm,
@@ -24,10 +20,9 @@ function BusForm({
     const dispatch = useDispatch();
 
     // Kupi default vrednosti za formu
-    selectedBus = {...defaultForma, ...selectedBus}
+    selectedBus = { ...defaultForma, ...selectedBus }
 
     const onFinish = async (values) => {
-        console.log('values', values)
         try {
             dispatch(ShowLoading());
             let response = null;
@@ -65,105 +60,81 @@ function BusForm({
             }}
             footer={false}
         >
-            <Form layout="vertical" onFinish={onFinish} initialvalues={selectedBus}>
+            <Form layout="vertical" onFinish={onFinish} initialValues={selectedBus}>
                 <Row gutter={[10, 10]}>
                     <Col lg={24} xs={24}>
                         <Form.Item label="Ime agencije" name="name">
-                            <Input type="text"  required/>
+                            <input type="text" />
                         </Form.Item>
                     </Col>
                     <Col lg={12} xs={24}>
                         <Form.Item label="Broj autobusa" name="number">
-                            <Input type="text" required/>
+                            <input type="text" />
                         </Form.Item>
                     </Col>
                     <Col lg={12} xs={24}>
                         <Form.Item label="Kapacitet" name="capacity">
-                            <Input type="text" required/>
+                            <input type="text" />
                         </Form.Item>
                     </Col>
 
                     <Col lg={12} xs={24}>
                         <Form.Item label="Od" name="from">
-                            <Input type="text" required/>
+                            <input type="text" />
                         </Form.Item>
                     </Col>
                     <Col lg={12} xs={24}>
                         <Form.Item label="Do" name="to">
-                            <Input type="text" required/>
+                            <input type="text" />
                         </Form.Item>
                     </Col>
 
                     <Col lg={8} xs={24}>
                         <Form.Item label="Datum polaska" name="journeyDate">
-                            <Input type="date" required/>
+                            <input type="date" />
                         </Form.Item>
                     </Col>
                     <Col lg={8} xs={24}>
-                        <Form.Item label="Vreme polaska" name="departure">
-                            <Input type="time" required/>
+                        <Form.Item label="Datum dolaska" name="departure">
+                            <input type="time" />
                         </Form.Item>
                     </Col>
                     <Col lg={8} xs={24}>
                         <Form.Item label="Vreme dolaska" name="arrival">
-                            <Input type="time" required/>
+                            <input type="time" />
                         </Form.Item>
                     </Col>
 
                     <Col lg={12} xs={24}>
                         <Form.Item label="Tip" name="type">
-                            <Select
-                                initialvalues="Ima klimu"
-                                className='inputizabusformu'
-                                options={[
-                                    {
-                                        value: 'Ima klimu',
-                                        label: 'Ima klimu',
-                                    },
-                                    {
-                                        value: 'Nema klimu',
-                                        label: 'Nema klimu',
-                                    },
-
-                                ]}
-                            />
+                            <select name="" id="">
+                                <option value="Ima klimu">Ima klimu</option>
+                                <option value="Nema klimu">Nema klimu</option>
+                            </select>
                         </Form.Item>
                     </Col>
                     <Col lg={12} xs={24}>
-                        <Form.Item label="Cena karte" name="price">
-                            <Input type="text" />
+                        <Form.Item label="Cena" name="price">
+                            <input type="text" />
                         </Form.Item>
                     </Col>
 
                     <Col lg={12} xs={24}>
                         <Form.Item label="Status" name="status">
-                            <Select
-                                initialvalues="Treba da krene"
-                                className='inputizabusformu'
-                                options={[
-                                    {
-                                        value: 'Treba da krene',
-                                        label: 'Treba da krene',
-                                    },
-                                    {
-                                        value: 'U pokretu',
-                                        label: 'U pokretu',
-                                    },
-                                    {
-                                        value: 'Završio',
-                                        label: 'Završio',
-                                    },
-
-                                ]}
-                            />
+                            <select name="" id="">
+                                <option value="Treba da krene">Treba da krene</option>
+                                <option value="U pokretu">U pokretu</option>
+                                <option value="Završio">Završio</option>
+                            </select>
                         </Form.Item>
                     </Col>
                 </Row>
 
                 <div className="d-flex justify-content-end">
-                    <button className="dugme" type="submit">
+                    <button title="Sačuvaj" className="dugme" type="submit">
                         Sačuvaj
                     </button>
+
                 </div>
             </Form>
         </Modal>

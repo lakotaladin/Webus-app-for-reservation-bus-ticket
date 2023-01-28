@@ -44,6 +44,19 @@
     width: 100%;
 }
 
+/* Registracija dugme */
+
+.registracijadugme {
+    width: 100%;
+    height: auto;
+    color: #1c273c;
+    font-weight: bold;
+    border: 2px solid #1c273c;
+    background: none;
+    padding: 1%;
+    border-radius: 5px;
+}
+
 /* Dizajn dugmeta kod forme za logovanje i registraciju */
 .dugme{
     background-color: #1c273c;
@@ -86,6 +99,50 @@
     border-radius: 5px;
 }
 
+.vratise{
+    color: #1c273c;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 4%;
+}
+
+.vratise:hover {
+    color: #1c273c;
+    font-weight: bold;
+    font-size: 16px;
+    margin: 4%;
+}
+
+.nazad {
+    color: #1c273c;
+    font-weight: bold;
+    font-size: 14px;
+}
+.nazad:hover {
+    color: #1c273c;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.applayingdiv i {
+    color: #1c273c;
+    font-size: 30px !important;
+}
+/* APLICIRANJE */
+
+.applayingdiv {
+    width: 40%;
+    height: auto;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    text-align: start;
+    padding: 1%;
+}
+
+#mail-form i {
+    font-size: 20px;
+}
 
 /* Naslovi dizajn */
 

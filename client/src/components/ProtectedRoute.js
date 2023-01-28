@@ -50,7 +50,7 @@ function ProtectedRoute({ children }) {
 
   useEffect(() => {
     if (window.location.pathname.includes("admin")) {
-      if (!user?.isAdmin) {
+      if (!user?.isAdmin && !user?.isAdministrator) {
         message.error("Niste ovlašćeni za pristup ovoj stranici");
         window.location.href = "/";
       }

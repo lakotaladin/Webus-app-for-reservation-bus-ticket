@@ -1,11 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
-import tiket from '../resources/tiket.png';
+import JsBarcode from 'jsbarcode'
 
 function Bus({ bus }) {
   const navigate = useNavigate();
+
+  useEffect(() => {
+    JsBarcode('#bus-' + bus._id, bus._id)
+  }, [bus])
+
   return (
-    <div className="karticabus d-flex card p-2 m-2">
+    <div key={bus._id} className="karticabus d-flex card p-2 m-2">
       <h1 className="text-lg primary-text">{bus.name}</h1>
       <hr />
       <div className="d-flex justify-content-between">
@@ -25,15 +30,15 @@ function Bus({ bus }) {
         </div>
       </div>
       <hr />
-      <div className="d-flex justify-content-between align-items-end">
+      <div className="divodrezervisi d-flex justify-content-between align-items-end">
         <div>
           <p className="text-sm">Datum polaska:</p>
           <p className="text-sm">{bus.journeyDate}</p>
         </div>
         <div>
-          <img  id="kodbar" src={tiket} alt="Bar kod"/>
+          <img title="Šifra rute" className="barkod" id={'bus-' + bus._id} alt="Bar kod"/>
         </div>
-        <h1 className="text-lg underline secondary-text" onClick={()=>{
+        <h1 title="Rezerviši sada" className="text-lg underline secondary-text" onClick={()=>{
             navigate(`/book-now/${bus._id}`)
         }}>Rezerviši sada</h1>
       </div>

@@ -1,0 +1,19 @@
+.stranicabody, body{
+    width: 100%;
+} 
+
+.glavni {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+#naslovverify {
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+

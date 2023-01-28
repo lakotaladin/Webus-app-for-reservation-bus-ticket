@@ -9,7 +9,7 @@ function DefaultLayout({ children }) {
   const [collapsed, setCollapsed] = useState(false); // collapse bar
   const {user} = useSelector(state => state.users);
   
-  // Obican korisnik - funkcionalnosti
+  // Korisnik - navigacija
   const userMenu = [
     {
       name: 'Početna',
@@ -20,6 +20,11 @@ function DefaultLayout({ children }) {
       name: 'Rezervacije',
       icon: 'ri-file-list-line',
       path: '/bookings',
+    },
+    {
+      name: 'Profil',
+      path: `/profile/${user?._id}`,
+      icon: 'ri-profile-line',
     },
     {
       name: 'Kontakt',
@@ -33,7 +38,7 @@ function DefaultLayout({ children }) {
     }
   ];
 
-  // Moderator - funkcionalnosti
+  // Moderator - navigacija
   const adminMenu = [
     {
       name: 'Početna',
@@ -51,7 +56,46 @@ function DefaultLayout({ children }) {
       icon: 'ri-file-list-line',
     },
     {
-      name: 'Korisnici',
+      name: 'Kontakt',
+      icon: 'ri-information-line',
+      path: '/contact',
+    },
+    {
+      name: 'Profil',
+      path: `/profile/${user?._id}`,
+      icon: 'ri-profile-line',
+    },
+    {
+      name: 'Odjavi se',
+      path: '/logout',
+      icon: 'ri-logout-box-line',
+    }
+  ];
+
+  // Administrator - navigacija
+  const administratorMenu = [
+    {
+      name: 'Početna',
+      path: '/',
+      icon: 'ri-home-2-line',
+    },
+    {
+      name: 'Autobusi',
+      path: '/admin/buses',
+      icon: 'ri-bus-fill',
+    },
+    {
+      name: 'Rezervacije',
+      path: '/bookings',
+      icon: 'ri-file-list-line',
+    },
+    {
+      name: 'Profil',
+      path: `/profile/${user?._id}`,
+      icon: 'ri-profile-line',
+    },
+    {
+      name: 'Panel',
       path: '/admin/users',
       icon: 'ri-user-settings-line',
     },
@@ -62,8 +106,7 @@ function DefaultLayout({ children }) {
     }
   ];
 
-  
-  const menuToBeRendered = user?.isAdmin ? adminMenu : userMenu;
+  const menuToBeRendered = user?.isAdministrator ? administratorMenu : user?.isAdmin ? adminMenu : userMenu;
   let activeRoute = window.location.pathname;
   if(window.location.pathname.includes('book-now'))
   {
@@ -81,7 +124,7 @@ function DefaultLayout({ children }) {
 
         <div className='sidebar-header'>
           {/* Koji je korisnik i njegov status - moderator ili obican korisnik */}
-            <p className='role'>{user?.user} <br /> <i className="ri-user-settings-line"></i> <br/>{user?.isAdmin ? 'Admin' : 'Korisnik'}</p>
+            <p className='role'>{user?.user} <br /> <i title='Uloga na sajtu' className="ri-user-settings-line"></i> <br/>{ user?.isAdministrator ? 'Administrator' : user?.isAdmin ? 'Admin' : 'Korisnik'}</p>
         </div>
 
         {/* div za iteme */}
@@ -112,8 +155,8 @@ function DefaultLayout({ children }) {
       <div className='body'>
 
         {/* HEADER */}
-        <div className='header d-flex justify-content-end'>         
-          <Link to='/'><img className='logo m-1 p-0' src={logo} alt='Webus logo' /></Link>
+        <div className='header d-flex justify-content-center'>         
+          <Link title='Webus logo' to='/'><img className='logo m-1 p-0' src={logo} alt='Webus logo' /></Link>
         </div>
 
         {/* Kartice */}
