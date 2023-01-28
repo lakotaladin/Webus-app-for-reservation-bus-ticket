@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/static/css/main.86e98d72.css",
+    "main.js": "/static/js/main.8424343d.js",
+    "static/media/banner.jpg": "/static/media/banner.6fc43a2d784a854579c4.jpg",
+    "static/media/bus.png": "/static/media/bus.598ba4501dcf2d5ca0d8.png",
+    "static/media/drzavni.png": "/static/media/drzavni.3e40a4f437d8bef6ac0c.png",
+    "static/media/novipazar.png": "/static/media/novipazar.8094c7e76e49d4e79256.png",
+    "static/media/noresult.png": "/static/media/noresult.c2e4181b906e9983738b.png",
+    "static/media/webuslogo.png": "/static/media/webuslogo.58667662c4e52fb3f7cb.png",
+    "static/media/pozadina.webp": "/static/media/pozadina.15a54f07624704de383c.webp",
+    "index.html": "/index.html",
+    "main.86e98d72.css.map": "/static/css/main.86e98d72.css.map",
+    "main.8424343d.js.map": "/static/js/main.8424343d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.86e98d72.css",
+    "static/js/main.8424343d.js"
+  ]
+}

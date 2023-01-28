@@ -1,7 +1,6 @@
 import Link from 'antd/lib/typography/Link';
 import React, { useEffect, useState } from 'react';
 import { MapContainer as LeafletMap, TileLayer, Marker, Popup } from 'react-leaflet';
-import "leaflet/dist/leaflet.css";
 import { ContactUs } from './Contactus';
 import '../resources/contact.css';
 import ClockLoader from "react-spinners/ClockLoader";
@@ -23,9 +22,9 @@ function Contact() {
     delete L.Icon.Default.prototype._getIconUrl;
 
     L.Icon.Default.mergeOptions({
-      iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-      iconUrl: require("leaflet/dist/images/marker-icon.png"),
-      shadowUrl: require("leaflet/dist/images/marker-shadow.png")
+        iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+        iconUrl: require("leaflet/dist/images/marker-icon.png"),
+        shadowUrl: require("leaflet/dist/images/marker-shadow.png")
     });
 
 
@@ -130,8 +129,8 @@ function Contact() {
                             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         />
-                        <Marker 
-                            draggable={false} 
+                        <Marker
+                            draggable={false}
                             position={[latitude, longitude]}>
                             <Popup>
                                 Državni univerzitet u Novom Pazaru
@@ -146,7 +145,7 @@ function Contact() {
 
 
 
-               
+
                 {/* Futer */}
 
                 <footer className='footer'>
