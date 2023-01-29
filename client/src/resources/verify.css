@@ -1,6 +1,7 @@
-.stranicabody, body{
+.stranicabody,
+body {
     width: 100%;
-} 
+}
 
 .glavni {
     position: absolute;
@@ -15,5 +16,3 @@
     font-weight: bold;
     font-size: 30px;
 }
-
-

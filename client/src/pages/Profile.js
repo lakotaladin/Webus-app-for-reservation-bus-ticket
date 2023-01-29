@@ -132,7 +132,7 @@ function Profile() {
 
 
 
-          <Button title="Izmeni podatke" className="dugmejedan  rounded" htmlType="submit">
+          <Button title="Izmeni podatke" className="dugmejedan mt-3 rounded" htmlType="submit">
             Izmeni
           </Button>
 
@@ -158,7 +158,7 @@ function Profile() {
               { max: 64, message: "Lozinka mora sadržati najvise 64 karaktera" },
             ]}
             label="Nova lozinka:"
-            name="password"
+            name="passwordd"
           >
             <Input.Password className="w-100" type="password" placeholder="Nova lozinka" />
           </Form.Item>
@@ -171,6 +171,7 @@ function Profile() {
               { max: 64, message: "Lozinka mora sadržati najvise 64 karaktera" },
             ]}
             label="Potvrdi lozinku:"
+            name="passworddd"
           >
             <Input.Password className="w-100" type="password" placeholder="Potvrdi" />
           </Form.Item>
@@ -178,7 +179,7 @@ function Profile() {
 
 
 
-          <Button title="Izmeni lozinku" className="dugmedva  rounded" htmlType="submit">
+          <Button title="Izmeni lozinku" className="dugmedva mt-3 rounded" htmlType="submit">
             Promeni lozinku
           </Button>
 

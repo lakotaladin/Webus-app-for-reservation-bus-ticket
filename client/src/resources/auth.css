@@ -8,7 +8,7 @@
 /* Ceo body forme */
 .forma {
     height: 100vh;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 /* div od forme */
@@ -39,7 +39,7 @@
 }
 
 /* Inputi u formi */
-.inputizabusformu{
+.inputizabusformu {
     height: auto;
     width: 100%;
 }
@@ -58,7 +58,7 @@
 }
 
 /* Dizajn dugmeta kod forme za logovanje i registraciju */
-.dugme{
+.dugme {
     background-color: #1c273c;
     color: white;
     font-weight: bold;
@@ -66,18 +66,19 @@
     border-radius: 5px;
 }
 
-.linkboja{
+.linkboja {
     color: red;
     font-size: 16px;
     font-weight: bold;
-    text-decoration:none;
+    text-decoration: none;
 }
+
 /* Strelica za vracanje */
-.linkstrelica i{
+.linkstrelica i {
     color: #1c273c;
     font-size: 30px;
     font-weight: bold;
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .sendmail {
@@ -99,7 +100,7 @@
     border-radius: 5px;
 }
 
-.vratise{
+.vratise {
     color: #1c273c;
     font-weight: bold;
     font-size: 16px;
@@ -118,16 +119,19 @@
     font-weight: bold;
     font-size: 14px;
 }
+
 .nazad:hover {
     color: #1c273c;
     font-weight: bold;
     font-size: 14px;
 }
 
+/* Izgled ikonice na stranici za apliciranje */
 .applayingdiv i {
     color: #1c273c;
     font-size: 30px !important;
 }
+
 /* APLICIRANJE */
 
 .applayingdiv {
@@ -146,7 +150,7 @@
 
 /* Naslovi dizajn */
 
-.text-lg{
+.text-lg {
     font-weight: bold;
 }
 
@@ -172,6 +176,7 @@
         transform: translateY(-40px) translateX(-1200px) scaleX(1);
     }
 }
+
 /* Animacija za bus 2 */
 @keyframes vozi2 {
     0% {
@@ -233,11 +238,13 @@
     background-repeat: repeat-x;
     background-size: contain;
 }
+
 /* Autobusi na pocetnoj stranici login i register forma */
 #bus {
     width: 230px;
     animation: vozi 25s linear infinite;
 }
+
 #bus1 {
     width: 230px;
     z-index: 99999;

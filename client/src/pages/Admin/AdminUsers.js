@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PageTitle from '../../components/PageTitle'
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from '../../redux/alertsSlice';
-import { Button, Input, message, Table } from 'antd';
+import { Button, Input, message, Table,  Popconfirm } from 'antd';
 import { axiosInstance } from '../../components/helpers/axiosInstance';
 
 
@@ -50,7 +50,7 @@ function AdminUsers() {
           ...user,
           isBlocked: false,
         };
-      }else if (action === "delete") {
+      } else if (action === "delete") {
         payload = {
           ...user,
           isDeleted: true,
@@ -81,29 +81,29 @@ function AdminUsers() {
       title: "Ime",
       dataIndex: "ime",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Pretražite po imenu"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po imenu"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -117,29 +117,29 @@ function AdminUsers() {
       title: "Email",
       dataIndex: "email",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Pretražite po imenu"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po imenu"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -154,7 +154,7 @@ function AdminUsers() {
       dataIndex: "",
       render: (data) => {
         // user?.isAdministrator ? 'Administrator' : user?.isAdmin ? 'Admin' : 'Korisnik'
-        return data.isVerifyed === false ? 'Mail nije verifikovan' : data.isBlocked ? "Blokiran" : "Aktivan";
+        return data.isVerifyed === false ? 'Mail nije verifikovan' : data.isVerifyed === true ? 'Aktivan' : data.isBlocked ? "Blokiran" : "Aktivan";
       },
     },
     {
@@ -165,7 +165,7 @@ function AdminUsers() {
           return "Administrator";
         } else if (data?.isAdmin) {
           return "Admin";
-        }else{
+        } else {
           return "Korisnik";
         }
       },
@@ -191,7 +191,7 @@ function AdminUsers() {
               Blokiraj
             </p>
           )}
-          {record?.isAdministrator && record?.email !== 'aladin.dunp@gmail.com' && (
+          {record?.isAdmin && record?.email !== 'aladin.dunp@gmail.com' && (
             <p
               className="user-premission-button btn"
               onClick={() => updateUserPermissions(record, "remove-admin")}
@@ -199,7 +199,7 @@ function AdminUsers() {
               Ukloni admina
             </p>
           )}
-          {!record?.isAdministrator && (
+          {!record?.isAdmin && !record?.isAdministrator && (
             <p
               className="user-premission-button btn"
               onClick={() => updateUserPermissions(record, "make-admin")}
@@ -208,12 +208,12 @@ function AdminUsers() {
             </p>
           )}
           {!record?.isAdministrator && (
-            <p
-              className="btn btn-danger"
-              onClick={() => updateUserPermissions(record, "delete")}
+            <Popconfirm
+              title="Da li ste sigurni?"
+              onConfirm={() => updateUserPermissions(record, "delete")}
             >
-              Izbriši
-            </p>
+              <button className="dugmeizbrisi btn btn-danger">Izbriši</button>
+            </Popconfirm>
           )}
         </div>
       ),

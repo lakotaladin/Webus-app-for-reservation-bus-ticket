@@ -1,7 +1,16 @@
 /* Visina i sirina u formi register.js */
+html {
+    overflow-y: hidden;
+    width: 100%;
+    
+}
+
 body {
     width: 100%;
-    /* overflow-x: hidden; */
+    height: auto;
+    /* display: grid; */
+    /* grid-auto-flow: column; */
+    /* grid-auto-columns: 25%; */
 }
 
 #pagetitle {
@@ -11,8 +20,16 @@ body {
 }
 
 /* Dugme kod korisnika */
-.user-premission-button{
+.user-premission-button {
+    width: auto;
+    height: auto;
     background-color: #1c273c;
+    color: white;
+}
+
+.dugmeizbrisi{
+    width: 80px;
+    height: 38px;
     color: white;
 }
 
@@ -30,13 +47,14 @@ body {
 
 input,
 select {
-  height: 40px;
-  border: 1px solid gray;
-  width: 100%;
-  padding-left: 20px;
+    height: 40px;
+    border: 1px solid gray;
+    width: 100%;
+    padding-left: 20px;
 }
+
 .ant-form-item {
-  margin: 0 !important;
+    margin: 0 !important;
 }
 
 /* Input za predlog gradova na stranici home */
@@ -59,7 +77,7 @@ select {
 
 
 /* Dugme za pretrazivanje Home.js */
-.buttonsearch{
+.buttonsearch {
     color: white;
     font-weight: bolder;
     background: none;
@@ -111,7 +129,7 @@ select {
     font-weight: bold;
 }
 
-.biranjesedista  h1 {
+.biranjesedista h1 {
     text-align: start;
 }
 
@@ -132,6 +150,7 @@ select {
     padding: 10px 20px;
     cursor: pointer;
 }
+
 /* Dugme kod odabira sedišta */
 .disabled-btn {
     background-color: gray !important;
@@ -146,17 +165,17 @@ select {
 .karticabus {
     position: relative;
     overflow: hidden;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     font-weight: bold;
 }
 
 .karticabus:hover {
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  }
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
 
 .divodrezervisi {
     flex-wrap: wrap;
-}  
+}
 
 .rezervacija {
     width: 200px;
@@ -171,7 +190,7 @@ select {
     height: 70px;
 }
 
-.rezervisi{
+.rezervisi {
     color: #1c273c;
     font-weight: bold;
 }
@@ -231,16 +250,19 @@ h1 {
 
 /* Rezervacije tabela */
 table {
+    width: 100%;
     border: 1px solid lightgrey;
 }
 
-table, tr:nth-child(even) {
+table,
+tr:nth-child(even) {
     background-color: #f2f2f2;
     color: black;
 }
 
-table, th {
-  background-color: rgb(255, 255, 255);
+table,
+th {
+    background-color: rgb(255, 255, 255);
 }
 
 #stampajdugme {

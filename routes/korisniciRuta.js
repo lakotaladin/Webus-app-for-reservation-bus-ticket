@@ -20,7 +20,7 @@ router.post('/register', async (req, res) => {
             });
         }
         //hesirana lozinka
-        const hesiranaLozinka = await bcrypt.hash(req.body.lozinka, 69);
+        const hesiranaLozinka = await bcrypt.hash(req.body.lozinka, 10);
         req.body.lozinka = hesiranaLozinka;
         // Kreiranje korisnika
 
@@ -151,11 +151,11 @@ router.post("/get-all-users", authMiddleware, async (req, res) => {
 router.post("get-user-info-by-id", authMiddleware, async (req, res) => {
     try {
         console.log(req.body.userId)
-        const user = await korisnik.findById({_id: req.body.userId});
-        res.status(200).send({message: "Podaci od korisniku su uspešno dohvaćeni", success: true, data: user,});
+        const user = await korisnik.findById({ _id: req.body.userId });
+        res.status(200).send({ message: "Podaci od korisniku su uspešno dohvaćeni", success: true, data: user, });
 
     } catch (error) {
-        res.status(500).send({message: "Podaci o korisniku nisu dohvaćeni", success: false, error});
+        res.status(500).send({ message: "Podaci o korisniku nisu dohvaćeni", success: false, error });
     }
 });
 
@@ -164,12 +164,12 @@ router.post("get-user-info-by-id", authMiddleware, async (req, res) => {
 router.put("/update-user", authMiddleware, async (req, res) => {
     try {
         console.log(req.body.userId)
-        const user = await korisnik.findByIdAndUpdate({_id: req.body.userId}, {ime: req.body.ime, email: req.body.email});
+        const user = await korisnik.findByIdAndUpdate({ _id: req.body.userId }, { ime: req.body.ime, email: req.body.email });
         const newUser = await korisnik.findById(req.body.userId)
-        res.status(200).send({message: "Korisnik je uspešno izmenjen", success: true, data: newUser});
+        res.status(200).send({ message: "Korisnik je uspešno izmenjen", success: true, data: newUser });
 
     } catch (error) {
-        res.status(500).send({message: "Korisninički podaci nisu izmenjeni", success: false, error});
+        res.status(500).send({ message: "Korisninički podaci nisu izmenjeni", success: false, error });
     }
 });
 // Update pass on profile
@@ -177,11 +177,11 @@ router.put("/update-password", authMiddleware, async (req, res) => {
     try {
         const salt = await bcrypt.genSalt(10);
         const hashedPassword = await bcrypt.hash(req.body.password, salt);
-        const user = await korisnik.findByIdAndUpdate({_id: req.body.userId}, {lozinka: hashedPassword});
-        res.status(204).send({message: "Korisnik je uspešno izmenjen", success: true});
+        const user = await korisnik.findByIdAndUpdate({ _id: req.body.userId }, { lozinka: hashedPassword });
+        res.status(204).send({ message: "Korisnik je uspešno izmenjen", success: true });
 
     } catch (error) {
-        res.status(500).send({message: "Korisninički podaci nisu izmenjeni", success: false, error});
+        res.status(500).send({ message: "Korisninički podaci nisu izmenjeni", success: false, error });
     }
 });
 // -----------------------------------------------------------------------------------------------------------------------------

@@ -1,4 +1,3 @@
-
 .profileglavni {
     padding: 1%;
     font-weight: bold;
@@ -6,11 +5,17 @@
     height: auto;
 }
 
+.card-title {
+    font-weight: bold;
+    color: #1c273c;
+}
+
 .profileglavni input {
     height: 40px !important;
 }
 
-.forma1 , .forma2 {
+.forma1,
+.forma2 {
     width: 60%;
 }
 

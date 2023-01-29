@@ -188,19 +188,13 @@ div .links {
 
 /* Prvi logo */
 .sponsor1 {
-    width: 340px;
+    width: 310px;
     height: auto;
 }
 
 /* Drugi logo */
 .sponsor2 {
-    width: 200px;
-    height: auto;
-}
-
-/* Treci logo */
-.sponsor3 {
-    width: 400px;
+    width: 150px;
     height: auto;
 }
 

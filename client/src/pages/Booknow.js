@@ -134,7 +134,7 @@ function Booknow() {
                     <div className="uputstvo d-flex flex-row justify-content-start">
                         <div className="sivakocka"></div>
                         <p>Rezervisano sedište</p>
-                    
+
                         <div className="zelenakoca"></div>
                         <p>Sedište koje Vi birate</p>
                     </div>

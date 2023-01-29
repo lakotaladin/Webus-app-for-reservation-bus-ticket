@@ -70,7 +70,7 @@ function Applaying() {
                             <Input value={jobname} name="job_name" onChange={e => setJobname(e.target.value)} prefix={<i className="ri-community-fill"></i>} className='forJob' type="text" placeholder='Upišite ime Vaše agencije' required />
                         </Form.Item>
 
-                        <Form.Item label='Pib:' name="job_pibb" rules={[{ required: true, message: 'Upišite poreski identifikacioni broj!' }, { min: 8, message: "Mora sadržati najmanje 8 cifara." }, { max: 8, message: "Mora sadržati najviše 8 cifara." },]}>
+                        <Form.Item label='Pib:' name="job_pibb" rules={[{ required: true, message: 'Upišite poreski identifikacioni broj!' }, { min: 10, message: "Mora sadržati najmanje 10 cifara." }, { max: 10, message: "Mora sadržati najviše 10 cifara." },]}>
                             <Input value={pib} name="job_pib" onChange={e => setPib(e.target.value)} suffix="PIB/CID" prefix={<i className="ri-profile-line"></i>} className='forPib' type="number" placeholder='Upišite poreski identifikacioni broj' required />
                         </Form.Item>
 

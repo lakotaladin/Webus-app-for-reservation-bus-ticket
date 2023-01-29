@@ -28,7 +28,7 @@ function ResetPassword() {
         token: params.token,
       });
       if (response.data.success) {
-        message.success("Lozinka je uspešno promenjena",response.data.message);
+        message.success("Lozinka je uspešno promenjena", response.data.message);
         navigate("/login");
       } else {
         message.error("Istekao ili nevalidan token!");
@@ -57,7 +57,7 @@ function ResetPassword() {
                 { required: true, message: 'Molimo Vas, upišite lozinku!' },
                 { min: 8, message: "Lozinka mora sadržati 8 ili više karaktera" },
                 { max: 64, message: "Lozinka mora sadržati najvise 64 karaktera" },
-            ]}
+              ]}
             >
               <Input type="password" onChange={(e) => setPassword(e.target.value)} value={password} placeholder="Nova lozinka" />
             </Form.Item>
@@ -68,7 +68,7 @@ function ResetPassword() {
                 { required: true, message: 'Molimo Vas, upišite lozinku!' },
                 { min: 8, message: "Lozinka mora sadržati 8 ili više karaktera" },
                 { max: 64, message: "Lozinka mora sadržati najvise 64 karaktera" },
-            ]}
+              ]}
             >
               <Input type="password" onChange={(e) => setConfirmPassword(e.target.value)} value={confirmpassword} placeholder="Potvrdite lozinku" />
             </Form.Item>
@@ -81,14 +81,14 @@ function ResetPassword() {
                 RESETUJ
               </button>
 
-              <hr/>
+              <hr />
               <Link title="Vratite se na logovanje" to="/login"
                 className="vratise d-flex flex-column cursor-pointer"
               >
                 <i className="ri-arrow-left-circle-line"></i>
                 Vratite se na logovanje
               </Link>
-              
+
             </div>
           </Form>
         </div>

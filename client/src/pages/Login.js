@@ -100,9 +100,9 @@ function Login() {
                                 >
                                     Zaboravili ste lozinku?
                                 </p>
-                            
+
                             </div>
-                            <hr/>
+                            <hr />
                             {/* Link i dugme */}
                             <div className='d-flex flex-column'>
                                 <button title="Uloguj se" className='dugme mt-2 mb-2' type='submit'>Uloguj se</button>

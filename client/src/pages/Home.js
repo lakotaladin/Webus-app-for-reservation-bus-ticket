@@ -74,11 +74,11 @@ function Home() {
 
         <Row gutter={10} align="center">
 
-            {/* Od grada input */}
+          {/* Od grada input */}
           <Col lg={4} sm={24}>
 
             <AutoComplete className="autocomplete m-1" type="text" placeholder="Od grada" options={cities}
-            filterOption={(inputValue, option) =>
+              filterOption={(inputValue, option) =>
                 option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
               }
               value={filters.from || ''}

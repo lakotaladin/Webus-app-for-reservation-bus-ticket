@@ -2,37 +2,38 @@
 
 .layout-parent {
     display: flex;
+    flex-direction: column;
     width: 100%;
     height: 100vh;
-    padding: 15px;
-    gap: 20px;
 }
 
 /* Body */
 .body {
     width: 100%;
-    position: relative; 
+    position: relative;
 }
 
-/* Heder */
-.header {
-    display: flex;
-    flex-direction: row;
-    z-index: 10;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.479);
+/* NAVIGACIJA */
+
+.navigacija {
+    color: white;
     width: 100%;
-    padding: 20px;
+    flex-direction: row;
+    height: 100px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    /* border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px; */
+    justify-content: space-between;
+    align-items: center;
+    padding:  0% 3% 0% 1%;
+    z-index: 10000;
+    background-color: #1c273c;
 }
 
-/* Sidebar - levi div */
-.sidebar {
-    padding: 0 20px;
-    background-color: #1c273c;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+.linkovi {
+    width: 100%;
+    flex-wrap: wrap;
+    height: auto;
 }
 
 /* Role */
@@ -47,22 +48,37 @@
     max-width: 150px;
 }
 
-/* DefaultLayer.js div za iteme */
-.menu {
-    margin-top: 150px;
-}
-
 /* Menu-item - glavni div */
 .menu-item {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    padding: 5px 15px;
-    justify-content: flex-start;
-    padding: 10px;
-    width: 100%;
+    padding: 7px;
     cursor: pointer;
     transition: 0.2s;
-    gap: 15px;
+    gap: 1px;
+}
+
+@media only screen and (max-width: 1139px) {
+
+    .navigacija .links {
+
+        display: flex;
+        flex-direction: column;
+
+    }
+}
+
+@media only screen and (max-width: 1139px) {
+
+    .navigacija {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+
+    }
 }
 
 .active-menu-item {
@@ -85,8 +101,8 @@
 
 /* Sekcija sa artiklima */
 .content {
-    padding: 10px 0px;
+    padding: 2% 2% 0% 2%;
     overflow-y: scroll !important;
-    overflow-x: hidden !important;
+    overflow-x: scroll !important;
     height: 88.25vh;
 }

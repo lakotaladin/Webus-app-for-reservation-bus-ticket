@@ -6,40 +6,40 @@ const jwt = require("jsonwebtoken"); // za logovanje token
 
 module.exports = async (user, mailType) => {
 
-    try {
-        // Nodemailer config
-        // Vazno: na gmail u podesavanja konfigurisati da moze da se prima mejl, lozinku enkriptovanu dobijamo tako sto na gugl nalog ukljucimo 2-factor auth i tamo dobijemo lozinku i ubacimo u polje pass: ispod
-        const transporter = nodemailer.createTransport({
-            service: "gmail",
-            host: "smtp.gmail.com",
-            port: 465,
-            secure: true,
-            auth: {
-                user: "webus.official2022@gmail.com",
-                pass: "znqjpksrkrsypgin",
-            },
-            log: true,
-        });
+  try {
+    // Nodemailer config
+    // Vazno: na gmail u podesavanja konfigurisati da moze da se prima mejl, lozinku enkriptovanu dobijamo tako sto na gugl nalog ukljucimo 2-factor auth i tamo dobijemo lozinku i ubacimo u polje pass: ispod
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 465,
+      secure: true,
+      auth: {
+        user: "webus.official2022@gmail.com",
+        pass: "znqjpksrkrsypgin",
+      },
+      log: true,
+    });
 
-        // Kreiranje i heširanje tokena
-        
-        // const encryptedToken = bcrypt.hashSync(user._id.toString(), 69).replaceAll('/', "");
-        // const token = new Token({ userid: user._id, token: encryptedToken, });
-        // await token.save();
+    // Kreiranje i heširanje tokena
 
-        const token = jwt.sign({ _id: user._id }, "webus", {
-            expiresIn: "300s"
-        });
+    // const encryptedToken = bcrypt.hashSync(user._id.toString(), 69).replaceAll('/', "");
+    // const token = new Token({ userid: user._id, token: encryptedToken, });
+    // await token.save();
 
-        const modelToken = new Token({ userid: user._id, token })
+    const token = jwt.sign({ _id: user._id }, "webus", {
+      expiresIn: "300s"
+    });
 
-        await modelToken.save();
+    const modelToken = new Token({ userid: user._id, token })
 
-        let emailContent, mailOptions;
+    await modelToken.save();
 
-        if (mailType === "verifyemail") {
-            //   emailContent = `<div><h1>Molimo Vas, klinkite na link ispod kako bi verifikovali vašu e-mail adresu</h1> <a href="http://localhost:3000/verifyemail/${token}">${token}</a>  </div>`;
-            emailContent = `<!DOCTYPE html>
+    let emailContent, mailOptions;
+
+    if (mailType === "verifyemail") {
+      //   emailContent = `<div><h1>Molimo Vas, klinkite na link ispod kako bi verifikovali vašu e-mail adresu</h1> <a href="http://webus.herokuapp.com/verifyemail/${token}">${token}</a>  </div>`;
+      emailContent = `<!DOCTYPE html>
             <html>
             <head>
             
@@ -195,7 +195,7 @@ module.exports = async (user, mailType) => {
                       <!-- start copy -->
                       <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                          <p style="margin: 0;">Kliknite dugme ispod kako biste verifikovali mejl, ako niste registovani kliknite <a href="https://localhost:3000/register">Ovde</a>, možete sigurno da izbrišete ovaj mejl.</p>
+                          <p style="margin: 0;">Kliknite dugme ispod kako biste verifikovali mejl, ako niste registovani kliknite <a href="https://webus.herokuapp.com/register">Ovde</a>, možete sigurno da izbrišete ovaj mejl.</p>
                         </td>
                       </tr>
                       <!-- end copy -->
@@ -209,7 +209,7 @@ module.exports = async (user, mailType) => {
                                 <table border="0" cellpadding="0" cellspacing="0">
                                   <tr>
                                     <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                      <a href="http://localhost:3000/verifyemail/${token}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Kliknite ovde!</a>
+                                      <a href="http://webus.herokuapp.com/verifyemail/${token}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Kliknite ovde!</a>
                                     </td>
                                   </tr>
                                 </table>
@@ -224,7 +224,7 @@ module.exports = async (user, mailType) => {
                       <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                           <p style="margin: 0;">Ako nešto nije u redu, kliknite ovde i pokušajte opet:</p>
-                          <p style="margin: 0;"><a href="https://localhost:3000/login" target="_blank">https://localhost:3000/login</a></p>
+                          <p style="margin: 0;"><a href="https://webus.herokuapp.com/login" target="_blank">https://webus.herokuapp.com/login</a></p>
                         </td>
                       </tr>
                       <!-- end copy -->
@@ -289,14 +289,14 @@ module.exports = async (user, mailType) => {
             </body>
             </html>`;
 
-            mailOptions = {
-                from: "webus.official2022@gmail.com",
-                to: user.email,
-                subject: "Verifikacija mejla",
-                html: emailContent,
-            };
-        } else {
-            emailContent = `<!DOCTYPE html>
+      mailOptions = {
+        from: "webus.official2022@gmail.com",
+        to: user.email,
+        subject: "Verifikacija mejla",
+        html: emailContent,
+      };
+    } else {
+      emailContent = `<!DOCTYPE html>
             <html>
             <head>
             
@@ -453,7 +453,7 @@ module.exports = async (user, mailType) => {
                       <!-- start copy -->
                       <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                          <p style="margin: 0;">Kliknite dugme ispod kako biste restartovali vašu lozinku, ako niste registovani kliknite <a href="https://localhost:3000/register">Ovde</a>, možete sigurno da izbrišete ovaj mejl.</p>
+                          <p style="margin: 0;">Kliknite dugme ispod kako biste restartovali vašu lozinku, ako niste registovani kliknite <a href="https://webus.herokuapp.com/register">Ovde</a>, možete sigurno da izbrišete ovaj mejl.</p>
                         </td>
                       </tr>
                       <!-- end copy -->
@@ -467,7 +467,7 @@ module.exports = async (user, mailType) => {
                                 <table border="0" cellpadding="0" cellspacing="0">
                                   <tr>
                                     <td align="center" bgcolor="#1a82e2" style="border-radius: 6px;">
-                                      <a href="http://localhost:3000/resetpassword/${token}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Resetuj ovde!</a>
+                                      <a href="http://webus.herokuapp.com/resetpassword/${token}" target="_blank" style="display: inline-block; padding: 16px 36px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff; text-decoration: none; border-radius: 6px;">Resetuj ovde!</a>
                                     </td>
                                   </tr>
                                 </table>
@@ -482,7 +482,7 @@ module.exports = async (user, mailType) => {
                       <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                           <p style="margin: 0;">Ako nešto nije u redu, kliknite ovde i pokušajte opet:</p>
-                          <p style="margin: 0;"><a href="https://localhost:3000/login" target="_blank">https://localhost:3000/login</a></p>
+                          <p style="margin: 0;"><a href="https://webus.herokuapp.com/login" target="_blank">https://webus.herokuapp.com/login</a></p>
                         </td>
                       </tr>
                       <!-- end copy -->
@@ -547,16 +547,16 @@ module.exports = async (user, mailType) => {
             </body>
             </html>`;
 
-            mailOptions = {
-                from: "webus.official2022@gmail.com",
-                to: user.email,
-                subject: "Resetovanje lozinke",
-                html: emailContent,
-            };
-        }
-
-        await transporter.sendMail(mailOptions);
-    } catch (error) {
-        console.log(error);
+      mailOptions = {
+        from: "webus.official2022@gmail.com",
+        to: user.email,
+        subject: "Resetovanje lozinke",
+        html: emailContent,
+      };
     }
+
+    await transporter.sendMail(mailOptions);
+  } catch (error) {
+    console.log(error);
+  }
 };

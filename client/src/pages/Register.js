@@ -68,7 +68,7 @@ function Register() {
                         {/* Link i dugme */}
                         <div className='d-flex flex-column'>
                             <button className='dugme mt-2 mb-2' title="Registracija" type='submit'>Registruj se</button>
-                            <hr/>
+                            <hr />
                             <Link className="prijavi-se mb-2 text-black" to="/applaying"><button title="Apliciranje korisnika kao agencija" className='registracijadugme w-100'>Apliciraj kao agencija</button></Link>
                             <Link className="prijavi-se text-black" to="/login"><button title="Logovanje" className='registracijadugme w-100'>Kliknite ovde da se ulogujete</button></Link>
                         </div>

@@ -34,7 +34,7 @@ function VerifyEmail() {
     }, []);
     return (
         <div className='stranicabody d-flex justify-content-center items-center w-100 m-0 p-0'>
-            {emailVerified === 'true' && <><div className='glavni d-flex wh-100  bg-success'><h1 id='naslovverify'>Vaša e-pošta je uspešno verifikovana!</h1></div><Message /></>}
+            {emailVerified === 'true' && <><div className='glavni d-flex wh-100  bg-success'><h1 id='naslovverify'>Vaša e-pošta je uspešno verifikovana, idite na stranicu za logovanje.</h1></div><Message /></>}
             {emailVerified === 'false' && <><div className='glavni d-flex wh-100  bg-danger'><h1 id='naslovverify'>Vaš token je neispravan ili je istekao.</h1></div><Message /></>}
         </div>
     )

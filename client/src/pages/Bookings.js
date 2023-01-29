@@ -15,7 +15,7 @@ function Bookings() {
   const [bookings, setBookings] = useState([]);
   const dispatch = useDispatch();
 
-//   Logika za dohvatanje autobusa
+  //   Logika za dohvatanje autobusa
   const getBookings = async () => {
     try {
       dispatch(ShowLoading());
@@ -41,36 +41,36 @@ function Bookings() {
       message.error(error.message);
     }
   };
-// Tabela i prikaz svih rezervisanih autobuskih karti
+  // Tabela i prikaz svih rezervisanih autobuskih karti
   const columns = [
     {
       title: "Ime agencije",
       dataIndex: "name",
       key: "bus",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Pretražite po imenu"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po imenu"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -85,30 +85,30 @@ function Bookings() {
       dataIndex: "number",
       key: "bus",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po broju busa
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Pretražite po broju autobusa"
-        type="number"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po broju autobusa"
+                type="number"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -122,30 +122,30 @@ function Bookings() {
       title: "Datum polaska",
       dataIndex: "journeyDate",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po broju busa
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Pretražite po datumu"
-        type="date"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po datumu"
+                type="date"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -226,14 +226,14 @@ function Bookings() {
           ]}
         >
           <div key={getBookings} className="d-flex flex-column p-1" ref={componentRef}>
-          <div>
-            <img style={{width: 200, padding: 30}} src={logo} alt="Webus logo"/>
-          </div>
-            <p><b>Agencija: <br/>{selectedBooking.name}</b></p>
+            <div>
+              <img style={{ width: 200, padding: 30 }} src={logo} alt="Webus logo" />
+            </div>
+            <p><b>Agencija: <br />{selectedBooking.name}</b></p>
             <p>
               <b>{selectedBooking.from} - {selectedBooking.to}</b>
             </p>
-            <hr style={{border: "1px dashed black", marginLeft: "10%", marginRight: "10%"}} />
+            <hr style={{ border: "1px dashed black", marginLeft: "10%", marginRight: "10%" }} />
             <p>
               <span>Datum polaska:</span>{" "}
               {moment(selectedBooking.journeyDate).format("DD-MM-YYYY")}
@@ -241,20 +241,20 @@ function Bookings() {
             <p>
               <span>Vreme dolaska:</span> {selectedBooking.departure}h
             </p>
-            
+
             <p>
               <span>Odabrano sedište/a:</span> <br />
               {selectedBooking.seats}
             </p>
-            
-            <p>Šifra rezervacije: <br/><img style={{width: "60%"}} id={'bus-' + selectedBooking._id} alt="Bar kod karte"></img></p>
-          
-            <p style={{border: "1px dotted black", width: "280px", margin: "auto", padding: "5px", marginBottom:"4%"}} >
+
+            <p>Šifra rezervacije: <br /><img style={{ width: "60%" }} id={'bus-' + selectedBooking._id} alt="Bar kod karte"></img></p>
+
+            <p style={{ border: "1px dotted black", width: "280px", margin: "auto", padding: "5px", marginBottom: "4%" }} >
               <span><b>Iznos uplate:</b></span>{" "}
               <b>{selectedBooking.price * selectedBooking.seats.length} &euro; </b>
             </p>
             <p>
-              *** HVALA ŠTO KORISTITE NAŠE USLUGE ***<br/>
+              *** HVALA ŠTO KORISTITE NAŠE USLUGE ***<br />
               Webus Team
             </p>
           </div>
