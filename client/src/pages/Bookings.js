@@ -208,24 +208,24 @@ function Bookings() {
 
       {showPrintModal && (
         <Modal
-          title="Štampanje karte"
-          onCancel={() => {
+        className="text-center"
+        onCancel={() => {
+          setShowPrintModal(false);
+          setSelectedBooking(null);
+        }}
+        title="Štampanje karte"
+        open={showPrintModal}
+        okText="Štampaj"
+        // onOk={handlePrint}
+        footer={[
+          <Button className="modaldugmezatvori" onClick={() => {
             setShowPrintModal(false);
             setSelectedBooking(null);
-          }}
-          open={showPrintModal}
-          okText="Odštampaj"
-          onOk={handlePrint}
-          footer={[
-            <Button key="back" id="stampajzatvori">
-              Zatvori
-            </Button>,
-            <Button key="submit" id="stampajdugme">
-              Štampaj
-            </Button>
-          ]}
+          }}>Izadji</Button>,
+          <Button className="modaldugme" onClick={handlePrint} >Štampaj</Button>,
+        ]}
         >
-          <div key={getBookings} className="d-flex flex-column p-1" ref={componentRef}>
+          <div key={getBookings} className="d-flex align-items-center flex-column p-1" ref={componentRef}>
             <div>
               <img style={{ width: 200, padding: 30 }} src={logo} alt="Webus logo" />
             </div>
@@ -247,9 +247,9 @@ function Bookings() {
               {selectedBooking.seats}
             </p>
 
-            <p>Šifra rezervacije: <br /><img style={{ width: "60%" }} id={'bus-' + selectedBooking._id} alt="Bar kod karte"></img></p>
+            <p>Šifra rezervacije: <br /><img style={{ width: "60%", alignItems: "center" }} id={'bus-' + selectedBooking._id} alt="Bar kod karte"></img></p>
 
-            <p style={{ border: "1px dotted black", width: "280px", margin: "auto", padding: "5px", marginBottom: "4%" }} >
+            <p style={{ border: "1px dotted black", width: "280px", margin: "auto", padding: "5px", marginBottom: "4%"}} >
               <span><b>Iznos uplate:</b></span>{" "}
               <b>{selectedBooking.price * selectedBooking.seats.length} &euro; </b>
             </p>

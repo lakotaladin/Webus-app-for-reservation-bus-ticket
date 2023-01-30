@@ -1,5 +1,4 @@
 import React, { useRef, useState } from 'react'
-import autobus from '../resources/bus.png';
 import '../resources/auth.css'
 import emailjs from '@emailjs/browser';
 import { Form, Input, message } from 'antd';
@@ -96,12 +95,6 @@ function Applaying() {
 
                     </Form>
                 </div>
-            </div>
-
-            {/* Staza */}
-            <div id="staza">
-                <img id="bus" src={autobus} alt="Autobus" />
-                <img id="bus1" src={autobus} alt="Autobus" />
             </div>
         </>
     )

@@ -7,7 +7,6 @@ import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 import { Form, Input, message } from "antd";
 import '../resources/auth.css'
 import autobus from '../resources/bus.png';
-import Message from "../components/Message";
 
 
 
@@ -97,8 +96,6 @@ function ResetPassword() {
         <img id="bus" src={autobus} alt="Autobus" />
         <img id="bus1" src={autobus} alt="Autobus" />
       </div>
-      {/* Dugme za info */}
-      <Message />
     </>
 
   );

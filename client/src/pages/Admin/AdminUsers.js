@@ -210,6 +210,8 @@ function AdminUsers() {
           {!record?.isAdministrator && (
             <Popconfirm
               title="Da li ste sigurni?"
+              okText="Da"
+              cancelText="Ne"
               onConfirm={() => updateUserPermissions(record, "delete")}
             >
               <button className="dugmeizbrisi btn btn-danger">Izbriši</button>

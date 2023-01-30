@@ -1,16 +1,14 @@
-import React, { useState } from 'react';
+import React from 'react';
 import '../resources/layout.css';
-import { Route, Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../resources/webuslogo.png'
-import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
-import { Layout, Menu, theme } from 'antd';
+import { Layout } from 'antd';
 
-const { Header, Content, Footer, Sider } = Layout;
+const {  Sider } = Layout;
 
 function DefaultLayout({ children }) {
   const navigate = useNavigate();
-  const [collapsed, setCollapsed] = useState(false); // collapse bar
   const { user } = useSelector(state => state.users);
 
   // Korisnik - navigacija
@@ -70,7 +68,7 @@ function DefaultLayout({ children }) {
       icon: 'ri-profile-line',
     },
     {
-      name: 'Odjavi se',
+      name: 'Odjava',
       path: '/logout',
       icon: 'ri-logout-box-line',
     }
@@ -104,7 +102,7 @@ function DefaultLayout({ children }) {
       icon: 'ri-user-settings-line',
     },
     {
-      name: 'Odjavi se',
+      name: 'Odjava',
       path: '/logout',
       icon: 'ri-logout-box-line',
     }
@@ -149,7 +147,7 @@ function DefaultLayout({ children }) {
                 >
                   <div className='menu-item'>
                     <i className={item.icon}></i>
-                    {!collapsed && (
+                    {(
                       <span
                         onClick={() => {
                           if (item.path === "/logout") {

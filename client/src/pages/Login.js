@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Form, message, Input } from 'antd';
 import { Link } from 'react-router-dom';
 import { MailOutlined } from '@ant-design/icons';
-import Message from '../components/Message';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
@@ -149,12 +148,8 @@ function Login() {
                 )}
 
             </div>
-            <div id="staza">
-                <img id="bus" src="bus.png" alt="Autobus" />
-                <img id="bus1" src="bus.png" alt="Autobus" />
-            </div>
-            {/* Dugme za info */}
-            <Message />
+
+        
         </>
     );
 }

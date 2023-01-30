@@ -5,7 +5,6 @@ import axios from 'axios';
 import { UserOutlined, MailOutlined } from '@ant-design/icons';
 import { useDispatch } from 'react-redux';
 import { HideLoading, ShowLoading } from '../redux/alertsSlice';
-import Message from '../components/Message';
 
 function Register() {
     const navigate = useNavigate();
@@ -33,7 +32,7 @@ function Register() {
     return (
         <>
             {/* ovo je glavni div od cele stranice */}
-            <div id="pozadina" className='forma d-flex  justify-content-center align-items-center auth'>
+            <div id="pozadina" className=' d-flex w-100  justify-content-center align-items-center auth'>
 
                 {/* Div u kome je smestena forma */}
                 <div className='odforme card p-3 bg-light'>
@@ -79,12 +78,7 @@ function Register() {
 
 
             </div>
-            <div id="staza">
-                <img id="bus" src="bus.png" alt="Autobus" />
-                <img id="bus1" src="bus.png" alt="Autobus" />
-            </div>
-            {/* Dugme za info */}
-            <Message />
+            
         </>
     );
 }

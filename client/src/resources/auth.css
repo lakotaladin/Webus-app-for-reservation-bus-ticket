@@ -1,22 +1,22 @@
 /* Pozadina za forme */
 #pozadina {
-    width: 100%;
-    background: url('../../public/pozadina.webp');
+    width: 100% !important;
+    height: 100vh;
+    background: url('../../public/pozadina.jpg');
     background-repeat: no-repeat;
-    overflow: hidden;
-    position: absolute;
-    height: 100%;
+    background-size: cover;
 }
 
 /* Ceo body forme */
 .forma {
-    height: 100vh;
+    height: auto;
     box-shadow: 0 19px 38px rgba(0, 0, 0, 0.30), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
 /* div od forme */
 .odforme {
     width: 450px;
+    margin: 2%;
 }
 
 /* LINK */
@@ -158,89 +158,3 @@
     font-weight: bold;
 }
 
-/* Animacija za bus 1 */
-@keyframes vozi {
-    0% {
-        transform: translateY(820px) translateX(-1200px) scaleX(1);
-    }
-
-    49% {
-        transform: translateY(820px) translateX(100vw) scaleX(1);
-    }
-
-    50% {
-        transform: translateY(820px) translateX(100vw) scaleX(-1);
-    }
-
-    99% {
-        transform: translateY(820px) translateX(-1200px) scaleX(-1);
-    }
-
-    100% {
-        transform: translateY(820px) translateX(-1200px) scaleX(1);
-    }
-}
-
-/* Animacija za bus 2 */
-@keyframes vozi2 {
-    0% {
-        transform: translateY(840px) translateX(-1200px) scaleX(1);
-    }
-
-    49% {
-        transform: translateY(840px) translateX(100vw) scaleX(1);
-    }
-
-    50% {
-        transform: translateY(840px) translateX(100vw) scaleX(-1);
-    }
-
-    99% {
-        transform: translateY(840px) translateX(-1200px) scaleX(-1);
-    }
-
-    100% {
-        transform: translateY(840px) translateX(-1200px) scaleX(1);
-    }
-}
-
-/* Dugme sa login stranice za informacije */
-
-#infodugme {
-    position: fixed;
-    color: white;
-    text-align: center;
-    width: 50px;
-    height: 45px;
-    z-index: 9999;
-    background-color: #1c273c;
-    bottom: 70px;
-    right: 50px;
-    border-radius: 50%;
-    cursor: help;
-    animation: jump 0.5s ease-in infinite;
-}
-
-@keyframes jump {
-
-    0% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-
-/* Autobusi na pocetnoj stranici login i register forma */
-#bus {
-    width: 230px;
-    animation: vozi 25s linear infinite;
-}
-
-#bus1 {
-    width: 230px;
-    z-index: 99999;
-    animation: vozi2 35s linear infinite;
-}
