@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // povezana baza sa .env fajlom
-mongoose.connect(process.env.mongo_url || 'mongodb://webus.herokuapp.com');
+mongoose.connect(process.env.mongo_url);
 
 // proveravam da li je konekcija uspela sa bazom
 
