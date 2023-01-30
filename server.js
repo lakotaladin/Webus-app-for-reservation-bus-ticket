@@ -23,14 +23,14 @@ app.use('/api/buses', busesRoute);
 app.use('/api/bookings', bookingsRoute);
 
 // Config for Heroku only
-// const path = require("path");
-// if(process.env.NODE_ENV === "production")
-// {
-//     app.use(express.static("client/build"));
+const path = require("path");
+if(process.env.NODE_ENV === "production")
+{
+    app.use(express.static("client/build"));
   
-//     app.get("*", (req, res) => {
-//         res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
-//     });
-// }
+    app.get("*", (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client/build/index.html'));
+    });
+}
 // poruka u konzoli 
 app.listen(port, () => console.log(`Povezivanje node servera na port ${port}!`));
