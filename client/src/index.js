@@ -10,7 +10,7 @@ import { Provider } from 'react-redux';
 import "leaflet/dist/leaflet.css";
 
 
-axios.defaults.baseURL = "http://webus.herokuapp.com"
+axios.defaults.baseURL = "https://webus.herokuapp.com"
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   // Provider i stor su deo implementacije redux-a
