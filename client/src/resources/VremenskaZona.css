@@ -1,0 +1,45 @@
+h4 {
+    color: #1c273c;
+    margin-top: 1%;
+    font-weight: bolder;
+}
+
+.vremenska-zona-kontejner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.vremenska-zona {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 30.5%;
+    height: 110px;
+    background-color: white;
+    border: 1px dashed #1c273c;
+    border-radius: 10px;
+    margin: 20px;
+}
+
+@media (max-width: 768px) {
+    .vremenska-zona {
+        width: 80%;
+    }
+}
+
+.vremenska-zona-naslov {
+    font-size: 22px;
+    color: #1c273c;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.vremenska-zona-vrednost {
+    font-size: 18px;
+    color: #1c273c;
+    margin-top: 10px;
+}

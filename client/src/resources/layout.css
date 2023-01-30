@@ -2,7 +2,7 @@
 
 .layout-parent {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
     height: 100vh;
 }
@@ -13,96 +13,94 @@
     position: relative;
 }
 
-/* NAVIGACIJA */
-
-.navigacija {
-    color: white;
-    width: 100%;
-    flex-direction: row;
-    height: 100px;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-    /* border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px; */
-    justify-content: space-between;
-    align-items: center;
-    padding:  0% 3% 0% 1%;
-    z-index: 10000;
-    background-color: #1c273c;
-}
-
-.linkovi {
-    width: 100%;
-    flex-wrap: wrap;
-    height: auto;
-}
-
 /* Role */
 .role {
-    color: white;
-    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
     font-weight: bold;
+    text-align: center !important;
+}
+
+.role i {
+    text-align: center;
+    cursor: context-menu;
 }
 
 /* LOGO */
 .logo {
+    margin-left: 50px !important;
     max-width: 150px;
 }
 
-/* Menu-item - glavni div */
-.menu-item {
+.ant-layout-sider-children {
+    height: 100% !important;
+}
+
+/* Navigacija glavni div */
+.sider {
+    width: 300px;
+    height: 100%;
+    padding: 5%;
+    background-color: #1c273c;
+    text-align: center;
+    justify-content: space-between;
     display: flex;
-    flex-wrap: wrap;
+    transition: 1s;
+}
+
+.global-item-container {
+    margin-top: 150px;
+    height: 100%;
     align-items: center;
-    padding: 7px;
-    cursor: pointer;
-    transition: 0.2s;
-    gap: 1px;
-}
-
-@media only screen and (max-width: 1139px) {
-
-    .navigacija .links {
-
-        display: flex;
-        flex-direction: column;
-
-    }
-}
-
-@media only screen and (max-width: 1139px) {
-
-    .navigacija {
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        height: auto;
-
-    }
 }
 
 .active-menu-item {
+    width: 170px !important;
     border: 2px solid white;
     border-radius: 5px;
 }
 
+
 /* Dizajn ikonica */
 .menu-item i {
-    font-size: 20px;
+    font-size: 26px;
     margin-right: 10px;
     color: white;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    width: 90%;
+    padding: 2%;
+    cursor: pointer;
+    transition: 0.2s;
+    gap: 12px;
 }
 
 /* dizajn slova kod ikonica */
 .menu-item span {
     color: white;
-    font-size: 20px;
+    font-size: 18px;
+}
+
+.header {
+    align-items: center !important;
+    justify-content: space-between;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.479);
+    width: 100%;
+    padding: 10px;
+    z-index: 99999 !important;
 }
 
 /* Sekcija sa artiklima */
 .content {
-    padding: 2% 2% 0% 2%;
+    padding: 1%;
+    margin: 0% 0.3%;
+    text-align: center;
     overflow-y: scroll !important;
     overflow-x: scroll !important;
-    height: 88.25vh;
+    height: 93vh;
 }

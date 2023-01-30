@@ -15,12 +15,12 @@ function Bus({ bus }) {
       <hr />
       <div className="d-flex justify-content-between">
         <div>
-          <p className="text-sm">Od:</p>
+          <p className="text-sm">Od grada:</p>
           <p className="text-sm">{bus.from}</p>
         </div>
 
         <div>
-          <p className="text-sm">Do:</p>
+          <p className="text-sm">Do grada:</p>
           <p className="text-sm">{bus.to}</p>
         </div>
 

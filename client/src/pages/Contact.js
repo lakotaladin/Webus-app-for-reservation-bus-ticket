@@ -81,7 +81,7 @@ function Contact() {
                             className='section-card justify-content-center'
                             bordered={false}
                             style={{
-                                width: 300,
+                                width: 200,
                             }}
                         >
                             <img title='QR kod - broj telefona' className='contact-admin' src={kontakt} alt='kontakt' />
@@ -130,6 +130,7 @@ function Contact() {
                             attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                         />
                         <Marker
+                            cancelable={true}
                             draggable={false}
                             position={[latitude, longitude]}>
                             <Popup>
@@ -185,6 +186,11 @@ function Contact() {
                                 +381 64 406-26-70<br />
                                 <b>Email:</b><br />
                                 <Link title="webus.official@gmail.com" className='contact-link-card text-white' href='mailto:webus.official2022@gmail.com'>webus.official2022@gmail.com</Link><br />
+                                <b>Društvene mreže:</b><br/>
+                                <a title="Instagram" className='contact-link-card text-white m-2' href='https://www.instagram.com/lakota_aladin_/' target='_blank' ><i className="ri-instagram-line"></i></a>
+                                <a title="Linkedin" className='contact-link-card text-white m-2' href='https://www.linkedin.com/in/aladin-lakota-450584203/' target='_blank' ><i className="ri-linkedin-box-fill"></i></a>
+                                <a title="Facebook" className='contact-link-card text-white m-2' href='https://www.facebook.com/lakiilakota' target='_blank' ><i className="ri-facebook-circle-line"></i></a>
+                                <a title="Github" className='contact-link-card text-white m-2' href='https://github.com/aladin99' target='_blank' ><i className="ri-github-line"></i></a>
                             </p>
 
                         </Card>
@@ -209,16 +215,11 @@ function Contact() {
 
                     {/* Logo stranice */}
                     <img title='WEBUS LOGO' className='logo-footer' src={logo} alt='Webus logo' />
+                    {/* WEBUS 2022 */}
+                    <div className='reg' >
+                        <p>Copyright &copy; 2023 WEBUS. All Rights Reserved.</p><br />
+                    </div>
                 </footer>
-
-                {/* WEBUS 2022 */}
-                <div className='reg' >
-                    <p>Copyright &copy; 2023 WEBUS. All Rights Reserved.</p><br />
-                    <a title="Instagram" className='contact-link-card text-white m-2' href='https://www.instagram.com/lakota_aladin_/' target='_blank' ><i className="ri-instagram-line"></i></a>
-                    <a title="Linkedin" className='contact-link-card text-white m-2' href='https://www.linkedin.com/in/aladin-lakota-450584203/' target='_blank' ><i className="ri-linkedin-box-fill"></i></a>
-                    <a title="Facebook" className='contact-link-card text-white m-2' href='https://www.facebook.com/lakiilakota' target='_blank' ><i className="ri-facebook-circle-line"></i></a>
-                    <a title="Github" className='contact-link-card text-white m-2' href='https://github.com/aladin99' target='_blank' ><i className="ri-github-line"></i></a>
-                </div>
             </div>
         </div>
     )

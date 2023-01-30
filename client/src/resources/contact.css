@@ -10,7 +10,6 @@ body {
     /* for Firefox */
     overflow-y: scroll;
     overflow-x: hidden;
-    text-align: center;
 }
 
 /* Da se ne vidi skrol sa desne strane */
@@ -204,6 +203,7 @@ div .links {
     width: 100%;
     height: auto;
     display: flex;
+    overflow: hidden;
     flex-wrap: wrap;
     padding: 1%;
     align-items: center;
@@ -211,8 +211,7 @@ div .links {
     overflow: hidden;
     color: white;
     background-color: #1c273c;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+   border-radius: 50px;
 }
 
 /* Artikli u futer */
@@ -251,7 +250,7 @@ h6 {
     width: 100%;
     color: white;
     height: auto;
-    padding-bottom: 3%;
+    overflow: hidden;
     text-align: center;
     background-color: #1c273c;
 }

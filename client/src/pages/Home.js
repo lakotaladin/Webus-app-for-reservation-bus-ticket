@@ -6,6 +6,7 @@ import Bus from "../components/Bus";
 import '../resources/noresult.css';
 import noresult from '../resources/noresult.png';
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
+import DisplayTimezone from "./DisplayTimezone";
 
 
 function Home() {
@@ -168,7 +169,6 @@ function Home() {
           </Col>
         </Row>
       </div>
-
       {buses.length > 0 ?
         <div>
           <Row gutter={[15, 15]}>
@@ -181,6 +181,8 @@ function Home() {
                 </Col>
               ))}
           </Row>
+          {/* Vremenska zona */}
+          <DisplayTimezone/>
         </div> : <div className="noresult d-flex w-100"><img style={{ width: "350px", opacity: "0.4", marginTop: "10%" }} src={noresult} alt="Nema rezultata, pokušajte ponovo." ></img><br /><h2>Nema rezultata, pokušajte ponovo.</h2></div>}
     </div>
   );

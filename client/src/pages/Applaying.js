@@ -45,10 +45,10 @@ function Applaying() {
         <>
 
             {/* Cela stranica */}
-            <div id="pozadina" className='d-flex  justify-content-center align-items-center'>
+            <div id="pozadina" className='d-flex justify-content-center align-items-center'>
 
                 {/* Div od forme */}
-                <div className='applayingdiv'>
+                <div className='applayingdiv  p-4'>
 
                     {/* div sa naslovom */}
                     <div style={{ textAlign: "center" }} className='w-100'>
@@ -71,10 +71,10 @@ function Applaying() {
                         </Form.Item>
 
                         <Form.Item label='Pib:' name="job_pibb" rules={[{ required: true, message: 'Upišite poreski identifikacioni broj!' }, { min: 10, message: "Mora sadržati najmanje 10 cifara." }, { max: 10, message: "Mora sadržati najviše 10 cifara." },]}>
-                            <Input value={pib} name="job_pib" onChange={e => setPib(e.target.value)} suffix="PIB/CID" prefix={<i className="ri-profile-line"></i>} className='forPib' type="number" placeholder='Upišite poreski identifikacioni broj' required />
+                            <Input value={pib} name="job_pib" onChange={e => setPib(e.target.value)} prefix={<i className="ri-profile-line"></i>} className='forPib' type="number" placeholder='Upišite poreski identifikacioni broj' required />
                         </Form.Item>
 
-
+                        <div>
                         <Form.Item label='Email:' name="user_emaill" rules={[{ required: true, message: 'Molimo Vas, upišite Vašu email adresu!' }]}>
                             <Input value={email} name="user_email" onChange={e => setEmail(e.target.value)} prefix={<i className="ri-mail-line"></i>} className='forEmail' placeholder='primer@gmail.com' type="email" required />
                         </Form.Item>
@@ -88,7 +88,7 @@ function Applaying() {
                         <Form.Item label='Adresa agencije:' name="job_adresss" rules={[{ required: true, message: 'Molimo Vas, upišite adresu Vaše agencije!' }, { min: 3, message: "Adresa mora sadržati 3 ili više karaktera." }, { max: 64, message: "Adresa mora sadržati najvise 64 slova." },]}>
                             <Input value={adress} name="job_adress" onChange={e => setAdress(e.target.value)} prefix={<i className="ri-building-line"></i>} className='forAdress' type="text" placeholder='Upišite adresu agencije' required />
                         </Form.Item>
-
+                        </div>
                         <hr />
 
                         {/* Dugme */}

@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import '../resources/layout.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { Route, Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import logo from '../resources/webuslogo.png'
+import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
+import { Layout, Menu, theme } from 'antd';
 
+const { Header, Content, Footer, Sider } = Layout;
 
 function DefaultLayout({ children }) {
   const navigate = useNavigate();
@@ -118,45 +121,66 @@ function DefaultLayout({ children }) {
     // glavni div
     <div className='layout-parent'>
 
-      <div className='navigacija d-flex p-4 w-100'>
 
+      <Layout>
+        <Sider
+          className='sider'
+          breakpoint="lg"
+          collapsedWidth="0"
+          onBreakpoint={(broken) => {
+            console.log(broken);
+          }}
+          onCollapse={(collapsed, type) => {
+            console.log(collapsed, type);
+          }}
+        >
 
-        <div className='links d-flex gap-3'>
+          <div className="divicons d-flex flex-column  menu">
+          <div className='d-flex flex-column'>
+            <p className='role d-flex text-white'>{user?.user}<i title='Uloga na sajtu' className="ri-user-settings-line"></i>{user?.isAdministrator ? 'Administrator' : user?.isAdmin ? 'Admin' : 'Korisnik'}</p>
+          </div>
+          <div className='global-item-container'>
+            {menuToBeRendered.map((item, index) => {
+              return (
+                <div
+                  key={item.path}
+                  className={`${activeRoute === item.path && "active-menu-item"
+                    } menu-item`}
+                >
+                  <div className='menu-item'>
+                    <i className={item.icon}></i>
+                    {!collapsed && (
+                      <span
+                        onClick={() => {
+                          if (item.path === "/logout") {
+                            localStorage.removeItem("token");
+                            navigate("/login");
+                          } else {
+                            navigate(item.path);
+                          }
+                        }}
+                      >
+                        {item.name}
+                      </span>
+                    )}
+                  </div>
+                </div>
+              
+              );
+            })}
+          </div>
+          </div>
+        </Sider>
+      </Layout>
 
-          <div className='header d-flex justify-content-center'>
+  
+      <div className='body'>
+        <div className="header d-flex flex-row justify-content-center">
+          <div className='headerlogo d-flex justify-content-center'>
             <Link title='Webus logo' to='/'><img className='logo m-1 p-0' src={logo} alt='Webus logo' /></Link>
           </div>
-          {menuToBeRendered.map((item, index) => {
-            return (
-              <div key={item.path} className={`${activeRoute === item.path && 'active-menu-item'} menu-item`}>
-                <div className='linkovi p-0 m-0 d-flex'>
-                  <i className={item.icon}></i>
-
-                  {/* Sidebar se umanjuje i uvecava */}
-                  {!collapsed && <span onClick={() => {
-                    if (item.path === "/logout") {
-                      localStorage.removeItem("token");
-                      navigate("/login");
-                    } else {
-                      navigate(item.path);
-                    }
-
-                  }}>{item.name}</span>}
-                </div>
-              </div>
-            );
-          })}
         </div>
-        <div>
-          <p className='role m-2'>{user?.user} <br /> <i title='Uloga na sajtu' className="ri-user-settings-line"></i> <br />{user?.isAdministrator ? 'Administrator' : user?.isAdmin ? 'Admin' : 'Korisnik'}</p>
-        </div>
-      </div>
 
-
-
-
-
-      <div className='body'>
         {/* Kartice */}
         <div className='content'>
           {children}

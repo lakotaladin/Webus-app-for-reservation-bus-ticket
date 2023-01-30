@@ -131,7 +131,7 @@ function BusForm({
                 </Row>
 
                 <div className="d-flex justify-content-end">
-                    <button title="Sačuvaj" className="dugme" type="submit">
+                    <button title="Sačuvaj" className="dugme mt-2" type="submit">
                         Sačuvaj
                     </button>
 
