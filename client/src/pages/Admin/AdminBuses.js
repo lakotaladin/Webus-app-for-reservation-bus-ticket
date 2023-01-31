@@ -13,7 +13,6 @@ function AdminBuses() {
   const dispatch = useDispatch();
   const [buses, setBuses] = useState([]);
   const [selectedBus, setSelectedBus] = useState(null);
-
   // Dodaj autobus
   const getBuses = async () => {
     try {
@@ -265,7 +264,7 @@ function AdminBuses() {
     <div className='glavniodautobusa'>
       <div className='d-flex justify-content-between my-1'>
         <PageTitle title='Autobuske rute' />
-        <button className='dugme m-2' onClick={() => setShowBusForm(true)}> Dodaj autobusku rutu </button>
+        <button className='dugme m-2' onClick={() => setShowBusForm(true)}> Dodaj rutu </button>
       </div>
 
       {/* Tabela sa autobusima */}

@@ -100,8 +100,8 @@ div .links {
 
 /* Slika velika - banner */
 .banner {
-    width: 100%;
-    height: auto;
+    width: 70%;
+    max-height: 750px !important;
 }
 
 /* Glavni div od celog sadrzaja u sekciji */
@@ -116,7 +116,6 @@ div .links {
 /* Kontakt admin naslov */
 .contact-admin-h1 {
     font-weight: bold;
-    margin: 3%;
 }
 
 /* Hr linija */

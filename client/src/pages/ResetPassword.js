@@ -82,9 +82,9 @@ function ResetPassword() {
 
               <hr />
               <Link title="Vratite se na logovanje" to="/login"
-                className="vratise d-flex flex-column cursor-pointer"
+                 className="vratise d-flex flex-column  cursor-pointer"
               >
-                <i className="ri-arrow-left-circle-line"></i>
+                <i  className="ri-arrow-left-circle-line"></i>
                 Vratite se na logovanje
               </Link>
 

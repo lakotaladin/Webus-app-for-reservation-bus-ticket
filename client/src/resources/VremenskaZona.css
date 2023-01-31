@@ -5,6 +5,7 @@ h4 {
 }
 
 .vremenska-zona-kontejner {
+    width: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

@@ -10,7 +10,7 @@
 /* Body */
 .body {
     width: 100%;
-    position: relative;
+    height: auto !important;
 }
 
 /* Role */
@@ -29,7 +29,7 @@
 
 /* LOGO */
 .logo {
-    margin-left: 50px !important;
+    margin: auto !important;
     max-width: 150px;
 }
 
@@ -39,7 +39,7 @@
 
 /* Navigacija glavni div */
 .sider {
-    width: 300px;
+    width: 10% !important;
     height: 100% !important;
     z-index: 9999999;
     padding: 5%;

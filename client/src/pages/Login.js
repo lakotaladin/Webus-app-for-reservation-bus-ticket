@@ -15,7 +15,7 @@ function Login() {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
     const dispatch = useDispatch();
-
+    
 
 
     const onFinish = async (values) => {
@@ -69,12 +69,12 @@ function Login() {
         <>
             <div id="pozadina" className='d-flex  justify-content-center align-items-center auth'>
                 {!showForgotPassword && (
-                    <div className='odforme card bg-light p-3'>
+                    <div className='odforme card bg-light'>
                         <h1 className='text-lg'> WEBUS - Logovanje</h1>
 
                         <hr />
 
-                        <Form layout='vertical' onFinish={onFinish}>
+                        <Form  style={{alignItems: "center", justifyContent: "center"}} layout='vertical' onFinish={onFinish}>
 
 
                             {/* Email */}
@@ -91,8 +91,8 @@ function Login() {
                                 <Input.Password type="password" onChange={(e) => setPassword(e.target.value)} />
                             </Form.Item>
                             {/* Zaboravljena lozinka */}
-                            <div className='d-flex justify-content-between align-items-center'>
-                                <p style={{ color: "red", fontWeight: "bold", cursor: "pointer", marginTop: "4px" }}
+                            <div className='d-flex mt-2 justify-content-between'>
+                                <p
                                     title="Zaboravili ste lozinku?"
                                     className="text-black"
                                     onClick={() => setShowForgotPassword(true)}
@@ -125,10 +125,11 @@ function Login() {
                                 name="email"
                                 rules={[{ required: true, message: 'Molimo Vas, upišite ispravan mail!' }]}
                             >
-                                <Input prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="webus2022@primer.com" />
+                                <Input  prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="webus2022@primer.com" />
                             </Form.Item>
                             <div className="flex flex-col justify-between items-end">
                                 <button
+                                    disabled={!email}
                                     title="Slanje tokena na mejl"
                                     className="dugme mt-3 w-100"
                                     onClick={sendResetPasswordLink}

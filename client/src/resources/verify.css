@@ -1,12 +1,13 @@
 .stranicabody,
 body {
-    width: 100%;
+    width: 100% !important;
+    height: 100% !important;
 }
 
 .glavni {
     position: absolute;
     width: 100%;
-    height: 100vh;
+    height: 100% !important;
     justify-content: center;
     align-items: center;
 }

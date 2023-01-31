@@ -78,10 +78,11 @@ function Contact() {
                         {/* QR-KOD */}
                         <Card
                             title='Kontakt telefon:'
-                            className='section-card justify-content-center'
+                            className='section-card justify-content-center text-center'
                             bordered={false}
                             style={{
-                                width: 200,
+                                width: 250,
+                                
                             }}
                         >
                             <img title='QR kod - broj telefona' className='contact-admin' src={kontakt} alt='kontakt' />

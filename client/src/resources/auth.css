@@ -1,7 +1,7 @@
 /* Pozadina za forme */
 #pozadina {
     width: 100% !important;
-    height: 100vh;
+    height: 100vh !important;
     background: url('../../public/pozadina.jpg');
     background-repeat: no-repeat;
     background-size: cover;
@@ -15,8 +15,11 @@
 
 /* div od forme */
 .odforme {
-    width: 450px;
-    margin: 2%;
+    text-align: center !important;
+    width: 380px;
+    padding: 15px !important;
+    margin: 4%;
+    padding: 15px !important;
 }
 
 /* LINK */
@@ -138,9 +141,9 @@
 /* APLICIRANJE */
 
 .applayingdiv {
-    width: 450px;
+    width: 400px !important;
     height: auto;
-    margin: 2%;
+    margin: 3%;
     background-color: white;
     color: black;
     border-radius: 5px;
