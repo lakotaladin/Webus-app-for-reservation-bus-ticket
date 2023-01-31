@@ -6,7 +6,6 @@ import axios from "axios";
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 import { Form, Input, message } from "antd";
 import '../resources/auth.css'
-import autobus from '../resources/bus.png';
 
 
 
@@ -91,10 +90,6 @@ function ResetPassword() {
             </div>
           </Form>
         </div>
-      </div>
-      <div id="staza">
-        <img id="bus" src={autobus} alt="Autobus" />
-        <img id="bus1" src={autobus} alt="Autobus" />
       </div>
     </>
 
