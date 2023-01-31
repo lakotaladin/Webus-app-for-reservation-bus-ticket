@@ -255,7 +255,7 @@ function Bookings() {
             </p>
             <p>
               *** HVALA ŠTO KORISTITE NAŠE USLUGE ***<br />
-              Webus Team
+                            Webus Team
             </p>
           </div>
         </Modal>

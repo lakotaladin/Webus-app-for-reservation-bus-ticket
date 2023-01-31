@@ -18,19 +18,19 @@ const DisplayTimezone = () => {
     <h4>Vremenske zone:</h4><br/>
     <div className="vremenska-zona-kontejner">
       <div className="vremenska-zona">
-        <p className="vremenska-zona-naslov">London</p>
+        <p className="vremenska-zona-naslov m-1">London</p>
         <p className="vremenska-zona-vrednost">
           {moment(vreme).tz("Europe/London").locale("sr-RS").format("LLL, HH:mm:ss")}
         </p>
       </div>
       <div className="vremenska-zona">
-        <p className="vremenska-zona-naslov">Njujork</p>
+        <p className="vremenska-zona-naslov m-1">Njujork</p>
         <p className="vremenska-zona-vrednost">
           {moment(vreme).tz("America/New_York").locale("sr-RS").format("LLL, HH:mm:ss")}
         </p>
       </div>
       <div className="vremenska-zona">
-        <p className="vremenska-zona-naslov">Tokio</p>
+        <p className="vremenska-zona-naslov m-1">Tokio</p>
         <p className="vremenska-zona-vrednost">
           {moment(vreme).tz("Asia/Tokyo").locale("sr-RS").format("LLL, HH:mm:ss")}
         </p>

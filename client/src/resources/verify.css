@@ -4,13 +4,52 @@ body {
     height: 100% !important;
 }
 
-.glavni {
-    position: absolute;
-    width: 100%;
+.glavnisuccess {
+    position: absolute !important;
+    width: 100% !important;
     height: 100% !important;
+    color: white;
+    background-color: green;
+  animation: pulse 1s ease-in-out infinite;
+    text-align: center;
     justify-content: center;
     align-items: center;
 }
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+.glavnidanger {
+    position: absolute !important;
+    width: 100% !important;
+    height: 100% !important;
+    color: white;
+    background-color: green;
+  animation: pulsedanger 1s ease-in-out infinite;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes pulsedanger {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
 
 #naslovverify {
     color: white;

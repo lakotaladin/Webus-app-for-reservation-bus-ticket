@@ -39,23 +39,10 @@
     cursor: disabled !important;
 }
 
-.sivakocka {
-    width: 30px !important;
-    height: 30px !important;
-    margin-top: 2%;
-    background-color: grey;
+.cenaisedista {
+    background-color: #1c273c ;
 }
 
-.zelenakoca{
-    width: 30px !important;
-    height: 30px !important;
-    margin-top: 2%;
-    background-color: green;
-}
-
-.uputstvo {
-    width: 100%;
-}
-.uputstvo p{
-    padding: 2.2%;
+.agencijaigrad {
+    background-color: #1c273c ;
 }

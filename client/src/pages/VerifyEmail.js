@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { HideLoading, ShowLoading } from "../redux/alertsSlice";
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
@@ -32,9 +32,9 @@ function VerifyEmail() {
         verifyToken();
     }, []);
     return (
-        <div className='stranicabody d-flex justify-content-center items-center w-100 m-0 p-0'>
-            {emailVerified === 'true' && <><div className='glavni d-flex wh-100  bg-success'><h3 id='naslovverify'>Vaša e-pošta je uspešno verifikovana, kliknite <Link to='/login'>Ovde</Link></h3></div></>}
-            {emailVerified === 'false' && <><div className='glavni d-flex wh-100  bg-danger'><h3 id='naslovverify'>Vaš token je neispravan ili je istekao.</h3></div></>}
+        <div className='stranicabody d-flex justify-content-center items-center w-100 h-100 m-0 p-0'>
+            {emailVerified === 'true' && <><div className='glavnisuccess d-flex h-100'><h4 id='naslovverify'>Email je verifikovan, kliknite <a  style={{color: "white", fontWeight: "bold", fontSize: "24px"}} href='https://webus.herokuapp.com/register'>OVDE</a></h4></div></>}
+            {emailVerified === 'false' && <><div className='glavnidanger d-flex h-100'><h4 id='naslovverify'>Vaš token je neispravan ili je istekao.<br/>Kliknite <a  style={{color: "white", fontWeight: "bold", fontSize: "24px"}} href='https://webus.herokuapp.com/register'>OVDE</a></h4></div></>}
         </div>
     )
 }

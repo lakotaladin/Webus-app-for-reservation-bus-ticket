@@ -176,36 +176,70 @@ function AdminUsers() {
       render: (action, record) => (
         <div className="d-flex gap-3">
           {record?.isBlocked && (
-            <p
-              className="user-premission-button btn"
-              onClick={() => updateUserPermissions(record, "unblock")}
-            >
-              Odblokiraj
-            </p>
+            // <p
+            //   className="user-premission-button btn"
+            //   onClick={() => updateUserPermissions(record, "unblock")}
+            // >
+            //   Odblokiraj
+            // </p>
+            <Popconfirm
+            title="Da li ste sigurni?"
+            okText="Da"
+            cancelText="Ne"
+            onConfirm={() => updateUserPermissions(record, "unblock")}
+          >
+            <button className="user-premission-button btn">Odblokiraj</button>
+          </Popconfirm>
           )}
           {!record?.isBlocked && record?.email !== 'aladin.dunp@gmail.com' && (
-            <p
-              className="user-premission-button btn"
-              onClick={() => updateUserPermissions(record, "block")}
-            >
-              Blokiraj
-            </p>
+            // <p
+            //   className="user-premission-button btn"
+            //   onClick={() => updateUserPermissions(record, "block")}
+            // >
+            //   Blokiraj
+            // </p>
+            <Popconfirm
+            title="Da li ste sigurni?"
+            okText="Da"
+            cancelText="Ne"
+            onConfirm={() => updateUserPermissions(record, "block")}
+          >
+            <button className="user-premission-button btn">Blokiraj</button>
+          </Popconfirm>
+            
           )}
           {record?.isAdmin && record?.email !== 'aladin.dunp@gmail.com' && (
-            <p
-              className="user-premission-button btn"
-              onClick={() => updateUserPermissions(record, "remove-admin")}
-            >
-              Ukloni admina
-            </p>
+            // <p
+            //   className="user-premission-button btn"
+            //   onClick={() => updateUserPermissions(record, "remove-admin")}
+            // >
+            //   Ukloni admina
+            // </p>
+            <Popconfirm
+            title="Da li ste sigurni?"
+            okText="Da"
+            cancelText="Ne"
+            onConfirm={() => updateUserPermissions(record, "remove-admin")}
+          >
+            <button className="user-premission-button btn">Ukloni admina</button>
+          </Popconfirm>
+            
           )}
           {!record?.isAdmin && !record?.isAdministrator && (
-            <p
-              className="user-premission-button btn"
-              onClick={() => updateUserPermissions(record, "make-admin")}
-            >
-              Dodeli admina
-            </p>
+            // <p
+            //   className="user-premission-button btn"
+            //   onClick={() => updateUserPermissions(record, "make-admin")}
+            // >
+            //   Dodeli admina
+            // </p>
+            <Popconfirm
+            title="Da li ste sigurni?"
+            okText="Da"
+            cancelText="Ne"
+            onConfirm={() => updateUserPermissions(record, "make-admin")}
+          >
+            <button className="user-premission-button btn">Dodeli admina</button>
+          </Popconfirm>
           )}
           {!record?.isAdministrator && (
             <Popconfirm
@@ -227,8 +261,8 @@ function AdminUsers() {
   }, [dispatch]);
   return (
     <div>
-      <div className='d-flex justify-content-between my-1'>
-        <PageTitle title='Admin panel' />
+      <div className='d-flex justify-content-center my-1'>
+        <h1 className='text-xl' id='pagetitle'>Admin panel</h1>
 
       </div>
 

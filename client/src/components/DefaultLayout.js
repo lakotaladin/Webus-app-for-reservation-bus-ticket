@@ -125,12 +125,6 @@ function DefaultLayout({ children }) {
           className='sider'
           breakpoint="lg"
           collapsedWidth="0"
-          onBreakpoint={(broken) => {
-            console.log(broken);
-          }}
-          onCollapse={(collapsed, type) => {
-            console.log(collapsed, type);
-          }}
         >
 
           <div className="divicons d-flex flex-column  menu">

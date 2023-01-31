@@ -244,7 +244,7 @@ function AdminBuses() {
       render: (action, record) => (
         <div className='d-flex gap-3'>
           <i className="ri-edit-line" onClick={() => {
-            console.log(record)
+            // console.log(record)
             setSelectedBus(record);
             setShowBusForm(true);
           }}></i>
@@ -262,9 +262,13 @@ function AdminBuses() {
   }, []);
   return (
     <div className='glavniodautobusa'>
-      <div className='d-flex justify-content-between my-1'>
+       <div className='d-flex justify-content-center my-1'>
         <PageTitle title='Autobuske rute' />
-        <button className='dugme m-2' onClick={() => setShowBusForm(true)}> Dodaj rutu </button>
+      </div>
+      <div className='d-flex justify-content-end my-1'>
+      <div className='d-flex flex-row justify-content-end my-1'>
+        <button className='dugme m-2' onClick={() => setShowBusForm(true)}><i className="ri-add-line"></i> Dodaj rutu </button>
+      </div>
       </div>
 
       {/* Tabela sa autobusima */}

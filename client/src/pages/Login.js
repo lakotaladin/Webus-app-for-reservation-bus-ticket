@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, message, Input } from 'antd';
+import { Form, message, Input, Button } from 'antd';
 import { Link } from 'react-router-dom';
 import { MailOutlined } from '@ant-design/icons';
 import axios from 'axios';
@@ -14,6 +14,7 @@ function Login() {
     const [showForgotPassword, setShowForgotPassword] = useState(false);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
+    const [eemail, ssetEmail] = useState("");
     const dispatch = useDispatch();
     
 
@@ -97,14 +98,14 @@ function Login() {
                                     className="text-black"
                                     onClick={() => setShowForgotPassword(true)}
                                 >
-                                    Zaboravili ste lozinku?
+                                    <b style={{color: "red"}} >Zaboravili ste lozinku?</b>
                                 </p>
 
                             </div>
                             <hr />
                             {/* Link i dugme */}
                             <div className='d-flex flex-column'>
-                                <button title="Uloguj se" className='dugme mt-2 mb-2' type='submit'>Uloguj se</button>
+                                <button title="Uloguj se" className='dugmee mt-2 mb-2' type='submit'>Uloguj se</button>
                                 <Link title="Registracija" className="prijavi-se text-black" to="/register"><button className='registracijadugme' >Registracija</button></Link>
                             </div>
 
@@ -115,7 +116,7 @@ function Login() {
                     <div className="odforme card bg-light p-3">
 
                         <h1 className="text-lg">
-                            WEBUS - SLANJE MEJLA
+                            RESTARTOVANJE LOZINKE
                         </h1>
 
                         <hr />
@@ -125,17 +126,17 @@ function Login() {
                                 name="email"
                                 rules={[{ required: true, message: 'Molimo Vas, upišite ispravan mail!' }]}
                             >
-                                <Input  prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="webus2022@primer.com" />
+                                <Input  prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => ssetEmail(e.target.value)} value={eemail} placeholder="webus2022@primer.com" required/>
                             </Form.Item>
                             <div className="flex flex-col justify-between items-end">
-                                <button
-                                    disabled={!email}
-                                    title="Slanje tokena na mejl"
+                                <Button
+                                    disabled={!eemail}
+                                    title="Slanje restart lozinke na mejl"
                                     className="dugme mt-3 w-100"
                                     onClick={sendResetPasswordLink}
                                 >
-                                    POŠALJI
-                                </button>
+                                    Pošalji
+                                </Button>
                                 <h1
                                     title="Froma za logovanje"
                                     onClick={() => setShowForgotPassword(false)}

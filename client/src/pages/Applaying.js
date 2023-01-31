@@ -91,7 +91,7 @@ function Applaying() {
                         <hr />
 
                         {/* Dugme */}
-                        <Input className='send-message' type="submit" value="Pošalji" disabled={!username || !jobname || !email || !pib || !kont || !adress} />
+                        <Input className='send-message' type="submit" value="Pošalji na mail" disabled={!username || !jobname || !email || !pib || !kont || !adress} />
 
                     </Form>
                 </div>

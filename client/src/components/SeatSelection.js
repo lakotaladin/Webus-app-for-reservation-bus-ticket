@@ -17,7 +17,7 @@ function SeatSelection({ selectedSeats, setSelectedSeats, bus }) {
     <>
     <div className="mx-5">
       <div className="bus-container">
-      <b><p>Rezervišite sedište/a ovde:</p></b>
+      <b><p style={{color: "white", background: "#1c273c", padding: "5px"}} >Rezervišite sedište/a samo jednim klikom na kvadratić ispod:</p></b>
         <Row id="seats-container" gutter={[10, 10]}>
           {Array.from(Array(capacity).keys()).map((seat) => {
             let seatClass = ''

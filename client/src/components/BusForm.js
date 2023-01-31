@@ -52,7 +52,7 @@ function BusForm({
     return (
         <Modal
             width={800}
-            title={type === "add" ? "Dodaj rutu" : "Izmeni rutu"}
+            title={type === "add" ? "Dodavanje rute" : "Izmena rute"}
             open={showBusForm}
             onCancel={() => {
                 setSelectedBus(null);
