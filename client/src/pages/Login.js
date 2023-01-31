@@ -98,7 +98,7 @@ function Login() {
                                     className="text-black"
                                     onClick={() => setShowForgotPassword(true)}
                                 >
-                                    <b style={{color: "red"}} >Zaboravili ste lozinku?</b>
+                                    <b className='zaboravljenalozinka' >Zaboravili ste lozinku?</b>
                                 </p>
 
                             </div>
@@ -132,7 +132,7 @@ function Login() {
                                 <Button
                                     disabled={!eemail}
                                     title="Slanje restart lozinke na mejl"
-                                    className="dugme mt-3 w-100"
+                                    className="dugmee mt-3 w-100"
                                     onClick={sendResetPasswordLink}
                                 >
                                     Pošalji

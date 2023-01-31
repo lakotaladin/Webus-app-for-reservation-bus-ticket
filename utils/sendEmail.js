@@ -453,7 +453,7 @@ module.exports = async (user, mailType) => {
                       <!-- start copy -->
                       <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
-                          <p style="margin: 0;">Kliknite dugme ispod kako biste restartovali vašu lozinku, ako niste registovani kliknite <a href="https://webus.herokuapp.com/register">Ovde</a>, možete sigurno da izbrišete ovaj mejl.</p>
+                          <p style="margin: 0;">Kliknite dugme ispod kako biste restartovali vašu lozinku, ako niste registovani kliknite <a title="Webus- registracija" href="https://webus.herokuapp.com/register">Ovde</a>, možete sigurno da izbrišete ovaj mejl.</p>
                         </td>
                       </tr>
                       <!-- end copy -->
@@ -482,7 +482,7 @@ module.exports = async (user, mailType) => {
                       <tr>
                         <td align="left" bgcolor="#ffffff" style="padding: 24px; font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif; font-size: 16px; line-height: 24px;">
                           <p style="margin: 0;">Ako nešto nije u redu, kliknite ovde i pokušajte opet:</p>
-                          <p style="margin: 0;"><a href="https://webus.herokuapp.com/login" target="_blank">https://webus.herokuapp.com/login</a></p>
+                          <p style="margin: 0;"><a title="Webus- logovanje" href="https://webus.herokuapp.com/login" target="_blank">https://webus.herokuapp.com/login</a></p>
                         </td>
                       </tr>
                       <!-- end copy -->
