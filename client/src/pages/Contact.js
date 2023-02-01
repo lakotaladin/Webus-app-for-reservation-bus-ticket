@@ -81,7 +81,7 @@ function Contact() {
                             className='section-card justify-content-center text-center'
                             bordered={false}
                             style={{
-                                width: 250,
+                                width: 290,
                                 
                             }}
                         >

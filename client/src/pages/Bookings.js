@@ -242,18 +242,18 @@ function Bookings() {
               <span>Vreme dolaska:</span> {selectedBooking.departure}h
             </p>
 
-            <p>
-              <span>Odabrano sedište/a:</span> <br />
-              {selectedBooking.seats}
+            <p style={{textAlign: "center", alignItems: "center", justifyContent: "center"}}>
+              <span style={{textAlign: "center", alignItems: "center", justifyContent: "center"}}>Odabrano sedište/a:</span> <br />
+              {selectedBooking.seats.join(" , ")}
             </p>
 
-            <p>Šifra rezervacije: <br /><img style={{ width: "60%", alignItems: "center" }} id={'bus-' + selectedBooking._id} alt="Bar kod karte"></img></p>
+            <p style={{textAlign: "center", alignItems: "center", justifyContent: "center"}}>Šifra rezervacije: <br /><img style={{ width: "60%", alignItems: "center" }} id={'bus-' + selectedBooking._id} alt="Bar kod karte"></img></p>
 
-            <p style={{ border: "1px dotted black", width: "280px", margin: "auto", padding: "5px", marginBottom: "4%"}} >
-              <span><b>Iznos uplate:</b></span>{" "}
+            <p style={{ border: "1px dotted black", width: "280px",textAlign: "center", alignItems: "center", margin: "auto", padding: "5px", marginBottom: "4%"}} >
+              <span style={{textAlign: "center", alignItems: "center"}}><b>Iznos uplate:</b></span>{" "}
               <b>{selectedBooking.price * selectedBooking.seats.length} &euro; </b>
             </p>
-            <p>
+            <p style={{textAlign: "center", alignItems: "center"}}>
               *** HVALA ŠTO KORISTITE NAŠE USLUGE ***<br />
                             Webus Team
             </p>

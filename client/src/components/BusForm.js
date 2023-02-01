@@ -64,38 +64,38 @@ function BusForm({
                 <Row gutter={[10, 10]}>
                     <Col lg={24} xs={24}>
                         <Form.Item label="Ime agencije:" name="name">
-                            <input type="text" />
+                            <input type="text" required/>
                         </Form.Item>
                     </Col>
                     <Col lg={12} xs={24}>
                         <Form.Item label="Broj autobusa:" name="number">
-                            <input type="text" />
+                            <input type="number" required/>
                         </Form.Item>
                     </Col>
                     <Col lg={12} xs={24}>
                         <Form.Item label="Kapacitet:" name="capacity">
-                            <input type="text" />
+                            <input type="number" required/>
                         </Form.Item>
                     </Col>
 
                     <Col lg={12} xs={24}>
                         <Form.Item label="Od grada:" name="from">
-                            <input type="text" />
+                            <input type="text" required/>
                         </Form.Item>
                     </Col>
                     <Col lg={12} xs={24}>
                         <Form.Item label="Do grada:" name="to">
-                            <input type="text" />
+                            <input type="text" required/>
                         </Form.Item>
                     </Col>
 
                     <Col lg={8} xs={24}>
                         <Form.Item label="Datum polaska:" name="journeyDate">
-                            <input type="date" />
+                            <input type="date" required/>
                         </Form.Item>
                     </Col>
                     <Col lg={8} xs={24}>
-                        <Form.Item label="Datum dolaska:" name="departure">
+                        <Form.Item label="Vreme polaska:" name="departure">
                             <input type="time" />
                         </Form.Item>
                     </Col>
@@ -106,16 +106,16 @@ function BusForm({
                     </Col>
 
                     <Col lg={12} xs={24}>
-                        <Form.Item label="Tip:" name="type">
+                        <Form.Item label="Oprema:" name="type">
                             <select name="" id="">
-                                <option value="Ima klimu">Ima klimu</option>
-                                <option value="Nema klimu">Nema klimu</option>
+                                <option value="Ima klimu">Klimatizovano</option>
+                                <option value="Nema klimu">Neklimatizovano</option>
                             </select>
                         </Form.Item>
                     </Col>
                     <Col lg={12} xs={24}>
                         <Form.Item label="Cena:" name="price">
-                            <input type="text" />
+                            <input type="number" required/>
                         </Form.Item>
                     </Col>
 
@@ -124,7 +124,7 @@ function BusForm({
                             <select name="" id="">
                                 <option value="Treba da krene">Treba da krene</option>
                                 <option value="U pokretu">U pokretu</option>
-                                <option value="Završio">Završio</option>
+                                <option value="Završio">Završio rutu</option>
                             </select>
                         </Form.Item>
                     </Col>

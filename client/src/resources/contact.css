@@ -178,21 +178,21 @@ div .links {
 /* Sponzori */
 
 .sponsor-card {
-    margin: 4%;
-    padding: 2%;
+    margin: 2%;
+    padding: 1%;
     overflow: hidden;
     text-align: center;
 }
 
 /* Prvi logo */
 .sponsor1 {
-    width: 310px;
+    width: 95% !important;
     height: auto;
 }
 
 /* Drugi logo */
 .sponsor2 {
-    width: 150px;
+    width: 130px;
     height: auto;
 }
 

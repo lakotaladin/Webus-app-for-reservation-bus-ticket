@@ -78,7 +78,7 @@ function Home() {
           {/* Od grada input */}
           <Col lg={4} sm={24}>
 
-            <AutoComplete className="autocomplete m-1" type="text" placeholder="Od grada" options={cities}
+            <AutoComplete className="autocomplete m-1" type="text" placeholder="Mesto polaska" options={cities}
               filterOption={(inputValue, option) =>
                 option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
               }
@@ -103,7 +103,7 @@ function Home() {
               className="autocomplete m-1"
               type="text"
               prefix={<i className="ri-community-fill"></i>}
-              placeholder="Do grada"
+              placeholder="Željena destinacija"
 
               options={cities}
               filterOption={(inputValue, option) =>
