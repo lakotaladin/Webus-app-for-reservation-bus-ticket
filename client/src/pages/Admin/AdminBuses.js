@@ -3,7 +3,7 @@ import PageTitle from '../../components/PageTitle'
 import BusForm from '../../components/BusForm'
 import { useDispatch } from "react-redux";
 import { HideLoading, ShowLoading } from '../../redux/alertsSlice';
-import { Button, Input, message, Table } from 'antd';
+import { Button, Input, message, Popconfirm, Table } from 'antd';
 import { axiosInstance } from '../../components/helpers/axiosInstance';
 
 
@@ -55,29 +55,29 @@ function AdminBuses() {
       title: "Ime agencije",
       dataIndex: "name",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Pretražite po imenu"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po imenu"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button className="searchbuttontable mt-1" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable mt-1" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -86,36 +86,36 @@ function AdminBuses() {
       onFilter: (value, record) => {
         return record.name.toLowerCase().includes(value.toLowerCase())
       }
-      
+
     },
     {
       title: "Broj autobusa",
       dataIndex: "number",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po broju busa
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Pretražite po broju autobusa"
-        type="number"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po broju autobusa"
+                type="number"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -129,29 +129,29 @@ function AdminBuses() {
       title: "Od grada",
       dataIndex: "from",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Polazi iz"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Polazi iz"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -165,29 +165,29 @@ function AdminBuses() {
       title: "Do grada",
       dataIndex: "to",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po imenu agencije
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Dolazi u"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Dolazi u"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -201,30 +201,30 @@ function AdminBuses() {
       title: "Datum putovanja",
       dataIndex: "journeyDate",
       // Logika iz ant design-a za pretrazivanje itema po tabeli po broju busa
-      filterDropdown: ({setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
         return (
-        <>
-        <div className='d-flex flex-column'>
-        <Input autoFocus placeholder="Pretražite po datumu"
-        type="date"
-        value={selectedKeys[0]}
-        onChange={(e) =>{
-          setSelectedKeys(e.target.value ? [e.target.value] : []);
-          confirm({ closeDropdown: false });
-        }} 
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po datumu"
+                type="date"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
 
-        onPressEnter={() => {
-            confirm();
-        }}
+                onPressEnter={() => {
+                  confirm();
+                }}
 
-        onBlur={() => { 
-            confirm();
-           }}
-        ></Input>
-        <Button className="bg-success text-white mt-1" onClick={()=>{confirm()}}>Pretraži</Button>
-        <Button className="searchbuttontable" onClick={()=>{clearFilters()}} type="danger">Resetuj</Button>
-        </div>
-        </>
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
         );
       },
       filterIcon: () => {
@@ -237,6 +237,38 @@ function AdminBuses() {
     {
       title: "Status autobusa",
       dataIndex: "status",
+      filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => {
+        return (
+          <>
+            <div className='d-flex flex-column'>
+              <Input autoFocus placeholder="Pretražite po statusu"
+                value={selectedKeys[0]}
+                onChange={(e) => {
+                  setSelectedKeys(e.target.value ? [e.target.value] : []);
+                  confirm({ closeDropdown: false });
+                }}
+
+                onPressEnter={() => {
+                  confirm();
+                }}
+
+                onBlur={() => {
+                  confirm();
+                }}
+              ></Input>
+              <Button className="bg-success text-white mt-1" onClick={() => { confirm() }}>Pretraži</Button>
+              <Button className="searchbuttontable mt-1" onClick={() => { clearFilters() }} type="danger">Resetuj</Button>
+            </div>
+          </>
+        );
+      },
+      filterIcon: () => {
+        return <i className="ri-search-eye-line"></i>
+      },
+      onFilter: (value, record) => {
+        return record.status.toLowerCase().includes(value.toLowerCase())
+      }
+
     },
     {
       title: "Akcija",
@@ -248,9 +280,19 @@ function AdminBuses() {
             setSelectedBus(record);
             setShowBusForm(true);
           }}></i>
-          <i className="ri-delete-bin-line" onClick={() => {
+          {/* <i className="ri-delete-bin-line" onClick={() => {
             deleteBus(record._id);
-          }} ></i>
+          }} ></i> */}
+          <Popconfirm
+            title="Da li ste sigurni?"
+            okText="Da"
+            cancelText="Ne"
+            onConfirm={() => {
+              deleteBus(record._id);
+            }}
+          >
+            <i className="ri-delete-bin-line"></i>
+          </Popconfirm>
         </div>
       )
     }
@@ -262,13 +304,13 @@ function AdminBuses() {
   }, []);
   return (
     <div className='glavniodautobusa'>
-       <div className='d-flex justify-content-center my-1'>
+      <div className='d-flex justify-content-center my-1'>
         <PageTitle title='Autobuske rute' />
       </div>
       <div className='d-flex justify-content-end my-1'>
-      <div className='d-flex flex-row justify-content-end my-1'>
-        <button className='dugme m-2' onClick={() => setShowBusForm(true)}><i className="ri-add-line"></i> Dodaj rutu </button>
-      </div>
+        <div className='d-flex flex-row justify-content-end my-1'>
+          <button className='dugme m-2' onClick={() => setShowBusForm(true)}><i className="ri-add-line"></i> Dodaj rutu </button>
+        </div>
       </div>
 
       {/* Tabela sa autobusima */}

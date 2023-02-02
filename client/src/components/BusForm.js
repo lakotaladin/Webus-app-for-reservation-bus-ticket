@@ -118,7 +118,6 @@ function BusForm({
                             <input type="number" required/>
                         </Form.Item>
                     </Col>
-
                     <Col lg={12} xs={24}>
                         <Form.Item label="Status:" name="status">
                             <select name="" id="">

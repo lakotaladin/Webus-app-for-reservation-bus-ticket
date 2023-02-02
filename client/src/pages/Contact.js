@@ -222,6 +222,7 @@ function Contact() {
                     </div>
                 </footer>
             </div>
+        
         </div>
     )
 }

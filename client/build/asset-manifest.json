@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ade2c537.css",
-    "main.js": "/static/js/main.b3573f20.js",
+    "main.css": "/static/css/main.f81c2cbc.css",
+    "main.js": "/static/js/main.e3580550.js",
     "static/media/pozadina.jpg": "/static/media/pozadina.000b55fdfd399f77c486.jpg",
     "static/media/banner.jpg": "/static/media/banner.99502a631345c07cb65a.jpg",
     "static/media/drzavni.png": "/static/media/drzavni.3e40a4f437d8bef6ac0c.png",
@@ -9,11 +9,11 @@
     "static/media/noresult.png": "/static/media/noresult.c2e4181b906e9983738b.png",
     "static/media/webuslogo.png": "/static/media/webuslogo.58667662c4e52fb3f7cb.png",
     "index.html": "/index.html",
-    "main.ade2c537.css.map": "/static/css/main.ade2c537.css.map",
-    "main.b3573f20.js.map": "/static/js/main.b3573f20.js.map"
+    "main.f81c2cbc.css.map": "/static/css/main.f81c2cbc.css.map",
+    "main.e3580550.js.map": "/static/js/main.e3580550.js.map"
   },
   "entrypoints": [
-    "static/css/main.ade2c537.css",
-    "static/js/main.b3573f20.js"
+    "static/css/main.f81c2cbc.css",
+    "static/js/main.e3580550.js"
   ]
 }

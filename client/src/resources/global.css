@@ -202,6 +202,16 @@ select {
     height: 70px;
 }
 
+.rezervisisada {
+    border: 1px dashed #1c273c;
+    color: #1c273c !important;
+    border-radius: 5px;
+    font-size: 20px;
+    font-weight: bolder;
+    padding: 0.8%;
+    text-align: center;
+    align-items: center;
+}
 .rezervisi {
     color: #1c273c;
     font-weight: bold;

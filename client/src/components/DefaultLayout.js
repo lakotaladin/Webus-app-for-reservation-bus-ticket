@@ -5,6 +5,8 @@ import { useSelector } from 'react-redux';
 import logo from '../resources/webuslogo.png'
 import { Layout } from 'antd';
 
+
+
 const {  Sider } = Layout;
 
 function DefaultLayout({ children }) {
@@ -174,7 +176,7 @@ function DefaultLayout({ children }) {
         </div>
 
         {/* Kartice */}
-        <div className='content'>
+        <div style={{width: "100%"}} className='content'>
           {children}
         </div>
       </div>

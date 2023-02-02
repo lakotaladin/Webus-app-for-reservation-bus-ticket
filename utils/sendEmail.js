@@ -21,6 +21,28 @@ module.exports = async (user, mailType) => {
       log: true,
     });
 
+    const transporterHotmail = nodemailer.createTransport({
+      host: "smtp-mail.outlook.com",
+      port: 587,
+      secure: true,
+      auth: {
+        user: "webus.official2023@hotmail.com",
+        pass: "Busticket123.",
+      },
+      log: true,
+    });
+
+    const transporterYahoo = nodemailer.createTransport({
+      host: "smtp.mail.yahoo.com",
+      port: 587,
+      secure: true,
+      auth: {
+        user: "webus.official2023@yahoo.com",
+        pass: "Busticket123.",
+      },
+      log: true,
+    });
+
     // Kreiranje i heširanje tokena
 
     // const encryptedToken = bcrypt.hashSync(user._id.toString(), 69).replaceAll('/', "");
@@ -28,7 +50,7 @@ module.exports = async (user, mailType) => {
     // await token.save();
 
     const token = jwt.sign({ _id: user._id }, "webus", {
-      expiresIn: "300s"
+      expiresIn: "1h"
     });
 
     const modelToken = new Token({ userid: user._id, token })
@@ -556,6 +578,8 @@ module.exports = async (user, mailType) => {
     }
 
     await transporter.sendMail(mailOptions);
+    await transporterHotmail.sendMail(mailOptions);
+    await transporterYahoo.sendMail(mailOptions);
   } catch (error) {
     console.log(error);
   }

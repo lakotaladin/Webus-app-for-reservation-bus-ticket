@@ -80,7 +80,7 @@ function Login() {
 
                             {/* Email */}
                             <Form.Item label='Email:' name='email' rules={[{ required: true, message: 'Molimo Vas, upišite email!' }]}>
-                                <Input prefix={<MailOutlined className="site-form-item-icon" />} type="text" onChange={(e) => setEmail(e.target.value)} placeholder="webus2022@primer.com" />
+                                <Input prefix={<MailOutlined className="site-form-item-icon" />} type="text" onChange={(e) => setEmail(e.target.value)} placeholder="webus2022@gmail.com" />
                             </Form.Item>
 
                             {/* Lozinka */}
@@ -126,7 +126,7 @@ function Login() {
                                 name="email"
                                 rules={[{ required: true, message: 'Molimo Vas, upišite ispravan mail!' }]}
                             >
-                                <Input  prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => ssetEmail(e.target.value)} value={eemail} placeholder="webus2022@primer.com" required/>
+                                <Input  prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => ssetEmail(e.target.value)} value={eemail} placeholder="webus2022@gmail.com" required/>
                             </Form.Item>
                             <div className="flex flex-col justify-between items-end">
                                 <Button
