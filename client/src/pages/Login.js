@@ -14,7 +14,7 @@ function Login() {
     const [showForgotPassword, setShowForgotPassword] = useState(false);
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
-    const [eemail, ssetEmail] = useState("");
+    // const [eemail, ssetEmail] = useState("");
     const dispatch = useDispatch();
     
 
@@ -126,11 +126,11 @@ function Login() {
                                 name="email"
                                 rules={[{ required: true, message: 'Molimo Vas, upišite ispravan mail!' }]}
                             >
-                                <Input  prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => ssetEmail(e.target.value)} value={eemail} placeholder="webus2022@gmail.com" required/>
+                                <Input  prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="webus2022@gmail.com" required/>
                             </Form.Item>
                             <div className="flex flex-col justify-between items-end">
                                 <Button
-                                    disabled={!eemail}
+                                    disabled={!email}
                                     title="Slanje restart lozinke na mejl"
                                     className="dugmee mt-3 w-100"
                                     onClick={sendResetPasswordLink}
