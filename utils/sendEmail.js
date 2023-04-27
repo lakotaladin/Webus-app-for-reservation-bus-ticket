@@ -1,14 +1,12 @@
-const bcrypt = require('bcryptjs'); // hesiranje lozinke
+const bcrypt = require("bcryptjs"); // hesiranje lozinke
 const nodemailer = require("nodemailer");
 const Token = require("../models/tokenModel");
 const jwt = require("jsonwebtoken"); // za logovanje token
 
-
 module.exports = async (user, mailType) => {
-
   try {
     // Nodemailer config
-    // Vazno: na gmail u podesavanja konfigurisati da moze da se prima mejl, lozinku enkriptovanu dobijamo tako sto na gugl nalog ukljucimo 2-factor auth i tamo dobijemo lozinku i ubacimo u polje pass: ispod
+    // Vazno: na gmail u podesavanja konfigurisati da moze da se prima mejl, lozinku enkriptovanu dobijamo tako sto na gugl nalog ukljucimo 2-factor auth i tamo dobijemo lozinku i ubacimo u polje pass ispod !
     const transporter = nodemailer.createTransport({
       service: "gmail",
       host: "smtp.gmail.com",
@@ -43,24 +41,17 @@ module.exports = async (user, mailType) => {
       log: true,
     });
 
-    // Kreiranje i heširanje tokena
-
-    // const encryptedToken = bcrypt.hashSync(user._id.toString(), 69).replaceAll('/', "");
-    // const token = new Token({ userid: user._id, token: encryptedToken, });
-    // await token.save();
-
     const token = jwt.sign({ _id: user._id }, "webus", {
-      expiresIn: "1h"
+      expiresIn: "1h",
     });
 
-    const modelToken = new Token({ userid: user._id, token })
+    const modelToken = new Token({ userid: user._id, token });
 
     await modelToken.save();
 
     let emailContent, mailOptions;
 
     if (mailType === "verifyemail") {
-      //   emailContent = `<div><h1>Molimo Vas, klinkite na link ispod kako bi verifikovali vašu e-mail adresu</h1> <a href="http://webus.herokuapp.com/verifyemail/${token}">${token}</a>  </div>`;
       emailContent = `<!DOCTYPE html>
             <html>
             <head>

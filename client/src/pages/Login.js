@@ -67,92 +67,133 @@ function Login() {
     };
 
     return (
-        <>
-            <div id="pozadina" className='d-flex  justify-content-center align-items-center auth'>
-                {!showForgotPassword && (
-                    <div className='odforme card bg-light'>
-                        <h1 className='text-lg'> WEBUS - Logovanje</h1>
+      <>
+        <div
+          id="pozadina"
+          className="d-flex  justify-content-center align-items-center auth"
+        >
+          {!showForgotPassword && (
+            <div className="odforme card bg-light">
+              <h1 className="text-lg"> WEBUS - Logovanje</h1>
 
-                        <hr />
+              <hr />
 
-                        <Form  style={{alignItems: "center", justifyContent: "center"}} layout='vertical' onFinish={onFinish}>
+              <Form
+                style={{ alignItems: "center", justifyContent: "center" }}
+                layout="vertical"
+                onFinish={onFinish}
+              >
+                {/* Email */}
+                <Form.Item
+                  label="Email:"
+                  name="email"
+                  rules={[
+                    { required: true, message: "Molimo Vas, upišite email!" },
+                  ]}
+                >
+                  <Input
+                    prefix={<MailOutlined className="site-form-item-icon" />}
+                    data-testid="email"
+                    type="text"
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="webus2022@gmail.com"
+                  />
+                </Form.Item>
 
-
-                            {/* Email */}
-                            <Form.Item label='Email:' name='email' rules={[{ required: true, message: 'Molimo Vas, upišite email!' }]}>
-                                <Input prefix={<MailOutlined className="site-form-item-icon" />} type="text" onChange={(e) => setEmail(e.target.value)} placeholder="webus2022@gmail.com" />
-                            </Form.Item>
-
-                            {/* Lozinka */}
-                            <Form.Item
-                                label="Lozinka:"
-                                name="lozinka"
-                                rules={[{ required: true, message: 'Molimo Vas, upišite lozinku!' }]}
-                            >
-                                <Input.Password type="password" onChange={(e) => setPassword(e.target.value)} />
-                            </Form.Item>
-                            {/* Zaboravljena lozinka */}
-                            <div className='d-flex mt-2 justify-content-between'>
-                                <p
-                                    title="Zaboravili ste lozinku?"
-                                    className="text-black"
-                                    onClick={() => setShowForgotPassword(true)}
-                                >
-                                    <b className='zaboravljenalozinka' >Zaboravili ste lozinku?</b>
-                                </p>
-
-                            </div>
-                            <hr />
-                            {/* Link i dugme */}
-                            <div className='d-flex flex-column'>
-                                <button title="Uloguj se" className='dugmee mt-2 mb-2' type='submit'>Uloguj se</button>
-                                <Link title="Registracija" className="prijavi-se text-black" to="/register"><button className='registracijadugme' >Registracija</button></Link>
-                            </div>
-
-                        </Form>
-                    </div>)}
-                {/* Forma za slanje reset lozinke na mejl */}
-                {showForgotPassword && (
-                    <div className="odforme card bg-light p-3">
-
-                        <h1 className="text-lg">
-                            RESTARTOVANJE LOZINKE
-                        </h1>
-
-                        <hr />
-                        <Form layout='vertical'>
-                            <Form.Item
-                                label="Vaš email:"
-                                name="email"
-                                rules={[{ required: true, message: 'Molimo Vas, upišite ispravan mail!' }]}
-                            >
-                                <Input  prefix={<MailOutlined className="site-form-item-icon" />} type="email" onChange={(e) => setEmail(e.target.value)} value={email} placeholder="webus2022@gmail.com" required/>
-                            </Form.Item>
-                            <div className="flex flex-col justify-between items-end">
-                                <Button
-                                    disabled={!email}
-                                    title="Slanje restart lozinke na mejl"
-                                    className="dugmee mt-3 w-100"
-                                    onClick={sendResetPasswordLink}
-                                >
-                                    Pošalji
-                                </Button>
-                                <h1
-                                    title="Froma za logovanje"
-                                    onClick={() => setShowForgotPassword(false)}
-                                    className="cursor-pointer mt-3 mb-2 text-md text-lg text-left"
-                                >
-                                    <i className="ri-arrow-left-circle-line"></i>
-                                </h1>
-                            </div>
-                        </Form>
-                    </div>
-                )}
-
+                {/* Lozinka */}
+                <Form.Item
+                  label="Lozinka:"
+                  name="lozinka"
+                  rules={[
+                    { required: true, message: "Molimo Vas, upišite lozinku!" },
+                  ]}
+                >
+                  <Input.Password
+                    type="password"
+                    onChange={(e) => setPassword(e.target.value)}
+                  />
+                </Form.Item>
+                {/* Zaboravljena lozinka */}
+                <div className="d-flex mt-2 justify-content-between">
+                  <p
+                    title="Zaboravili ste lozinku?"
+                    className="text-black"
+                    onClick={() => setShowForgotPassword(true)}
+                  >
+                    <b className="zaboravljenalozinka">
+                      Zaboravili ste lozinku?
+                    </b>
+                  </p>
+                </div>
+                <hr />
+                {/* Link i dugme */}
+                <div className="d-flex flex-column">
+                  <button
+                    title="Uloguj se"
+                    className="dugmee mt-2 mb-2"
+                    type="submit"
+                  >
+                    Uloguj se
+                  </button>
+                  <Link
+                    title="Registracija"
+                    className="prijavi-se text-black"
+                    to="/register"
+                  >
+                    <button className="registracijadugme">Registracija</button>
+                  </Link>
+                </div>
+              </Form>
             </div>
+          )}
+          {/* Forma za slanje reset lozinke na mejl */}
+          {showForgotPassword && (
+            <div className="odforme card bg-light p-3">
+              <h1 className="text-lg">RESTARTOVANJE LOZINKE</h1>
 
-        
-        </>
+              <hr />
+              <Form layout="vertical">
+                <Form.Item
+                  label="Vaš email:"
+                  name="email"
+                  rules={[
+                    {
+                      required: true,
+                      message: "Molimo Vas, upišite ispravan mail!",
+                    },
+                  ]}
+                >
+                  <Input
+                    prefix={<MailOutlined className="site-form-item-icon" />}
+                    type="email"
+                    onChange={(e) => setEmail(e.target.value)}
+                    value={email}
+                    placeholder="webus2022@gmail.com"
+                    required
+                  />
+                </Form.Item>
+                <div className="flex flex-col justify-between items-end">
+                  <Button
+                    disabled={!email}
+                    title="Slanje restart lozinke na mejl"
+                    className="dugmee mt-3 w-100"
+                    onClick={sendResetPasswordLink}
+                  >
+                    Pošalji
+                  </Button>
+                  <h1
+                    title="Froma za logovanje"
+                    onClick={() => setShowForgotPassword(false)}
+                    className="cursor-pointer mt-3 mb-2 text-md text-lg text-left"
+                  >
+                    <i className="ri-arrow-left-circle-line"></i>
+                  </h1>
+                </div>
+              </Form>
+            </div>
+          )}
+        </div>
+      </>
     );
 }
 

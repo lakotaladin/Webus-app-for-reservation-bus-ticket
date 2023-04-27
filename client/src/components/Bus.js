@@ -13,7 +13,7 @@ function Bus({ bus }) {
   return (
     <div key={bus._id} className="karticabus d-flex card p-2 m-2">
       <h1 className="text-lg primary-text">{bus.name}</h1>
-      <hr/>
+      <hr />
       <div className="d-flex justify-content-between">
         <div>
           <p className="text-sm">Od grada:</p>
@@ -36,13 +36,24 @@ function Bus({ bus }) {
           <p className="text-sm">{bus.journeyDate}</p>
         </div>
         <div>
-          <img title="Šifra rute" className="barkod" id={'bus-' + bus._id} alt="Bar kod"/>
+          <img
+            title="Šifra rute"
+            className="barkod"
+            data-testid="bus-barcode"
+            id={"bus-" + bus._id}
+            alt="Bar kod"
+          />
         </div>
-        <h1 title="Rezerviši sada" className="rezervisisada secondary-text" onClick={()=>{
-            navigate(`/book-now/${bus._id}`)
-        }}>Rezerviši sada</h1>
+        <h1
+          title="Rezerviši sada"
+          className="rezervisisada secondary-text"
+          onClick={() => {
+            navigate(`/book-now/${bus._id}`);
+          }}
+        >
+          Rezerviši sada
+        </h1>
       </div>
-      
     </div>
   );
 }
